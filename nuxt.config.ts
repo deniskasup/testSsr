@@ -12,4 +12,15 @@ export default defineNuxtConfig({
         strict: true,
     },
     modules: ['@nuxtjs/tailwindcss'],
+    css: ['@/assets/styles/main.sass'],
+    vite: {
+        css: {
+            preprocessorOptions: {
+                sass: {
+                    additionalData:
+                        '@import "@/assets/styles/components/_variables.sass"',
+                },
+            },
+        },
+    },
 })
