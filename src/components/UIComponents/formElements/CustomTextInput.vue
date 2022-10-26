@@ -27,8 +27,8 @@ const props = defineProps({
     label: { type: String, default: '' },
     disabled: { type: Boolean, default: false },
     required: { type: Boolean, default: false },
-    placeholder: { type: String, default: '' },
     modelValue: { type: String, default: '' },
+    placeholder: { type: String, default: '' },
 })
 
 const inputValue = computed({

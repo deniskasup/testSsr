@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     typescript: {
         strict: true,
     },
-    modules: ['@nuxtjs/tailwindcss'],
+    modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt'],
     css: ['@/assets/styles/main.sass'],
     vite: {
         css: {
