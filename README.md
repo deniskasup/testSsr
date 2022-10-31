@@ -9,13 +9,8 @@ Make sure to install the dependencies:
 npm install
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
+## MODULES
+[Github модуля иконок](https://github.com/nuxt-modules/icon)
 
 ## Production
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper flex w-full flex-col px-16">
+    <div class="wrapper mx-auto flex w-full">
         <slot></slot>
     </div>
 </template>
@@ -8,5 +8,6 @@
 
 <style lang="sass" scoped>
 .wrapper
-    max-width: 1200px
+    max-width: 1232px
+    padding: 0 16px
 </style>

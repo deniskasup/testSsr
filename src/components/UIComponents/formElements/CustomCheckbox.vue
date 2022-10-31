@@ -56,8 +56,8 @@ const inputValue = computed({
         line-height: 16px
     &--disabled
         & .checkbox-icon__element
-            outline-color: $color_disabled !important
-            background-color: $color_disabled !important
+            outline-color: $color_onsurface_tetriary !important
+            background-color: $color_onsurface_tetriary !important
 
 .checkbox-icon
     display: flex
@@ -76,14 +76,14 @@ const inputValue = computed({
         position: relative
         width: 18px
         height: 18px
-        outline: 2px solid $color_disabled
+        outline: 2px solid $color_onsurface_tetriary
         border-radius: 1px
         transition: outline-color .3s, background-color .3s
         &::before
             content: ''
             opacity: 0
             transition: opacity .3s
-            color: $color_white
+            color: $color_surface_primary
             border-bottom: 2px solid
             border-left: 2px solid
             position: absolute

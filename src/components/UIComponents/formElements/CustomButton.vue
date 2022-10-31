@@ -45,16 +45,16 @@ const buttonClasses = computed(() => [
     &--priority
         &-primary
             background-color: $color_primary
-            color: $color_white
+            color: $color_surface_primary
             &:disabled
-                background-color: $color_disabled
+                background-color: $color_onsurface_tetriary
         &-secondary
             background-color: transparent
             color: $color_primary
             outline: 1px solid $color_primary
             &:disabled
-                outline-color: $color_disabled
-                color: $color_disabled
+                outline-color: $color_onsurface_tetriary
+                color: $color_onsurface_tetriary
     &:hover:not(:disabled)
         opacity: .7
     &:active
