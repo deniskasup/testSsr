@@ -33,8 +33,8 @@
                 </div>
             </div>
             <div class="header__actions header-actions">
-                <Icon class="header-actions__item" name="line-md:account" />
-                <Icon class="header-actions__item" name="line-md:heart" />
+                <Icon class="header-actions__item" name="ri:user-line" />
+                <Icon class="header-actions__item" name="ri:heart-line" />
                 <Icon
                     class="header-actions__item"
                     name="ri:shopping-bag-2-line"
