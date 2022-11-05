@@ -27,9 +27,15 @@
                 </div>
             </div>
             <div class="header__actions header-actions">
-                <Icon class="header-actions__item" name="ri:user-line" />
-                <Icon class="header-actions__item" name="ri:heart-line" />
-                <Icon class="header-actions__item" name="ri:shopping-bag-2-line" />
+                <NuxtLink to="/lk" class="header-actions__item header-actions-item">
+                    <Icon class="header-actions-item__icon" name="ri:user-line" />
+                </NuxtLink>
+                <NuxtLink to="/favorite" class="header-actions__item header-actions-item">
+                    <Icon class="header-actions-item__icon" name="ri:heart-line" />
+                </NuxtLink>
+                <NuxtLink to="/cart" class="header-actions__item header-actions-item">
+                    <Icon class="header-actions-item__icon" name="ri:shopping-bag-2-line" />
+                </NuxtLink>
             </div>
         </Wrapper>
     </header>
@@ -144,7 +150,7 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
             margin-right: 24px
 
         &.router-link-active
-            font-weight: bold
+            color: $color_primary
         &:not(.router-link-active):hover
             color: $color_onsurface_tetriary
 
@@ -171,14 +177,19 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
 .header-actions
     display: flex
     align-items: center
-
     &__item
-        width: 24px
-        height: 24px
-        color: $color_onsurface_secondary
-
         &:not(:last-of-type)
             margin-right: 14px
+.header-actions-item
+    transition: color .3s
+    color: $color_onsurface_secondary
+    &.router-link-active
+        color: $color_primary
+    &:not(.router-link-active):hover
+        color: $color_onsurface_tetriary
+    &__icon
+        width: 24px
+        height: 24px
 .header-mobile-menu
     margin-right: auto
     &__icon

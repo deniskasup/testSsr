@@ -1,18 +1,30 @@
 <template>
     <section class="main-slider">
-        <Swiper class="main-slider__swiper" :modules="[Pagination, Autoplay]" v-bind="swiperOptions">
+        <Swiper
+            class="main-slider__swiper"
+            :modules="[Pagination, Autoplay]"
+            v-bind="swiperOptions"
+        >
             <SwiperSlide
                 v-for="(slide, slideIndex) in 3"
                 :key="`main-slider-slide-${slideIndex}`"
                 class="main-slider__slide main-slider-slide"
             >
                 <!--TODO: настроить картинки-->
-                <nuxt-img class="main-slider-slide__bg" format="webp" src="assets/images/dev/main-slider-1.jpg" />
+                <nuxt-img
+                    class="main-slider-slide__bg"
+                    format="webp"
+                    src="assets/images/dev/main-slider-1.jpg"
+                />
                 <div class="main-slider-slide__container">
                     <Wrapper class="main-slider-slide__wrapper">
                         <div class="main-slider-slide__content main-slider-slide-content">
-                            <div class="main-slider-slide-content__title">Прояви себя! {{ slide }}</div>
-                            <div class="main-slider-slide-content__subtitle">Добавь стиль жизни в интерьер</div>
+                            <div class="main-slider-slide-content__title">
+                                Прояви себя! {{ slide }}
+                            </div>
+                            <div class="main-slider-slide-content__subtitle">
+                                Добавь стиль жизни в интерьер
+                            </div>
                         </div>
                     </Wrapper>
                 </div>
@@ -36,10 +48,11 @@ const swiperOptions: SwiperOptions = {
     pagination: {
         el: '.main-slider-pagination',
         clickable: true,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         renderBullet(index: number, className: string) {
             return `
             <span class="${className}">
-                <svg class="timer" viewBox="0 0 60 60" preserveAspectRatio="XMidYMid">
+                <svg class="timer" viewBox="0 0 60 60">
                     <circle r="28" cx="30" cy="30"></circle>
                 </svg>
             </span>
