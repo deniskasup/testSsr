@@ -10,7 +10,9 @@ npm install
 ```
 
 ## MODULES
-[Github модуля иконок](https://github.com/nuxt-modules/icon)
+[ИКОНКИ](https://github.com/nuxt-modules/icon)
+
+[Nuxt IMAGE](https://v1.image.nuxtjs.org/get-started)
 
 ## Production
 

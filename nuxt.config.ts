@@ -11,14 +11,16 @@ export default defineNuxtConfig({
     typescript: {
         strict: true,
     },
-    modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon'],
+    modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon', '@nuxt/image-edge'],
     css: ['@/assets/styles/main.sass'],
     vite: {
         css: {
             preprocessorOptions: {
                 sass: {
-                    additionalData:
-                        '@import "@/assets/styles/components/_variables.sass"',
+                    additionalData: `
+                        @import "@/assets/styles/components/_variables.sass"
+                        @import "@/assets/styles/components/_utils.sass"
+                    `,
                 },
             },
         },

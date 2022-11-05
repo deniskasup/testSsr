@@ -11,20 +11,15 @@
                 </div>
                 <div class="footer-info__time">9:00 – 21:00 мск ежедневно</div>
                 <div class="footer-info__email">
-                    <a href="mailto:vmmebelmanager@gmail.com"
-                        >vmmebelmanager@gmail.com</a
-                    >
+                    <a href="mailto:vmmebelmanager@gmail.com">vmmebelmanager@gmail.com</a>
                 </div>
-                <button type="button" class="footer-info__callback">
-                    Заказать звонок
-                </button>
+                <button type="button" class="footer-info__callback">Заказать звонок</button>
+                <FooterSocials :links="testLinks" class="footer-info__socials" />
                 <div class="footer-info__links">
                     <a href="#">Публичная оферта</a>
                     <a href="#">Политика конфеденциальности</a>
                 </div>
-                <div class="footer-info__copyright">
-                    © ВМмебель, {{ new Date().getFullYear() }}
-                </div>
+                <div class="footer-info__copyright">© ВМмебель, {{ new Date().getFullYear() }}</div>
             </div>
             <nav class="footer__nav footer-nav">
                 <div class="footer-nav__column footer-nav-column">
@@ -54,28 +49,38 @@
                     </div>
                 </div>
             </nav>
-            <div class="footer__socials footer-socials">
-                <a href="#"
-                    ><Icon class="footer-socials__icon" name="ri:whatsapp-fill"
-                /></a>
-                <a href="#"
-                    ><Icon class="footer-socials__icon" name="mdi:vk"
-                /></a>
-                <a href="#"
-                    ><Icon
-                        class="footer-socials__icon"
-                        name="ri:instagram-fill"
-                /></a>
-                <a href="#"
-                    ><Icon class="footer-socials__icon" name="ri:youtube-fill"
-                /></a>
-            </div>
+            <FooterSocials :links="testLinks" class="footer__socials" />
         </Wrapper>
     </footer>
 </template>
 
 <script setup lang="ts">
 import Wrapper from '~/components/Wrapper'
+import FooterSocials from '~/components/Footer/FooterSocials.vue'
+
+// TODO: убрать
+const testLinks = [
+    {
+        id: '1',
+        url: '#',
+        icon: 'ri:whatsapp-fill',
+    },
+    {
+        id: '2',
+        url: '#',
+        icon: 'mdi:vk',
+    },
+    {
+        id: '3',
+        url: '#',
+        icon: 'ri:instagram-fill',
+    },
+    {
+        id: '4',
+        url: '#',
+        icon: 'ri:youtube-fill',
+    },
+]
 </script>
 
 <style lang="sass" scoped>
@@ -83,31 +88,63 @@ import Wrapper from '~/components/Wrapper'
     color: $color_surface_primary
     padding: 40px 0
     background-color: $color_onsurface_tetriary
-
+    +media-until(767px)
+        padding: 24px 0
     &__wrapper
         display: grid
         grid-gap: 24px
         grid-template-columns: 1fr 1fr 24px
+        +until-tablet
+            grid-template-columns: 1fr 2fr 24px
+            padding: 0 60px
+        +media-until(768px)
+            grid-template-columns: 1fr 2fr
+        +media-until(767px)
+            padding: 0 16px
+        +while-mob
+            grid-template-columns: 1fr
+
 
     &__logo
         grid-column: -1/1
+        +while-mob
+            order: 1
+    &__nav
+        +while-mob
+            order: 2
+    &__info
+        +while-mob
+            order: 3
+    &__socials
+        +media-until(768px)
+            display: none !important
 
-.footer-info
+//TODO: разобраться с весом стилей
+.footer .footer-info
     display: flex
     flex-direction: column
     align-items: flex-start
+    +while-mob
+        margin-top: 16px
 
     &__title
         font-weight: 700
         font-size: 20px
         line-height: 24px
         margin-bottom: 24px
+        +media-until(768px)
+            font-size: 17px
+        +while-mob
+            font-size: 16px
+            margin-bottom: 16px
 
     &__phone, &__email
         font-size: 16px
 
     &__email
         margin-bottom: 24px
+        +while-mob
+            margin-bottom: 16px
 
     &__time
         margin-bottom: 12px
@@ -115,8 +152,17 @@ import Wrapper from '~/components/Wrapper'
 
     &__callback
         font-size: 16px
-
         margin-bottom: 40px
+        +media-until(768px)
+            margin-bottom: 12px
+    &__socials
+        display: none
+        margin-bottom: 40px
+        align-self: flex-start
+        +media-until(768px)
+            display: flex
+            align-items: center
+
 
     &__links
         display: grid
@@ -133,25 +179,35 @@ import Wrapper from '~/components/Wrapper'
 .footer-nav
     display: grid
     grid-template-columns: 4fr 7fr
+    +media-until(768px)
+        grid-template-columns: 4fr 5fr
+    +while-mob
+        display: flex
+        flex-direction: row-reverse
+        justify-content: space-between
+
 
 .footer-nav-column
+    &:first-of-type
+        +while-mob
+            margin: 0 auto
+    &:last-of-type
+        margin-right: 16px
     &__title
         font-weight: 700
         font-size: 20px
         line-height: 24px
         margin-bottom: 24px
+        +media-until(768px)
+            font-size: 17px
+        +while-mob
+            font-size: 16px
+            margin-bottom: 16px
 
     &__list
         display: grid
         grid-gap: 8px
         font-size: 16px
-
-.footer-socials
-    display: grid
-    grid-gap: 16px
-    justify-self: center
-    align-self: center
-    &__icon
-        width: 24px
-        height: 24px
+        +while-mob
+            font-size: 14px
 </style>
