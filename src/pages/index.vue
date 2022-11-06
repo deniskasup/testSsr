@@ -4,12 +4,16 @@
         <ProductsSlider>
             <template #title>Популярные товары</template>
         </ProductsSlider>
+        <Showcase />
+        <PromoSlider />
     </main>
 </template>
 
 <script setup lang="ts">
 import MainSlider from '~/components/MainSlider.vue'
 import ProductsSlider from '~/components/ProductsSlider.vue'
+import Showcase from '~/components/Showcase.vue'
+import PromoSlider from '~/components/PromoSlider.vue'
 </script>
 <style lang="sass" scoped>
 .main-page
@@ -19,6 +23,10 @@ import ProductsSlider from '~/components/ProductsSlider.vue'
     margin: 0 auto
     display: grid
     grid-gap: 100px
+    +until-tablet
+        grid-gap: 75px
+    +while-mob
+        grid-gap: 55px
     & > *
         width: 100vw
 </style>

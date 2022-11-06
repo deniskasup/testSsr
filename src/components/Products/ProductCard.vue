@@ -22,9 +22,10 @@
 <style lang="sass" scoped>
 .product-card
     user-select: none
-    width: 380px
     display: grid
     grid-gap: 12px
+    width: 100%
+    max-width: 380px
     &__favorite
         z-index: 2
         position: absolute
@@ -32,7 +33,7 @@
         right: 20px
     &__image
         position: relative
-        width: 380px
+        width: 100%
         padding-top: 100%
         & > img
             position: absolute

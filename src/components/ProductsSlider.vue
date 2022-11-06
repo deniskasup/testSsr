@@ -24,14 +24,23 @@ import ProductCard from '~/components/Products/ProductCard.vue'
 
 const swiperOptions: SwiperOptions = {
     modules: [Navigation, Mousewheel, FreeMode],
-    slidesPerView: 3,
+    slidesPerView: 'auto',
     spaceBetween: 40,
     navigation: {
         enabled: true,
     },
+    updateOnWindowResize: true,
     freeMode: true,
     mousewheel: {
         forceToAxis: true,
+    },
+    breakpoints: {
+        320: {
+            spaceBetween: 16,
+        },
+        1024: {
+            spaceBetween: 40,
+        },
     },
 }
 </script>
@@ -42,10 +51,19 @@ const swiperOptions: SwiperOptions = {
         display: grid
         grid-template-columns: 100%
         grid-gap: 40px
+        +until-tablet
+            grid-gap: 30px
+        +while-mob
+            grid-gap: 24px
     &__title
         font-weight: 700
         font-size: 26px
         line-height: 30px
+        +until-tablet
+            font-size: 24px
+            line-height: 24px
+        +while-mob
+            font-size: 20px
     &__swiper
         width: 100%
         overflow: visible
@@ -62,6 +80,8 @@ const swiperOptions: SwiperOptions = {
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.05)
             border-radius: 50%
             transition: opacity .3s
+            +media-until(1300px)
+                display: none
             &.swiper-button-disabled
                 opacity: 0
                 visibility: hidden
@@ -80,4 +100,14 @@ const swiperOptions: SwiperOptions = {
             right: -30px
         & :deep(.swiper-button-prev)
             transform: rotate(180deg)
+
+.products-slider-swiper
+    &__slide
+        max-width: 380px
+        +until-desktop
+            max-width: 330px
+        +until-tablet
+            max-width: 280px
+        +while-mob
+            max-width: 212px
 </style>
