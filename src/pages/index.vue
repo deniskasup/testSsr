@@ -6,6 +6,7 @@
         </ProductsSlider>
         <Showcase />
         <PromoSlider />
+        <Advantages />
     </main>
 </template>
 
@@ -14,6 +15,7 @@ import MainSlider from '~/components/MainSlider.vue'
 import ProductsSlider from '~/components/ProductsSlider.vue'
 import Showcase from '~/components/Showcase.vue'
 import PromoSlider from '~/components/PromoSlider.vue'
+import Advantages from '~/components/Advantages.vue'
 </script>
 <style lang="sass" scoped>
 .main-page

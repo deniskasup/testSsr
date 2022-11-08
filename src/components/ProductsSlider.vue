@@ -38,6 +38,9 @@ const swiperOptions: SwiperOptions = {
         320: {
             spaceBetween: 16,
         },
+        767: {
+            spaceBetween: 24,
+        },
         1024: {
             spaceBetween: 40,
         },
@@ -64,44 +67,43 @@ const swiperOptions: SwiperOptions = {
             line-height: 24px
         +while-mob
             font-size: 20px
-    &__swiper
-        width: 100%
-        overflow: visible
-        & :deep(.swiper-button-prev), :deep(.swiper-button-next)
-            cursor: pointer
-            z-index: 3
-            width: 60px
-            height: 60px
-            position: absolute
-            top: 50%
-            left: -30px
-            transform: translateY(-50%)
-            background: #FFFFFF
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05)
-            border-radius: 50%
-            transition: opacity .3s
-            +media-until(1300px)
-                display: none
-            &.swiper-button-disabled
-                opacity: 0
-                visibility: hidden
-            &::before
-                position: absolute
-                top: 50%
-                left: 50%
-                transform: translate(-50%, -50%)
-                content: ''
-                width: 12px
-                height: 22px
-                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAxMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjAwMDEgMTAuOTk5OUMxMi4wMDAxIDExLjI1NTcgMTEuOTAyMyAxMS41MTE3IDExLjcwNzEgMTEuNzA2OUwxLjcwNzA2IDIxLjcwNjlDMS4zMTYzMSAyMi4wOTc3IDAuNjgzNTYzIDIyLjA5NzcgMC4yOTMwNjIgMjEuNzA2OUMtMC4wOTc0Mzc1IDIxLjMxNjIgLTAuMDk3Njg3NSAyMC42ODM0IDAuMjkzMDYyIDIwLjI5MjlMOS41ODYwNiAxMC45OTk5TDAuMjkzMDYyIDEuNzA2OTRDLTAuMDk3Njg4NCAxLjMxNjE5IC0wLjA5NzY4ODQgMC42ODM0MzUgMC4yOTMwNjIgMC4yOTI5MzZDMC42ODM4MTIgLTAuMDk3NTYyOCAxLjMxNjU2IC0wLjA5NzgxNDYgMS43MDcwNiAwLjI5MjkzNkwxMS43MDcxIDEwLjI5MjlDMTEuOTAyMyAxMC40ODgyIDEyLjAwMDEgMTAuNzQ0MiAxMi4wMDAxIDEwLjk5OTlaIiBmaWxsPSIjQjNCM0IzIi8+Cjwvc3ZnPgo=)
-                background-size: contain
-        & :deep(.swiper-button-next)
-            left: unset
-            right: -30px
-        & :deep(.swiper-button-prev)
-            transform: rotate(180deg)
 
 .products-slider-swiper
+    width: 100%
+    overflow: visible
+    & :deep(.swiper-button-prev), :deep(.swiper-button-next)
+        cursor: pointer
+        z-index: 3
+        width: 60px
+        height: 60px
+        position: absolute
+        top: 50%
+        left: -30px
+        transform: translateY(-50%)
+        background: #FFFFFF
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.05)
+        border-radius: 50%
+        transition: opacity .3s
+        +media-until(1300px)
+            display: none
+        &.swiper-button-disabled
+            opacity: 0
+            visibility: hidden
+        &::before
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            content: ''
+            width: 12px
+            height: 22px
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAxMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjAwMDEgMTAuOTk5OUMxMi4wMDAxIDExLjI1NTcgMTEuOTAyMyAxMS41MTE3IDExLjcwNzEgMTEuNzA2OUwxLjcwNzA2IDIxLjcwNjlDMS4zMTYzMSAyMi4wOTc3IDAuNjgzNTYzIDIyLjA5NzcgMC4yOTMwNjIgMjEuNzA2OUMtMC4wOTc0Mzc1IDIxLjMxNjIgLTAuMDk3Njg3NSAyMC42ODM0IDAuMjkzMDYyIDIwLjI5MjlMOS41ODYwNiAxMC45OTk5TDAuMjkzMDYyIDEuNzA2OTRDLTAuMDk3Njg4NCAxLjMxNjE5IC0wLjA5NzY4ODQgMC42ODM0MzUgMC4yOTMwNjIgMC4yOTI5MzZDMC42ODM4MTIgLTAuMDk3NTYyOCAxLjMxNjU2IC0wLjA5NzgxNDYgMS43MDcwNiAwLjI5MjkzNkwxMS43MDcxIDEwLjI5MjlDMTEuOTAyMyAxMC40ODgyIDEyLjAwMDEgMTAuNzQ0MiAxMi4wMDAxIDEwLjk5OTlaIiBmaWxsPSIjQjNCM0IzIi8+Cjwvc3ZnPgo=)
+            background-size: contain
+    & :deep(.swiper-button-next)
+        left: unset
+        right: -30px
+    & :deep(.swiper-button-prev)
+        transform: rotate(180deg) translateY(50%)
     &__slide
         max-width: 380px
         +until-desktop
