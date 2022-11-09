@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Wrapper> catalog </Wrapper>
+        <Wrapper> catalog</Wrapper>
     </div>
 </template>
 

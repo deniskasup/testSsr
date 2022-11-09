@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Wrapper> promo </Wrapper>
+        <Wrapper> promo</Wrapper>
     </div>
 </template>
 

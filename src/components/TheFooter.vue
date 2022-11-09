@@ -17,35 +17,47 @@
                 <FooterSocials :links="testLinks" class="footer-info__socials" />
                 <div class="footer-info__links">
                     <a href="#">Публичная оферта</a>
-                    <a href="#">Политика конфеденциальности</a>
+                    <a href="#">Политика конфиденциальности</a>
                 </div>
                 <div class="footer-info__copyright">© ВМмебель, {{ new Date().getFullYear() }}</div>
             </div>
             <nav class="footer__nav footer-nav">
                 <div class="footer-nav__column footer-nav-column">
                     <div class="footer-nav-column__title">Каталог</div>
-                    <div class="footer-nav-column__list">
-                        <a href="#">Кровати</a>
-                        <a href="#">Матрасы</a>
-                        <a href="#">Спальни</a>
-                        <a href="#">Шкафы</a>
-                        <a href="#">Комоды</a>
-                        <a href="#">Стенки</a>
-                        <a href="#">Кухни</a>
-                        <a href="#">Прихожие</a>
+                    <div class="footer-nav-column__list footer-nav-column-list">
+                        <NuxtLink class="footer-nav-column-list__item" to="/1">Кровати</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/2">Матрасы</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/3">Спальни</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/4">Шкафы</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/5">Комоды</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/6">Стенки</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/7">Кухни</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/8">Прихожие</NuxtLink>
                     </div>
                 </div>
                 <div class="footer-nav__column footer-nav-column">
                     <div class="footer-nav-column__title">Для покупателей</div>
                     <div class="footer-nav-column__list">
-                        <a href="#">Как заказать</a>
-                        <a href="#">Доставка</a>
-                        <a href="#">Гарантия</a>
-                        <a href="#">Производителям и поставщикам</a>
-                        <a href="#">Дропшиппинг</a>
-                        <a href="#">Контроль качества</a>
-                        <a href="#">Опт для интернет-магазинов</a>
-                        <a href="#">Карта сайта</a>
+                        <NuxtLink class="footer-nav-column-list__item" to="/15">
+                            Как заказать
+                        </NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/9">Доставка</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/10">Гарантия</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/16">
+                            Производителям и поставщикам
+                        </NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/11">
+                            Дропшиппинг
+                        </NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/12">
+                            Контроль качества
+                        </NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/13">
+                            Опт для интернет-магазинов
+                        </NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item" to="/14">
+                            Карта сайта
+                        </NuxtLink>
                     </div>
                 </div>
             </nav>
@@ -90,6 +102,7 @@ const testLinks = [
     background-color: $color_onsurface_tetriary
     +media-until(767px)
         padding: 24px 0
+
     &__wrapper
         display: grid
         grid-gap: 24px
@@ -109,12 +122,15 @@ const testLinks = [
         grid-column: -1/1
         +while-mob
             order: 1
+
     &__nav
         +while-mob
             order: 2
+
     &__info
         +while-mob
             order: 3
+
     &__socials
         +media-until(768px)
             display: none !important
@@ -155,6 +171,7 @@ const testLinks = [
         margin-bottom: 40px
         +media-until(768px)
             margin-bottom: 12px
+
     &__socials
         display: none
         margin-bottom: 40px
@@ -191,8 +208,10 @@ const testLinks = [
     &:first-of-type
         +while-mob
             margin: 0 auto
+
     &:last-of-type
         margin-right: 16px
+
     &__title
         font-weight: 700
         font-size: 20px
@@ -210,4 +229,14 @@ const testLinks = [
         font-size: 16px
         +while-mob
             font-size: 14px
+
+.footer-nav-column-list
+    &__item
+        transition: color .3s, opacity .3s
+
+        &.router-link-active
+            color: $color_primary
+
+        &:not(.router-link-active):hover
+            opacity: .7
 </style>

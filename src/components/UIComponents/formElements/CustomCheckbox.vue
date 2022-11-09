@@ -48,12 +48,15 @@ const inputValue = computed({
     align-items: center
     user-select: none
     -webkit-tap-highlight-color: $color_transparent
+
     &:not(&--disabled)
         cursor: pointer
+
     &__text
         font-weight: 400
         font-size: 12px
         line-height: 16px
+
     &--disabled
         & .checkbox-icon__element
             outline-color: $color_onsurface_tetriary !important
@@ -63,15 +66,19 @@ const inputValue = computed({
     display: flex
     align-items: center
     margin-right: 11px
+
     &__input
         width: 0
         height: 0
+
         &:checked
             & + .checkbox-icon__element
                 outline-color: $color_primary
                 background-color: $color_primary
+
                 &::before
                     opacity: 1
+
     &__element
         position: relative
         width: 18px
@@ -79,6 +86,7 @@ const inputValue = computed({
         outline: 2px solid $color_onsurface_tetriary
         border-radius: 1px
         transition: outline-color .3s, background-color .3s
+
         &::before
             content: ''
             opacity: 0

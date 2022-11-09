@@ -1,12 +1,22 @@
 <template>
     <main class="main-page">
         <MainSlider />
+
         <ProductsSlider>
             <template #title>Популярные товары</template>
         </ProductsSlider>
-        <Showcase />
+
+        <ClientOnly>
+            <Showcase />
+        </ClientOnly>
+
         <PromoSlider />
+
         <Advantages />
+
+        <OurGoal />
+
+        <MainReviews />
     </main>
 </template>
 
@@ -16,6 +26,8 @@ import ProductsSlider from '~/components/ProductsSlider.vue'
 import Showcase from '~/components/Showcase.vue'
 import PromoSlider from '~/components/PromoSlider.vue'
 import Advantages from '~/components/Advantages.vue'
+import OurGoal from '~/components/OurGoal.vue'
+import MainReviews from '~/components/MainReviews.vue'
 </script>
 <style lang="sass" scoped>
 .main-page
@@ -29,6 +41,7 @@ import Advantages from '~/components/Advantages.vue'
         grid-gap: 75px
     +while-mob
         grid-gap: 55px
+
     & > *
         width: 100vw
 </style>

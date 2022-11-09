@@ -1,18 +1,22 @@
 <template>
     <div class="footer-socials">
-        <a
+        <CustomIcon
             v-for="link in links"
             :key="link.id"
             class="footer-socials__link footer-socials-link"
             :href="link.url"
             :title="link.title"
-        >
-            <Icon class="footer-socials-link__icon" :name="link.icon" />
-        </a>
+            :icon-name="link.icon"
+            :icon-type="IconType.LINK"
+            target="_blank"
+        />
     </div>
 </template>
 
 <script setup lang="ts">
+import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
+import { IconType } from '~/model/enums/IconType'
+
 defineProps({
     links: {
         type: Array,
@@ -29,7 +33,10 @@ defineProps({
     align-self: center
 
 .footer-socials-link
-    &__icon
-        width: 24px
-        height: 24px
+    width: 24px
+    height: 24px
+    transition: opacity .3s
+
+    &:not(.router-link-active):hover
+        opacity: .7
 </style>

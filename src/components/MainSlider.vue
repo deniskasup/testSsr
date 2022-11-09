@@ -103,6 +103,7 @@ const swiperOptions: SwiperOptions = {
         grid-gap: 16px
     +while-mob
         grid-gap: 8px
+
     &__title
         font-weight: 700
         font-size: 40px
@@ -113,6 +114,7 @@ const swiperOptions: SwiperOptions = {
         +while-mob
             font-size: 20px
             line-height: 1.5
+
     &__subtitle
         font-weight: 700
         font-size: 26px
@@ -128,6 +130,7 @@ const swiperOptions: SwiperOptions = {
 .main-slider-pagination
     display: grid
     justify-items: center
+
     &-container
         z-index: 2
         position: absolute
@@ -163,14 +166,17 @@ const swiperOptions: SwiperOptions = {
             +while-mob
                 width: 4px
                 height: 4px
+
         & .timer
             display: none
+
     &:deep(.swiper-pagination-bullet-active)
         width: 60px
         height: 60px
         +while-mob
             width: 32px
             height: 32px
+
         &::before
             background-color: transparent
             width: 58px
@@ -179,6 +185,7 @@ const swiperOptions: SwiperOptions = {
             +while-mob
                 width: 30px
                 height: 30px
+
         &::after
             position: absolute
             top: 50%
@@ -192,6 +199,7 @@ const swiperOptions: SwiperOptions = {
             +while-mob
                 width: 12px
                 height: 12px
+
         & .timer
             display: block
             position: absolute
@@ -203,6 +211,7 @@ const swiperOptions: SwiperOptions = {
             +while-mob
                 width: 32px
                 height: 32px
+
             & circle
                 stroke-dasharray: 189px
                 stroke-dashoffset: 0
@@ -211,6 +220,7 @@ const swiperOptions: SwiperOptions = {
                 stroke: white
                 fill: none
                 animation: countdown 5s linear forwards
+
 @keyframes countdown
     from
         stroke-dashoffset: 189px

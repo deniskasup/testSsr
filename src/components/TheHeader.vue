@@ -1,9 +1,9 @@
 <template>
     <header class="header">
         <Wrapper class="header__wrapper">
-            <NuxtLink class="header__logo" to="/">
+            <CustomIcon class="header__logo" to="/">
                 <img src="~/assets/images/logo.svg" alt="ВМ Мебель" />
-            </NuxtLink>
+            </CustomIcon>
             <div class="header__city header-city">
                 <Icon class="header-city__icon" name="akar-icons:location" />
                 <div class="header-city__name">Санкт-Перербург</div>
@@ -13,7 +13,7 @@
             </button>
             <CustomSearch class="header__search" placeholder="Какую мебель вы ищите?" />
             <nav class="header__menu header-menu">
-                <NuxtLink to="/catalog" class="header-menu__link"> Каталог </NuxtLink>
+                <NuxtLink to="/catalog" class="header-menu__link"> Каталог</NuxtLink>
                 <NuxtLink to="/promo" class="header-menu__link">Акции</NuxtLink>
                 <NuxtLink to="/info" class="header-menu__link">Инфо</NuxtLink>
             </nav>
@@ -27,15 +27,21 @@
                 </div>
             </div>
             <div class="header__actions header-actions">
-                <NuxtLink to="/lk" class="header-actions__item header-actions-item">
-                    <Icon class="header-actions-item__icon" name="ri:user-line" />
-                </NuxtLink>
-                <NuxtLink to="/favorite" class="header-actions__item header-actions-item">
-                    <Icon class="header-actions-item__icon" name="ri:heart-line" />
-                </NuxtLink>
-                <NuxtLink to="/cart" class="header-actions__item header-actions-item">
-                    <Icon class="header-actions-item__icon" name="ri:shopping-bag-2-line" />
-                </NuxtLink>
+                <CustomIcon
+                    to="/lk"
+                    class="header-actions__item header-actions-item"
+                    icon-name="ri:user-line"
+                />
+                <CustomIcon
+                    to="/favorite"
+                    class="header-actions__item header-actions-item"
+                    icon-name="ri:heart-line"
+                />
+                <CustomIcon
+                    to="/cart"
+                    class="header-actions__item header-actions-item"
+                    icon-name="ri:shopping-bag-2-line"
+                />
             </div>
         </Wrapper>
     </header>
@@ -44,6 +50,7 @@
 <script setup lang="ts">
 import Wrapper from '~/components/Wrapper'
 import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vue'
+import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
 </script>
 
 <style lang="sass" scoped>
@@ -54,6 +61,7 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
     box-shadow: 0 1px 0 $color_onsurface_quaternary
     +while-mob
         padding: 8px 0
+
     &::before
         content: ''
         position: absolute
@@ -65,6 +73,7 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
         background-color: $color_onsurface_quaternary
         +from-tablet
             display: none
+
     &__wrapper
         align-items: center
         +until-tablet
@@ -77,6 +86,7 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
         +while-mob
             grid-gap: 16px 12px
             grid-template-columns: 40px 1fr
+
     &__logo
         margin-right: 27px
         +until-tablet
@@ -100,6 +110,7 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
             order: 5
         +while-mob
             max-width: unset
+
     &__contacts
         margin-right: 30px
         +until-tablet
@@ -123,14 +134,17 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
             order: 3
         +while-mob
             order: 2
+
     &__mobile-menu
         display: none
         +while-mob
             display: block
             order: 3
+
 .header-city
     display: flex
     align-items: center
+
     &__name
         +until-tablet
             font-size: 12px
@@ -146,11 +160,13 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
 
     &__link
         transition: color .3s
+
         &:not(:last-of-type)
             margin-right: 24px
 
         &.router-link-active
             color: $color_primary
+
         &:not(.router-link-active):hover
             color: $color_onsurface_tetriary
 
@@ -177,21 +193,27 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
 .header-actions
     display: flex
     align-items: center
+
     &__item
+        width: 24px
+        height: 24px
+
         &:not(:last-of-type)
             margin-right: 14px
+
 .header-actions-item
     transition: color .3s
     color: $color_onsurface_secondary
+
     &.router-link-active
         color: $color_primary
+
     &:not(.router-link-active):hover
         color: $color_onsurface_tetriary
-    &__icon
-        width: 24px
-        height: 24px
+
 .header-mobile-menu
     margin-right: auto
+
     &__icon
         width: 24px
         height: 24px

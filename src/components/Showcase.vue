@@ -85,13 +85,16 @@ const mobileImagePath = computed(() => (width.value > 900 ? '' : '-mobile'))
         grid-template-columns: 1fr 1fr 1fr
         +media-until(900px)
             grid-template-columns: 100%
+
     &__column
         &:nth-of-type(1)
             +media-until(900px)
                 order: 2
+
         &:nth-of-type(2)
             +media-until(900px)
                 order: 1
+
         &:nth-of-type(3)
             +media-until(900px)
                 order: 3
@@ -105,6 +108,7 @@ const mobileImagePath = computed(() => (width.value > 900 ? '' : '-mobile'))
         grid-gap: 24px
     +while-mob
         grid-gap: 16px
+
     &__text
         text-align: center
         font-weight: 600
@@ -117,15 +121,19 @@ const mobileImagePath = computed(() => (width.value > 900 ? '' : '-mobile'))
             grid-column: -1/1
             order: 1
             font-size: 18px
+
 .showcase-column-block
     position: relative
     +media-until(900px)
         order: 2
+
     &__img
         width: 100%
         transition: transform .3s
+
         &:hover
             transform: scale(1.01)
+
     &__title
         z-index: 2
         position: absolute

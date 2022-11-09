@@ -37,26 +37,34 @@ const buttonClasses = computed(() => [
     line-height: 20px
     border-radius: 5px
     transition: opacity .3s, box-shadow .3s, border-color .3s
+
     &--size
         &-s
             padding: 10px 40px
+
         &-m
             padding: 14px 40px
+
     &--priority
         &-primary
             background-color: $color_primary
             color: $color_surface_primary
+
             &:disabled
                 background-color: $color_onsurface_tetriary
+
         &-secondary
             background-color: transparent
             color: $color_primary
             outline: 1px solid $color_primary
+
             &:disabled
                 outline-color: $color_onsurface_tetriary
                 color: $color_onsurface_tetriary
+
     &:hover:not(:disabled)
         opacity: .7
+
     &:active
         opacity: 1 !important
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.25)

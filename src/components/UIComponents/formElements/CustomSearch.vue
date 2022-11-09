@@ -1,10 +1,6 @@
 <template>
     <div class="search">
-        <div
-            v-if="label"
-            class="search__label"
-            :class="{ 'search__label--disabled': disabled }"
-        >
+        <div v-if="label" class="search__label" :class="{ 'search__label--disabled': disabled }">
             {{ label }}
         </div>
         <div class="search__input search-input">
@@ -48,6 +44,7 @@ const inputValue = computed({
     display: flex
     flex-direction: column
     width: 100%
+
     &__label
         color: $color_onsurface_primary
         font-size: 14px

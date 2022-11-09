@@ -46,6 +46,7 @@ import { advantages } from '~/constants/advantages'
 .advantages-item
     display: flex
     align-items: center
+
     &__icon
         margin-right: 12px
         flex-shrink: 0
@@ -56,9 +57,11 @@ import { advantages } from '~/constants/advantages'
         +while-mob
             width: 60px
             height: 60px
+
 .advantages-item-content
     display: grid
     grid-gap: 8px
+
     &__title
         font-weight: 700
         font-size: 20px
@@ -67,6 +70,7 @@ import { advantages } from '~/constants/advantages'
             font-size: 18px
         +while-mob
             font-size: 14px
+
     &__text
         color: $color_onsurface_secondary
         +while-mob

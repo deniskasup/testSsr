@@ -26,21 +26,25 @@
     grid-gap: 12px
     width: 100%
     max-width: 380px
+
     &__favorite
         z-index: 2
         position: absolute
         top: 20px
         right: 20px
+
     &__image
         position: relative
         width: 100%
         padding-top: 100%
+
         & > img
             position: absolute
             top: 50%
             left: 50%
             transform: translate(-50%, -50%)
             width: 100%
+
 .product-card-image
     background-color: $color_onsurface_quaternary
 
@@ -48,11 +52,13 @@
     display: flex
     flex-direction: column
     align-items: flex-start
+
     &__type
         text-transform: uppercase
         font-size: 12px
         color: $color_onsurface_tetriary
         margin-bottom: 4px
+
     &__name
         font-weight: 700
         font-size: 18px
@@ -62,11 +68,13 @@
 .product-card-info-price
     display: flex
     align-items: center
+
     &__current
         margin-right: 8px
         font-weight: 700
         font-size: 20px
         line-height: 24px
+
     &__old
         color: $color_onsurface_tetriary
         font-weight: 700
@@ -76,8 +84,10 @@
 
 .product-card-favorite
     transition: opacity .3s
+
     &:not(.product-card-favorite--active):hover
         opacity: .5
+
     &__icon
         color: $color_onsurface_tetriary
         width: 24px

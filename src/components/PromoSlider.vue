@@ -21,7 +21,7 @@
                             <div class="promo-slide-content__description">
                                 Добавь стиль жизни в интерьер
                             </div>
-                            <CustomButton :size="ButtonSize.SMALL"> Посмотреть </CustomButton>
+                            <CustomButton :size="ButtonSize.SMALL"> Посмотреть</CustomButton>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -36,6 +36,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import Wrapper from '~/components/Wrapper.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 import { ButtonSize } from '~/model/enums/formElements/ButtonSize'
+
 const swiperOptions: SwiperOptions = {
     modules: [Navigation, Mousewheel],
     loop: true,
@@ -72,6 +73,7 @@ const swiperOptions: SwiperOptions = {
 .promo-slider-swiper
     width: 100%
     overflow: visible
+
     & :deep(.swiper-button-prev), :deep(.swiper-button-next)
         cursor: pointer
         z-index: 3
@@ -87,9 +89,11 @@ const swiperOptions: SwiperOptions = {
         transition: opacity .3s
         +media-until(1300px)
             display: none
+
         &.swiper-button-disabled
             opacity: 0
             visibility: hidden
+
         &::before
             position: absolute
             top: 50%
@@ -100,9 +104,11 @@ const swiperOptions: SwiperOptions = {
             height: 22px
             background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAxMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjAwMDEgMTAuOTk5OUMxMi4wMDAxIDExLjI1NTcgMTEuOTAyMyAxMS41MTE3IDExLjcwNzEgMTEuNzA2OUwxLjcwNzA2IDIxLjcwNjlDMS4zMTYzMSAyMi4wOTc3IDAuNjgzNTYzIDIyLjA5NzcgMC4yOTMwNjIgMjEuNzA2OUMtMC4wOTc0Mzc1IDIxLjMxNjIgLTAuMDk3Njg3NSAyMC42ODM0IDAuMjkzMDYyIDIwLjI5MjlMOS41ODYwNiAxMC45OTk5TDAuMjkzMDYyIDEuNzA2OTRDLTAuMDk3Njg4NCAxLjMxNjE5IC0wLjA5NzY4ODQgMC42ODM0MzUgMC4yOTMwNjIgMC4yOTI5MzZDMC42ODM4MTIgLTAuMDk3NTYyOCAxLjMxNjU2IC0wLjA5NzgxNDYgMS43MDcwNiAwLjI5MjkzNkwxMS43MDcxIDEwLjI5MjlDMTEuOTAyMyAxMC40ODgyIDEyLjAwMDEgMTAuNzQ0MiAxMi4wMDAxIDEwLjk5OTlaIiBmaWxsPSIjQjNCM0IzIi8+Cjwvc3ZnPgo=)
             background-size: contain
+
     & :deep(.swiper-button-next)
         left: unset
         right: -30px
+
     & :deep(.swiper-button-prev)
         transform: rotate(180deg) translateY(50%)
 
@@ -111,6 +117,7 @@ const swiperOptions: SwiperOptions = {
     transition: filter .5s
     +until-tablet
         max-width: 90%
+
     &:not(.swiper-slide-active)
         filter: brightness(.5)
 
@@ -119,6 +126,7 @@ const swiperOptions: SwiperOptions = {
     position: relative
     width: 100%
     padding-top: 50%
+
     &__sticker
         z-index: 3
         width: 137px
@@ -148,12 +156,14 @@ const swiperOptions: SwiperOptions = {
             font-size: 14px
             width: 40px
             height: 40px
+
     &__content, &__image
         position: absolute
         width: 100%
         height: 100%
         top: 0
         left: 0
+
     &__content
         z-index: 2
 
@@ -170,6 +180,7 @@ const swiperOptions: SwiperOptions = {
         margin-bottom: 4px
         font-size: 20px
         padding: 12px
+
     &__title
         font-weight: 700
         font-size: 40px
@@ -182,6 +193,7 @@ const swiperOptions: SwiperOptions = {
         +while-mob
             margin-bottom: 4px
             font-size: 20px
+
     &__description
         font-weight: 700
         font-size: 20px

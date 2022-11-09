@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
 import { computed } from '#imports'
+
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
     label: { type: String, default: '' },
@@ -47,18 +48,22 @@ const error = 'error'
 .text-input
     display: flex
     flex-direction: column
+
     &__label
         color: $color_onsurface_primary
         font-size: 14px
         line-height: 20px
         margin-bottom: 8px
         transition: color .3s
+
         &--disabled
             color: $color_onsurface_tetriary
+
     &__input
         display: flex
         align-items: center
         position: relative
+
         & input
             padding: 16px
             font-size: 16px
@@ -68,16 +73,21 @@ const error = 'error'
             caret-color: $color_primary
             border-radius: 5px
             color: $color_onsurface_primary
+
             &::placeholder
                 color: $color_onsurface_tetriary
+
             &:focus
                 outline-color: $color_onsurface_primary
+
             &:disabled
                 background-color: $color_surface_primary
                 color: $color_onsurface_tetriary
+
             &:invalid
                 color: $color_primary
                 outline-color: $color_primary
+
     &__error
         font-size: 12px
         line-height: 16px
