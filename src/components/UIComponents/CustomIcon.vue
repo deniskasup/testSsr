@@ -41,6 +41,9 @@ const componentTag = computed(() => {
 
 <style lang="sass" scoped>
 .icon-container
+    display: flex
+    align-items: center
+    justify-content: center
     &__icon
         width: 100%
         height: 100%

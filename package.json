@@ -33,6 +33,7 @@
         "prettier-plugin-tailwindcss": "^0.1.13"
     },
     "dependencies": {
+        "maska": "^1.5.0",
         "swiper": "^8.4.2"
     },
     "browserslist": [

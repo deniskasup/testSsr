@@ -14,6 +14,8 @@ npm install
 
 [Nuxt IMAGE](https://v1.image.nuxtjs.org/get-started)
 
+[Маски](https://beholdr.github.io/maska/?ref=madewithvuejs.com)
+
 ## Production
 
 Build the application for production:

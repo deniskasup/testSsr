@@ -9,6 +9,16 @@
         </div>
         <div class="text-input__input">
             <input
+                v-if="mask"
+                v-model="inputValue"
+                v-maska="mask"
+                :required="required"
+                :placeholder="placeholder"
+                :disabled="disabled"
+                type="text"
+            />
+            <input
+                v-else
                 v-model="inputValue"
                 :required="required"
                 :placeholder="placeholder"
@@ -30,6 +40,7 @@ const props = defineProps({
     required: { type: Boolean, default: false },
     modelValue: { type: String, default: '' },
     placeholder: { type: String, default: '' },
+    mask: { type: String, default: '' },
 })
 
 const inputValue = computed({
@@ -41,19 +52,19 @@ const inputValue = computed({
     },
 })
 
-const error = 'error'
+const error = ''
 </script>
 
 <style lang="sass" scoped>
 .text-input
-    display: flex
-    flex-direction: column
+    width: 100%
+    display: grid
+    grid-gap: 8px
 
     &__label
         color: $color_onsurface_primary
         font-size: 14px
         line-height: 20px
-        margin-bottom: 8px
         transition: color .3s
 
         &--disabled
@@ -65,6 +76,7 @@ const error = 'error'
         position: relative
 
         & input
+            width: 100%
             padding: 16px
             font-size: 16px
             line-height: 24px
@@ -84,13 +96,12 @@ const error = 'error'
                 background-color: $color_surface_primary
                 color: $color_onsurface_tetriary
 
-            &:invalid
-                color: $color_primary
-                outline-color: $color_primary
+            //&:invalid
+            //    color: $color_primary
+            //    outline-color: $color_primary
 
     &__error
         font-size: 12px
         line-height: 16px
-        margin-top: 4px
         color: $color_primary
 </style>

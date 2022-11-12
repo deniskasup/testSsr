@@ -17,6 +17,7 @@
         <OurGoal />
 
         <MainReviews />
+        <NeedHelp />
     </main>
 </template>
 
@@ -28,6 +29,7 @@ import PromoSlider from '~/components/PromoSlider.vue'
 import Advantages from '~/components/Advantages.vue'
 import OurGoal from '~/components/OurGoal.vue'
 import MainReviews from '~/components/MainReviews.vue'
+import NeedHelp from '~/components/NeedHelp.vue'
 </script>
 <style lang="sass" scoped>
 .main-page

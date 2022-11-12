@@ -1,5 +1,5 @@
 <template>
-    <button type="button" class="button" :class="buttonClasses">
+    <button :type="type" class="button" :class="buttonClasses">
         <slot />
     </button>
 </template>
@@ -11,6 +11,10 @@ import { ButtonSize } from '~/model/enums/formElements/ButtonSize'
 import { computed } from '#imports'
 
 const props = defineProps({
+    type: {
+        type: String,
+        default: 'button',
+    },
     priority: {
         type: String as PropType<ButtonPriority>,
         default: ButtonPriority.PRIMARY,
