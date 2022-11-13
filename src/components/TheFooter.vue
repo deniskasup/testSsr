@@ -25,38 +25,26 @@
                 <div class="footer-nav__column footer-nav-column">
                     <div class="footer-nav-column__title">Каталог</div>
                     <div class="footer-nav-column__list footer-nav-column-list">
-                        <NuxtLink class="footer-nav-column-list__item" to="/1">Кровати</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/2">Матрасы</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/3">Спальни</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/4">Шкафы</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/5">Комоды</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/6">Стенки</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/7">Кухни</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/8">Прихожие</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item">Кровати</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item">Матрасы</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item">Спальни</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item">Шкафы</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item">Комоды</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item">Стенки</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item">Кухни</NuxtLink>
+                        <NuxtLink class="footer-nav-column-list__item">Прихожие</NuxtLink>
                     </div>
                 </div>
                 <div class="footer-nav__column footer-nav-column">
                     <div class="footer-nav-column__title">Для покупателей</div>
                     <div class="footer-nav-column__list">
-                        <NuxtLink class="footer-nav-column-list__item" to="/15">
+                        <NuxtLink
+                            v-for="link in infoLinks"
+                            :key="`footer-link-info-${link.id}`"
+                            class="footer-nav-column-list__item"
+                            :to="link.to"
+                        >
                             Как заказать
-                        </NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/9">Доставка</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/10">Гарантия</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/16">
-                            Производителям и поставщикам
-                        </NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/11">
-                            Дропшиппинг
-                        </NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/12">
-                            Контроль качества
-                        </NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/13">
-                            Опт для интернет-магазинов
-                        </NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item" to="/14">
-                            Карта сайта
                         </NuxtLink>
                     </div>
                 </div>
@@ -69,6 +57,7 @@
 <script setup lang="ts">
 import Wrapper from '~/components/Wrapper'
 import FooterSocials from '~/components/Footer/FooterSocials.vue'
+import { infoLinks } from '~/constants/infoLinks'
 
 // TODO: убрать
 const testLinks = [

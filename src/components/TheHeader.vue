@@ -28,12 +28,10 @@
             </div>
             <div class="header__actions header-actions">
                 <CustomIcon
-                    to="/lk"
                     class="header-actions__item header-actions-item"
                     icon-name="ri:user-line"
                 />
                 <CustomIcon
-                    to="/favorite"
                     class="header-actions__item header-actions-item"
                     icon-name="ri:heart-line"
                 />
