@@ -44,7 +44,7 @@
                             class="footer-nav-column-list__item"
                             :to="link.to"
                         >
-                            Как заказать
+                            {{ link.name }}
                         </NuxtLink>
                     </div>
                 </div>
