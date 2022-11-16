@@ -2,10 +2,11 @@
     <div>Гарантия</div>
 </template>
 
-<script>
-export default {
-    name: 'Guarantee',
-}
+<script setup lang="ts">
+import { definePageMeta } from '#imports'
+definePageMeta({
+    title: 'Гарантия',
+})
 </script>
 
-<style scoped></style>
+<style lang="sass" scoped></style>

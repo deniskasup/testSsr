@@ -2,10 +2,11 @@
     <div>Правила приёма товара</div>
 </template>
 
-<script>
-export default {
-    name: 'GoodsAcceptanceRules',
-}
+<script setup lang="ts">
+import { definePageMeta } from '#imports'
+definePageMeta({
+    title: 'Правила приёма товара',
+})
 </script>
 
-<style scoped></style>
+<style lang="sass" scoped></style>

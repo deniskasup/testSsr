@@ -1,5 +1,5 @@
 <template>
-    <component :is="componentTag" class="icon-container" :href="href" :to="to">
+    <component :is="componentTag" class="icon-container" v-bind="linkRoute">
         <Icon v-if="iconName" class="icon-container__icon" :name="iconName" />
         <template v-else>
             <slot />
@@ -29,6 +29,15 @@ const props = defineProps({
         type: String,
         default: null,
     },
+})
+
+const linkRoute = computed(() => {
+    if (props.iconType === IconType.ROUTER_LINK) {
+        return { to: props.to }
+    } else if (props.iconType === IconType.LINK) {
+        return { href: props.href }
+    }
+    return {}
 })
 
 const componentTag = computed(() => {

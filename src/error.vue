@@ -4,7 +4,7 @@
             <section class="error">
                 <Wrapper class="error__wrapper">
                     <div class="error__smile">😬</div>
-                    <div class="error__text error-text">
+                    <div v-if="error" class="error__text error-text">
                         <div class="error-text__code">Ошибка {{ error.statusCode }}</div>
                         <div class="error-text__message">
                             <p v-if="error.statusCode === '404'">

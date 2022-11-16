@@ -1,11 +1,12 @@
 <template>
-    <div>Доставка</div>
+    <div class="">Доставка</div>
 </template>
 
-<script>
-export default {
-    name: 'Delivery',
-}
+<script setup lang="ts">
+import { definePageMeta } from '#imports'
+definePageMeta({
+    title: 'Доставка',
+})
 </script>
 
-<style scoped></style>
+<style lang="sass" scoped></style>

@@ -1,8 +1,8 @@
 <template>
     <main class="info-page">
         <div class="info">
+            <Breadcrumbs class="info__breadcrumbs" />
             <Wrapper class="info__wrapper">
-                <Breadcrumbs class="info__breadcrumbs" />
                 <nav class="info__sidemenu info-sidemenu">
                     <NuxtLink
                         v-for="link in infoLinks"
@@ -43,7 +43,6 @@ definePageMeta({
     margin: 0 auto
     display: grid
     grid-gap: 100px
-    padding-top: 24px
     +until-tablet
         grid-gap: 75px
     +while-mob
