@@ -13,6 +13,7 @@ import TheHeader from '~/components/TheHeader.vue'
 import TheFooter from '~/components/TheFooter.vue'
 import { useNuxtApp } from '#imports'
 import ScrollTop from '~/components/ScrollTop.vue'
+
 const nuxtApp = useNuxtApp()
 
 // TODO: возможно есть решение по красивее

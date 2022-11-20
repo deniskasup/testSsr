@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import { computed, useWindowScroll } from '#imports'
+
 const { y } = useWindowScroll()
 
 const isButtonVisible = computed(() => y.value && y.value > 100)

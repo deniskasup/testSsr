@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { Pagination, Autoplay, SwiperOptions } from 'swiper'
+import { Autoplay, Pagination, SwiperOptions } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import Wrapper from '~/components/Wrapper.vue'

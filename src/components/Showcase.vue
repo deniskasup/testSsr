@@ -73,6 +73,7 @@
 <script setup lang="ts">
 import Wrapper from '~/components/Wrapper.vue'
 import { computed, useWindowSize } from '#imports'
+
 const { width } = useWindowSize()
 const mobileImagePath = computed(() => (width.value > 900 ? '' : '-mobile'))
 </script>

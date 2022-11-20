@@ -32,6 +32,7 @@
                     icon-name="ri:user-line"
                 />
                 <CustomIcon
+                    to="/favorite"
                     class="header-actions__item header-actions-item"
                     icon-name="ri:heart-line"
                 />

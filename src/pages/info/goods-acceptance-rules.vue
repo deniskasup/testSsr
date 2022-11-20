@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import { definePageMeta } from '#imports'
+
 definePageMeta({
     title: 'Правила приёма товара',
 })

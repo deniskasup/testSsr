@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { Mousewheel, FreeMode, Navigation, SwiperOptions } from 'swiper'
+import { FreeMode, Mousewheel, Navigation, SwiperOptions } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import Wrapper from '~/components/Wrapper.vue'
 import 'swiper/css'

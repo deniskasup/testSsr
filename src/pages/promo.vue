@@ -1,5 +1,5 @@
 <template>
-    <main class="promo-page">
+    <main class="default-page promo-page">
         <section class="promo">
             <Breadcrumbs class="promo__breadcrumbs" />
             <Wrapper class="promo__wrapper">
@@ -7,6 +7,7 @@
                 <div class="promo__cards promo-cards">
                     <div
                         v-for="(item, index) in 6"
+                        :key="`promo-cards-item-${item}`"
                         class="promo-cards__item promo-cards-item"
                         :class="{
                             'promo-cards-item--big': item === 1 || isLastCardBig(index, 6),
@@ -44,6 +45,7 @@
 <script setup lang="ts">
 import Wrapper from '~/components/Wrapper.vue'
 import { computed, definePageMeta, useWindowSize } from '#imports'
+
 definePageMeta({
     title: 'Акции',
 })
@@ -55,20 +57,6 @@ const isLastCardBig = (index: number, cardsLength: number) =>
 </script>
 
 <style lang="sass" scoped>
-.promo-page
-    overflow: hidden
-    width: 100%
-    //max-width: 1440px
-    margin: 0 auto
-    display: grid
-    grid-gap: 100px
-    +until-tablet
-        grid-gap: 75px
-    +while-mob
-        grid-gap: 55px
-    & > *
-        width: 100vw
-
 
 .promo
     &__wrapper

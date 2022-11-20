@@ -18,7 +18,11 @@
                 />
             </div>
             <div class="review-card-info__description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, expedita.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, cum ea
+                error expedita ipsam iusto provident quam qui ratione recusandae, sint ut! A ad
+                aliquid aspernatur assumenda beatae delectus eveniet id impedit inventore,
+                laudantium maiores maxime nam nisi quaerat, quia quisquam sed, sequi velit vitae
+                voluptatum! Cum doloremque molestias quidem reprehenderit unde vel?
             </div>
             <CustomIcon icon-name="radix-icons:external-link" class="review-card-info__link" />
         </div>
@@ -27,6 +31,7 @@
 
 <script setup lang="ts">
 import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
+
 defineProps({
     // TODO: поменять
     reviewCardInfo: {
@@ -41,7 +46,11 @@ defineProps({
     overflow: hidden
     position: relative
     &:hover .review-card-info
-        transform: translateY(0)
+        height: 100%
+        -webkit-backdrop-filter: blur(5px)
+        backdrop-filter: blur(5px)
+        &__description
+            -webkit-line-clamp: 20
     &__image
         width: 100%
         height: 100%
@@ -52,14 +61,14 @@ defineProps({
     left: 0
     width: 100%
     padding: 16px 24px
+    height: 80px
     background-color: rgba(255, 255, 255, .3)
-    transition: transform .3s
+    transition: filter .3s, height .4s
     display: grid
     grid-gap: 10px 24px
     grid-template-columns: 1fr 24px
     color: $color_surface_primary
-    transform: translateY(100%)
-    align-items: flex-start
+    align-content: flex-start
     justify-items: flex-start
     +media-until(767px)
          grid-template-columns: 1fr 18px
@@ -75,15 +84,14 @@ defineProps({
 
     &__description
         max-width: 100%
-        white-space: nowrap
+        max-height: 100%
         overflow: hidden
+        display: -webkit-box
+        -webkit-line-clamp: 1
+        -webkit-box-orient: vertical
         text-overflow: ellipsis
         +while-mob
-            white-space: unset
-            overflow: hidden
-            display: -webkit-box
             -webkit-line-clamp: 2
-            -webkit-box-orient: vertical
             font-size: 12px
             line-height: 1.2
 

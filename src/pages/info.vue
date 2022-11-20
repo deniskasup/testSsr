@@ -1,5 +1,5 @@
 <template>
-    <main class="info-page">
+    <main class="default-page info-page">
         <div class="info">
             <Breadcrumbs class="info__breadcrumbs" />
             <Wrapper class="info__wrapper">
@@ -36,21 +36,6 @@ definePageMeta({
 </script>
 
 <style lang="sass" scoped>
-.info-page
-    overflow: hidden
-    width: 100%
-    //max-width: 1440px
-    margin: 0 auto
-    display: grid
-    grid-gap: 100px
-    +until-tablet
-        grid-gap: 75px
-    +while-mob
-        grid-gap: 55px
-    & > *
-        width: 100vw
-
-
 .info__breadcrumbs
     grid-column: -1/1
 .info__wrapper

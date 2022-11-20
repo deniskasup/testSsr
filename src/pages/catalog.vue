@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <Wrapper> catalog</Wrapper>
-    </div>
+    <main class="catalog-page default-page">
+        <section class="catalog">
+            <Wrapper> каталог </Wrapper>
+        </section>
+    </main>
 </template>
 
 <script setup lang="ts">
