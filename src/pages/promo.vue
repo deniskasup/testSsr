@@ -62,6 +62,10 @@ const isLastCardBig = (index: number, cardsLength: number) =>
     &__wrapper
         display: grid
         grid-gap: 40px
+        +until-tablet
+            grid-gap: 30px
+        +while-mob
+            grid-gap: 24px
     &__title
         font-weight: 700
         font-size: 26px

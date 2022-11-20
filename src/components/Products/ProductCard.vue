@@ -26,6 +26,7 @@
     grid-gap: 12px
     width: 100%
     max-width: 380px
+    position: relative
 
     &__favorite
         z-index: 2

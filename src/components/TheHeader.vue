@@ -28,6 +28,7 @@
             </div>
             <div class="header__actions header-actions">
                 <CustomIcon
+                    to="/personal"
                     class="header-actions__item header-actions-item"
                     icon-name="ri:user-line"
                 />
