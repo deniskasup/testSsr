@@ -1,7 +1,6 @@
 <template>
     <main class="default-page favorite-page">
         <section class="favorite">
-            <Breadcrumbs class="favorite__breadcrumbs" />
             <Wrapper class="favorite__wrapper">
                 <h2 class="favorite__title">Избранное</h2>
 
@@ -43,6 +42,7 @@ import ProductCard from '~/components/Products/ProductCard.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 definePageMeta({
+    layout: 'with-breadcrumbs',
     title: 'Избранное',
 })
 </script>

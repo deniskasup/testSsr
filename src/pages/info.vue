@@ -1,7 +1,6 @@
 <template>
     <main class="default-page info-page">
         <div class="info">
-            <Breadcrumbs class="info__breadcrumbs" />
             <Wrapper class="info__wrapper">
                 <nav class="info__sidemenu info-sidemenu">
                     <NuxtLink
@@ -25,19 +24,17 @@
 <script setup lang="ts">
 import Wrapper from '~/components/Wrapper.vue'
 import NeedHelp from '~/components/NeedHelp.vue'
-import Breadcrumbs from '~/components/Breadcrumbs.vue'
 import { infoLinks } from '~/constants/infoLinks'
 import { definePageMeta } from '#imports'
 
 definePageMeta({
     title: 'Инфо',
+    layout: 'with-breadcrumbs',
     redirect: { path: '/info/how-to-order' },
 })
 </script>
 
 <style lang="sass" scoped>
-.info__breadcrumbs
-    grid-column: -1/1
 .info__wrapper
     display: grid
     grid-template-columns: 2fr 4fr

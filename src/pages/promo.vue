@@ -1,7 +1,6 @@
 <template>
     <main class="default-page promo-page">
         <section class="promo">
-            <Breadcrumbs class="promo__breadcrumbs" />
             <Wrapper class="promo__wrapper">
                 <h2 class="promo__title">Акции</h2>
                 <div class="promo__cards promo-cards">
@@ -48,6 +47,7 @@ import { computed, definePageMeta, useWindowSize } from '#imports'
 
 definePageMeta({
     title: 'Акции',
+    layout: 'with-breadcrumbs',
 })
 
 const { width } = useWindowSize()

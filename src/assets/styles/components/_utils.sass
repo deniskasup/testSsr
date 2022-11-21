@@ -44,3 +44,33 @@ $tablet-max: 1024px
 @mixin media-from($width)
     @media (min-width: $width)
         @content
+
+@mixin placeholder
+    position: relative
+    background-color: $color_onsurface_quaternary
+    border-radius: 5px
+    overflow: hidden
+    &::after
+        content: ""
+        display: block
+        width: 10%
+        height: 200%
+        background: $color_surface_primary
+        left: -40px
+        top: -50%
+        z-index: 1
+        transform: rotate(45deg)
+        position: absolute
+        animation: movingFlare 1.5s ease-in-out 0.1s infinite
+
+
+@keyframes movingFlare
+    0%
+        left: -30px
+
+    30%
+        left: 110%
+
+    100%
+        left: 120%
+
