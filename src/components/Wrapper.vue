@@ -10,4 +10,8 @@
 .wrapper
     max-width: 1232px
     padding: 0 16px
+    +until-tablet
+        padding: 0 60px
+    +media-until(767px)
+        padding: 0 16px
 </style>

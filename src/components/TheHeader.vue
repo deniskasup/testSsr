@@ -77,17 +77,15 @@ import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
     &__wrapper
         align-items: center
         +until-tablet
-            padding: 0 60px
             display: grid
             grid-gap: 24px 12px
             grid-template-columns: 140px 1fr 180px
-        +media-until(767px)
-            padding: 0 16px
         +while-mob
             grid-gap: 16px 12px
             grid-template-columns: 40px 1fr
 
     &__logo
+        justify-self: flex-start
         margin-right: 27px
         +until-tablet
             margin-right: 0

@@ -106,7 +106,7 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
     display: flex
     align-items: center
     justify-content: space-between
-    +media-until(768px)
+    +media-until(1023px)
         display: grid
         grid-template-columns: 100%
         align-items: flex-start
@@ -123,7 +123,7 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
         font-weight: 700
         color: $color_primary
         padding-right: 20px
-        +media-until(768px)
+        +media-until(1023px)
             margin-left: unset
         &::after
             position: absolute
@@ -144,10 +144,9 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
 .personal-orders-item-products-slider
     max-width: 500px
     +media-until(1200px)
-        max-width: 350px
-    +until-tablet
-        max-width: 250px
-    +media-until(768px)
+        max-width: 330px
+
+    +media-until(1023px)
         max-width: 100%
 
 .personal-orders-item-products-slider-slide
