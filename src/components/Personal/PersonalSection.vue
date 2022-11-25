@@ -34,7 +34,8 @@ import PersonalOrder from '~/components/Personal/PersonalOrder.vue'
         align-items: flex-start
         grid-template-columns: 1fr 1fr 1fr
         grid-gap: 40px 48px
-        +until-tablet
+        +media-until(1023px)
+            grid-template-columns: 1fr 1fr 180px
             grid-gap: 30px
         +media-until(767px)
             grid-template-columns: 100%
@@ -72,6 +73,8 @@ import PersonalOrder from '~/components/Personal/PersonalOrder.vue'
         font-weight: 700
         font-size: 26px
         line-height: 1.15
+        +until-tablet
+            font-size: 20px
 .personal-info-line
     display: flex
     align-items: center
@@ -87,7 +90,6 @@ import PersonalOrder from '~/components/Personal/PersonalOrder.vue'
 
 .personal-orders
     width: 100%
-    display: grid
-    grid-gap: 16px
-    align-items: flex-start
+    display: flex
+    flex-direction: column
 </style>

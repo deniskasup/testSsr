@@ -17,7 +17,7 @@
             <div class="personal-orders-item-products__slider personal-orders-item-products-slider">
                 <Swiper class="personal-orders-item-products-slider__swiper" v-bind="swiperOptions">
                     <SwiperSlide
-                        v-for="item in 3"
+                        v-for="item in 10"
                         :key="`personal-orders-item-products-slider-slide-${item}`"
                         class="personal-orders-item-products-slider__slide personal-orders-item-products-slider-slide"
                     >
@@ -40,13 +40,17 @@
 </template>
 
 <script setup lang="ts">
-import { SwiperOptions } from 'swiper'
+import { Mousewheel, SwiperOptions } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ref } from '#imports'
 import 'swiper/css'
 const swiperOptions: SwiperOptions = {
     slidesPerView: 'auto',
     spaceBetween: 16,
+    modules: [Mousewheel],
+    mousewheel: {
+        forceToAxis: true,
+    },
 }
 
 const isShowDetails = ref(false)
@@ -58,10 +62,11 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
 .personal-orders-item
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05)
     border-radius: 8px
-    display: grid
-    width: 100%
-    grid-gap: 32px
+    display: flex
+    flex-direction: column
     padding: 24px
+    &:not(:last-of-type)
+        margin-bottom: 16px
     &__id
         font-weight: 700
         line-height: 1.2
@@ -88,8 +93,10 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
         font-size: 18px
 
 .personal-orders-item-info
+    width: 100%
     display: grid
     grid-gap: 4px
+    margin-bottom: 32px
     &__line
         display: flex
         align-items: center
@@ -99,16 +106,25 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
     display: flex
     align-items: center
     justify-content: space-between
-    &__slider
-        width: 100%
+    +media-until(768px)
+        display: grid
+        grid-template-columns: 100%
+        align-items: flex-start
+        justify-items: flex-start
+        justify-content: unset
+        grid-gap: 10px
     &__show-more
+        display: flex
+        align-items: center
         margin-left: 20px
         flex-shrink: 0
         position: relative
         line-height: 1.4
         font-weight: 700
         color: $color_primary
-        padding-right: 25px
+        padding-right: 20px
+        +media-until(768px)
+            margin-left: unset
         &::after
             position: absolute
             right: 0
@@ -125,9 +141,23 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
                 transform: rotate(135deg)
 
 
+.personal-orders-item-products-slider
+    max-width: 500px
+    +media-until(1200px)
+        max-width: 350px
+    +until-tablet
+        max-width: 250px
+    +media-until(768px)
+        max-width: 100%
+
 .personal-orders-item-products-slider-slide
     width: 80px
+    +media-until(1200px)
+        width: 60px
+    +while-mob
+        width: 40px
     &__image
+        user-select: none
         position: relative
         background-color: $color_onsurface_quaternary
         width: 100%
