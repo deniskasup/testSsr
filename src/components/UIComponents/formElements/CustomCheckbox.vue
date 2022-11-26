@@ -56,7 +56,10 @@ const inputValue = computed({
         font-weight: 400
         font-size: 12px
         line-height: 16px
-
+        & :deep( > a)
+            color: $color_primary
+            &:hover
+                text-decoration: underline
     &--disabled
         & .checkbox-icon__element
             outline-color: $color_onsurface_tetriary !important

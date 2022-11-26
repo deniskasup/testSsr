@@ -41,6 +41,8 @@ const props = defineProps({
     modelValue: { type: String, default: '' },
     placeholder: { type: String, default: '' },
     mask: { type: String, default: '' },
+    /* делает инпут textarea */
+    rows: { type: Number, default: null },
 })
 
 const inputValue = computed({

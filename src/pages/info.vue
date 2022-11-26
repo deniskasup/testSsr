@@ -25,12 +25,21 @@
 import Wrapper from '~/components/Wrapper.vue'
 import NeedHelp from '~/components/NeedHelp.vue'
 import { infoLinks } from '~/constants/infoLinks'
-import { definePageMeta } from '#imports'
+import { definePageMeta, useHead } from '#imports'
 
 definePageMeta({
     title: 'Инфо',
     layout: 'with-breadcrumbs',
     redirect: { path: '/info/how-to-order' },
+})
+useHead({
+    title: 'Инфо',
+    meta: [
+        {
+            name: 'description',
+            content: 'Инфо',
+        },
+    ],
 })
 </script>
 

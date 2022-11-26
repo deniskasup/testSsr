@@ -1,9 +1,9 @@
 <template>
     <main class="default-page personal-page">
         <ClientOnly>
-            <PersonalSection />
+            <Section />
             <template #fallback>
-                <PersonalSectionPlaceholder />
+                <SectionPlaceholder />
             </template>
         </ClientOnly>
         <NeedHelp />
@@ -11,10 +11,21 @@
 </template>
 
 <script setup lang="ts">
-import { definePageMeta } from '#imports'
-import PersonalSection from '~/components/Personal/PersonalSection.vue'
+import { definePageMeta, useHead } from '#imports'
+import Section from '~/components/Personal/Section.vue'
+import SectionPlaceholder from '~/components/Personal/SectionPlaceholder.vue'
 definePageMeta({
     layout: 'with-breadcrumbs',
     title: 'Личный кабинет',
+})
+
+useHead({
+    title: 'Личный кабинет',
+    meta: [
+        {
+            name: 'description',
+            content: 'Личный кабинет',
+        },
+    ],
 })
 </script>

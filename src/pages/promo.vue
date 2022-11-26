@@ -43,11 +43,20 @@
 
 <script setup lang="ts">
 import Wrapper from '~/components/Wrapper.vue'
-import { computed, definePageMeta, useWindowSize } from '#imports'
+import { computed, definePageMeta, useHead, useWindowSize } from '#imports'
 
 definePageMeta({
     title: 'Акции',
     layout: 'with-breadcrumbs',
+})
+useHead({
+    title: 'Акции',
+    meta: [
+        {
+            name: 'description',
+            content: 'Акции',
+        },
+    ],
 })
 
 const { width } = useWindowSize()

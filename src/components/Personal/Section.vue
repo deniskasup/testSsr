@@ -3,7 +3,7 @@
         <Wrapper class="personal__wrapper">
             <h2 class="personal__title">Личный кабинет</h2>
             <div class="personal__orders personal-orders">
-                <PersonalOrder class="personal-orders__item" />
+                <Order class="personal-orders__item" />
             </div>
             <div class="personal__info personal-info">
                 <div class="personal-info__account personal-info-account">
@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import PersonalOrder from '~/components/Personal/PersonalOrder.vue'
+import Order from '~/components/Personal/Order.vue'
 </script>
 
 <style lang="sass" scoped>

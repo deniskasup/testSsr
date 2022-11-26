@@ -3,10 +3,19 @@
 </template>
 
 <script setup lang="ts">
-import { definePageMeta } from '#imports'
+import { definePageMeta, useHead } from '#imports'
 
 definePageMeta({
     title: 'Дропшиппинг',
+})
+useHead({
+    title: 'Дропшиппинг',
+    meta: [
+        {
+            name: 'description',
+            content: 'Дропшиппинг',
+        },
+    ],
 })
 </script>
 

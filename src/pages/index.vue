@@ -20,4 +20,16 @@
     </main>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useHead } from '#imports'
+
+useHead({
+    title: 'ВМ Мебель',
+    meta: [
+        {
+            name: 'description',
+            content: 'ВМ Мебель',
+        },
+    ],
+})
+</script>

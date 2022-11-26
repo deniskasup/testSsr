@@ -142,8 +142,4 @@ const submit = () => console.log('test')
         margin-bottom: 15px
     +media-until(1023px)
         margin-bottom: 30px
-    & a
-        color: $color_primary
-        &:hover
-            text-decoration: underline
 </style>

@@ -65,6 +65,10 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
     display: flex
     flex-direction: column
     padding: 24px
+    +until-tablet
+        padding: 16px
+    +while-mob
+        padding: 16px 8px
     &:not(:last-of-type)
         margin-bottom: 16px
     &__id

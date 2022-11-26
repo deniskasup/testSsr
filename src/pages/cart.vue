@@ -1,14 +1,26 @@
 <template>
-    <div>Корзина</div>
+    <main class="default-page cart-page">
+        <NuxtPage />
+        <NeedHelp />
+    </main>
 </template>
 
 <script setup lang="ts">
-import { definePageMeta } from '#imports'
-
+import { definePageMeta, useHead } from '#imports'
 definePageMeta({
     layout: 'with-breadcrumbs',
     title: 'Корзина',
+    redirect: { path: '/cart/ordering' },
+})
+useHead({
+    title: 'Корзина',
+    meta: [
+        {
+            name: 'description',
+            content: 'Корзина',
+        },
+    ],
 })
 </script>
 
-<style lang="sass" scoped></style>
+<style lang="sass"></style>

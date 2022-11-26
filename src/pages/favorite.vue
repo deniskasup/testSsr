@@ -37,13 +37,22 @@
 </template>
 
 <script setup lang="ts">
-import { definePageMeta } from '#imports'
+import { definePageMeta, useHead } from '#imports'
 import ProductCard from '~/components/Products/ProductCard.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 definePageMeta({
     layout: 'with-breadcrumbs',
     title: 'Избранное',
+})
+useHead({
+    title: 'Избранное',
+    meta: [
+        {
+            name: 'description',
+            content: 'Избранное',
+        },
+    ],
 })
 </script>
 
