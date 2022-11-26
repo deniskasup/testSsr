@@ -1,49 +1,57 @@
 <template>
+    <!--  TODO: уточнить, нужно ли перенести рендер на клиент  -->
     <section class="ordering">
-        <Wrapper class="ordering__wrapper">
-            <div class="ordering__info ordering-info">
-                <h2 class="ordering-info__title">Оформление заказа</h2>
-                <p class="ordering-info__notion ordering-info-notion">
-                    <Icon class="ordering-info-notion__icon" name="ri:information-fill" />
-                    Для оформления заказа необходимо заполнить номер, остальную информацию мы можем
-                    уточнить позвонив
-                </p>
-            </div>
-            <div class="ordering__left ordering-left">
-                <div class="ordering__customer-info ordering-left__item ordering-customer-info">
-                    <CustomTextInput
-                        class="ordering-customer-info__phone"
-                        mask="+7 (###) ###-####"
-                        :required="true"
-                        label="Номер телефона"
-                        placeholder="+7 (___) ___-____"
-                    />
-                    <CustomTextInput
-                        class="ordering-customer-info__name"
-                        :required="true"
-                        label="Имя Фамилия"
-                        placeholder="Имя Фамилия"
-                    />
-                    <CustomCheckbox class="ordering-customer-info__checkbox">
-                        Я согласен с <a href="#">условиями передачи информации</a>
-                    </CustomCheckbox>
+        <ClientOnly>
+            <Wrapper class="ordering__wrapper">
+                <div class="ordering__info ordering-info">
+                    <h2 class="ordering-info__title">Оформление заказа</h2>
+                    <p class="ordering-info__notion ordering-info-notion">
+                        <Icon class="ordering-info-notion__icon" name="ri:information-fill" />
+                        Для оформления заказа необходимо заполнить номер, остальную информацию мы
+                        можем уточнить позвонив
+                    </p>
                 </div>
-                <div class="ordering__map ordering-left__item ordering-map">
-                    <!-- TODO: блок с картой -->
-                    <button class="ordering-map__show">Посмотреть на карте</button>
-                    <CustomTextInput
-                        :rows="3"
-                        label="Адрес доставки"
-                        placeholder="Город, улица, дом, квартира"
-                    />
-                    <CustomTextInput
-                        label="Комментарий"
-                        placeholder="Оставьте комментарий для доствки"
-                    />
+                <div class="ordering__left ordering-left">
+                    <div class="ordering__customer-info ordering-left__item ordering-customer-info">
+                        <CustomTextInput
+                            class="ordering-customer-info__phone"
+                            mask="+7 (###) ###-####"
+                            :required="true"
+                            label="Номер телефона"
+                            placeholder="+7 (___) ___-____"
+                        />
+                        <CustomTextInput
+                            class="ordering-customer-info__name"
+                            :required="true"
+                            label="Имя Фамилия"
+                            placeholder="Имя Фамилия"
+                        />
+                        <CustomCheckbox class="ordering-customer-info__checkbox">
+                            Я согласен с <a href="#">условиями передачи информации</a>
+                        </CustomCheckbox>
+                    </div>
+                    <div class="ordering__map ordering-left__item ordering-map">
+                        <!-- TODO: блок с картой -->
+                        <button class="ordering-map__show">Посмотреть на карте</button>
+                        <CustomTextInput
+                            :rows="3"
+                            label="Адрес доставки"
+                            placeholder="Город, улица, дом, квартира"
+                        />
+                        <CustomTextInput
+                            label="Комментарий"
+                            placeholder="Оставьте комментарий для доствки"
+                        />
+                    </div>
                 </div>
-            </div>
-            <Summary class="ordering__right" />
-        </Wrapper>
+                <Summary class="ordering__right" />
+            </Wrapper>
+            <template #fallback>
+                <TwoColumnSectionPlaceholder>
+                    <template #title>Оформление заказа</template>
+                </TwoColumnSectionPlaceholder>
+            </template>
+        </ClientOnly>
     </section>
 </template>
 
@@ -52,6 +60,7 @@ import { definePageMeta, useHead } from '#imports'
 import Summary from '~/components/Ordering/Summary.vue'
 import CustomTextInput from '~/components/UIComponents/formElements/CustomTextInput.vue'
 import CustomCheckbox from '~/components/UIComponents/formElements/CustomCheckbox.vue'
+import TwoColumnSectionPlaceholder from '~/components/Placeholders/TwoColumnSectionPlaceholder.vue'
 useHead({
     title: 'Оформление заказа',
     meta: [

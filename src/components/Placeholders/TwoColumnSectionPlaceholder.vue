@@ -1,7 +1,9 @@
 <template>
     <section class="personal-placeholder">
         <Wrapper class="personal-placeholder__wrapper">
-            <h2 class="personal-placeholder__title">Личный кабинет</h2>
+            <h2 class="personal-placeholder__title">
+                <slot name="title" />
+            </h2>
             <div class="personal-placeholder__orders personal-placeholder-orders">
                 <div class="personal-placeholder-orders__item"></div>
                 <div class="personal-placeholder-orders__item"></div>
