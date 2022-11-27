@@ -141,7 +141,7 @@ const swiperOptions: SwiperOptions = {
         justify-content: center
         color: $color_surface_positive
         transform: rotate(13.6deg)
-        font-weight: 700
+        font-weight: 600
         font-size: 40px
         line-height: 1
         +until-tablet
@@ -182,7 +182,7 @@ const swiperOptions: SwiperOptions = {
         padding: 12px
 
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 40px
         line-height: 50px
         margin-bottom: 16px
@@ -195,7 +195,7 @@ const swiperOptions: SwiperOptions = {
             font-size: 20px
 
     &__description
-        font-weight: 700
+        font-weight: 600
         font-size: 20px
         line-height: 24px
         margin-bottom: 55px

@@ -63,7 +63,7 @@ import { advantages } from '~/constants/advantages'
     grid-gap: 8px
 
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 20px
         line-height: 1
         +media-until(1200px)

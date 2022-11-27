@@ -61,7 +61,7 @@
         margin-bottom: 4px
 
     &__name
-        font-weight: 700
+        font-weight: 600
         font-size: 18px
         line-height: 22px
         margin-bottom: 12px
@@ -72,13 +72,13 @@
 
     &__current
         margin-right: 8px
-        font-weight: 700
+        font-weight: 600
         font-size: 20px
         line-height: 24px
 
     &__old
         color: $color_onsurface_tetriary
-        font-weight: 700
+        font-weight: 600
         font-size: 14px
         line-height: 20px
         text-decoration-line: line-through

@@ -87,7 +87,10 @@ definePageMeta({
         align-items: flex-start
         grid-template-columns: 1fr 1fr 1fr
         grid-gap: 40px 48px
+        +until-tablet
+            grid-template-columns: 1fr 1fr 240px
         +media-until(1023px)
+            grid-template-columns: 100%
             grid-gap: 30px
         +media-until(767px)
             grid-template-columns: 100%
@@ -101,8 +104,8 @@ definePageMeta({
         display: grid
         grid-gap: 16px
         grid-column: span 2
-        +media-until(767px)
-            grid-column: unset–
+        +media-until(1023px)
+            grid-column: unset
     &__products
         display: grid
         grid-gap: 16px
@@ -118,7 +121,7 @@ definePageMeta({
         grid-gap: 16px
         margin-bottom: 0
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 30px
         +until-tablet

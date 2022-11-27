@@ -72,7 +72,7 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
     &:not(:last-of-type)
         margin-bottom: 16px
     &__id
-        font-weight: 700
+        font-weight: 600
         line-height: 1.2
         font-size: 20px
         margin-right: 24px
@@ -92,7 +92,7 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
 
     &__price
         margin-left: auto
-        font-weight: 700
+        font-weight: 600
         line-height: 1.2
         font-size: 18px
 
@@ -124,7 +124,7 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
         flex-shrink: 0
         position: relative
         line-height: 1.4
-        font-weight: 700
+        font-weight: 600
         color: $color_primary
         padding-right: 20px
         +media-until(1023px)

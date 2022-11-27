@@ -13,6 +13,9 @@
                 <div class="ordering-summary-price-line__label">Сумма скидки</div>
                 <div class="ordering-summary-price-line__value">1 400 ₽</div>
             </div>
+            <CustomButton class="ordering-summary-price__buy" :size="Size.MEDIUM">
+                Купить
+            </CustomButton>
         </div>
         <div class="ordering-summary__form ordering-summary-form">
             <div class="ordering-summary-form__promocode ordering-summary-form-promocode">
@@ -29,7 +32,7 @@
                     Применить
                 </CustomButton>
             </div>
-            <CustomButton class="ordering-summary-form__" :size="Size.MEDIUM">
+            <CustomButton class="ordering-summary-form__buy" :size="Size.MEDIUM">
                 Купить
             </CustomButton>
         </div>
@@ -47,12 +50,25 @@ import { Size } from '~/model/enums/formElements/Size'
 .ordering-summary
     display: grid
     grid-gap: 40px
+    +media-until(1023px)
+        align-items: flex-start
+        grid-template-columns: 220px 1fr
+        grid-gap: 100px
+    +media-until(767px)
+        grid-gap: 40px
     +while-mob
+        grid-template-columns: 100%
         grid-gap: 32px
 
 .ordering-summary-price
     display: grid
     grid-gap: 8px
+    &__buy
+        margin-top: 35px
+        +media-from(1023px)
+            display: none
+        +while-mob
+            display: none
 
 .ordering-summary-price-total
     display: grid
@@ -62,7 +78,7 @@ import { Size } from '~/model/enums/formElements/Size'
         color: $color_onsurface_tetriary
 
     &__sum
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 1.15
         +until-tablet
@@ -79,13 +95,18 @@ import { Size } from '~/model/enums/formElements/Size'
         color: $color_onsurface_tetriary
 
     &__value
-        font-weight: 700
+        font-weight: 600
         font-size: 16px
 
 
 .ordering-summary-form
     display: grid
     grid-gap: 40px
+    &__buy
+        +media-until(1023px)
+            display: none
+        +while-mob
+            display: block
 
 .ordering-summary-form-promocode
     display: grid

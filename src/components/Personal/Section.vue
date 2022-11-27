@@ -43,7 +43,7 @@ import Order from '~/components/Personal/Order.vue'
             grid-gap: 24px
     &__title
         grid-column: -1/1
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 30px
         +until-tablet
@@ -70,7 +70,7 @@ import Order from '~/components/Personal/Order.vue'
         font-size: 12px
         color: $color_onsurface_tetriary
     &__phone
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 1.15
         +until-tablet
@@ -84,7 +84,7 @@ import Order from '~/components/Personal/Order.vue'
         font-size: 12px
         color: $color_onsurface_tetriary
     &__value
-        font-weight: 700
+        font-weight: 600
         font-size: 16px
 
 

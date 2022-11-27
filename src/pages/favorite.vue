@@ -66,7 +66,7 @@ useHead({
         +while-mob
             grid-gap: 24px
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 30px
         +until-tablet
@@ -107,7 +107,7 @@ useHead({
     grid-template-columns: 30px 1fr
     grid-gap: 16px
     &__smile
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
 
 .favorite-empty-text
@@ -117,7 +117,7 @@ useHead({
     +while-mob
         grid-gap: 8px
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 30px
         +while-mob

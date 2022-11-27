@@ -180,7 +180,7 @@ import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
 .header-contacts-info
     &__phone
         color: $color_primary
-        font-weight: 700
+        font-weight: 600
         font-size: 16px
         line-height: 20px
 

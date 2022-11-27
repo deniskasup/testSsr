@@ -76,7 +76,7 @@ const isLastCardBig = (index: number, cardsLength: number) =>
         +while-mob
             grid-gap: 24px
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 30px
         +until-tablet
@@ -108,14 +108,14 @@ const isLastCardBig = (index: number, cardsLength: number) =>
             +while-mob
                 padding: 16px
             &__title
-                font-weight: 700
+                font-weight: 600
                 font-size: 40px
                 +until-tablet
                     font-size: 28px
                 +while-mob
                     font-size: 20px
             &__description
-                font-weight: 700
+                font-weight: 600
                 font-size: 20px
                 +until-tablet
                     font-size: 18px
@@ -126,7 +126,7 @@ const isLastCardBig = (index: number, cardsLength: number) =>
         & .promo-cards-item__sticker
             width: 137px
             height: 137px
-            font-weight: 700
+            font-weight: 600
             font-size: 40px
             top: 30px
             right: 30px
@@ -189,7 +189,7 @@ const isLastCardBig = (index: number, cardsLength: number) =>
         grid-gap: 5px
 
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 20px
         line-height: 1.25
         +until-tablet
@@ -197,7 +197,7 @@ const isLastCardBig = (index: number, cardsLength: number) =>
         +while-mob
             font-size: 16px
     &__description
-        font-weight: 700
+        font-weight: 600
         font-size: 16px
         line-height: 1.2
         +until-tablet

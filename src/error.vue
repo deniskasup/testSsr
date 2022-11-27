@@ -38,14 +38,14 @@ const handleError = () => clearError({ redirect: '/' })
         grid-template-columns: 55px 1fr
         grid-gap: 32px
     &__smile
-        font-weight: 700
+        font-weight: 600
         font-size: 56px
 .error-text
     display: grid
     justify-items: flex-start
     grid-gap: 24px
     &__code
-        font-weight: 700
+        font-weight: 600
         font-size: 56px
     &__message
         font-size: 16px

@@ -5,7 +5,7 @@
             class="text-input__label"
             :class="{ 'text-input__label--disabled': disabled }"
         >
-            {{ label }}
+            {{ label }}{{ required ? '*' : '' }}
         </div>
         <div class="text-input__input">
             <input

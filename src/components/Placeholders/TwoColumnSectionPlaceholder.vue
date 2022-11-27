@@ -37,7 +37,7 @@
             grid-gap: 24px
     &__title
         grid-column: -1/1
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 30px
         +until-tablet

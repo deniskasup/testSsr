@@ -50,7 +50,7 @@ const swiperOptions: SwiperOptions = {
             grid-gap: 24px
 
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 30px
         +until-tablet

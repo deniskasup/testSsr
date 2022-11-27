@@ -109,7 +109,7 @@ const submit = () => console.log('test')
     +while-mob
         max-width: unset
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 30px
         margin-bottom: 14px

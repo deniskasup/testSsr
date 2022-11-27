@@ -137,7 +137,7 @@ import { IconType } from '~/model/enums/IconType'
         grid-gap: 8px
 
     &__title
-        font-weight: 700
+        font-weight: 600
         font-size: 26px
         line-height: 30px
         +media-until(1200px)
