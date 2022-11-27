@@ -18,7 +18,9 @@
 </template>
 
 <script setup lang="ts">
+import { PropType } from '@vue/runtime-core'
 import { computed } from '#imports'
+import { Size } from '~/model/enums/formElements/Size'
 
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
@@ -26,10 +28,12 @@ const props = defineProps({
     disabled: { type: Boolean, default: false },
     required: { type: Boolean, default: false },
     modelValue: { type: Boolean, default: false },
+    size: { type: String as PropType<Size>, default: Size.MEDIUM },
 })
 
 const checkboxClasses = computed(() => ({
     'checkbox--disabled': props.disabled,
+    [`checkbox--size-${props.size}`]: props.size,
 }))
 
 const inputValue = computed({
@@ -51,7 +55,16 @@ const inputValue = computed({
 
     &:not(&--disabled)
         cursor: pointer
-
+    &--size
+        &-s
+            & .checkbox-icon__element
+                width: 13px
+                height: 13px
+                &::before
+                    height: 5px
+                    width: 9px
+                    top: 3px
+                    left: 2px
     &__text
         font-weight: 400
         font-size: 12px
@@ -69,6 +82,7 @@ const inputValue = computed({
     display: flex
     align-items: center
     margin-right: 11px
+    margin-left: 2px
 
     &__input
         width: 0

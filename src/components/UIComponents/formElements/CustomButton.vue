@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { PropType } from '@vue/runtime-core'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
-import { ButtonSize } from '~/model/enums/formElements/ButtonSize'
+import { Size } from '~/model/enums/formElements/Size'
 import { computed } from '#imports'
 
 const props = defineProps({
@@ -20,8 +20,8 @@ const props = defineProps({
         default: ButtonPriority.PRIMARY,
     },
     size: {
-        type: String as PropType<ButtonSize>,
-        default: ButtonSize.MEDIUM,
+        type: String as PropType<Size>,
+        default: Size.MEDIUM,
     },
 })
 
@@ -36,7 +36,7 @@ const buttonClasses = computed(() => [
     display: flex
     align-items: center
     justify-content: center
-    font-weight: 600
+    font-weight: 500
     font-size: 16px
     line-height: 20px
     border-radius: 5px

@@ -24,12 +24,12 @@
                 <CustomButton
                     class="ordering-summary-form-promocode__promo-button"
                     :priority="ButtonPriority.SECONDARY"
-                    :size="ButtonSize.SMALL"
+                    :size="Size.SMALL"
                 >
                     Применить
                 </CustomButton>
             </div>
-            <CustomButton class="ordering-summary-form__" :size="ButtonSize.MEDIUM">
+            <CustomButton class="ordering-summary-form__" :size="Size.MEDIUM">
                 Купить
             </CustomButton>
         </div>
@@ -40,7 +40,7 @@
 import CustomTextInput from '~/components/UIComponents/formElements/CustomTextInput.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
-import { ButtonSize } from '~/model/enums/formElements/ButtonSize'
+import { Size } from '~/model/enums/formElements/Size'
 </script>
 
 <style lang="sass" scoped>
