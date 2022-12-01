@@ -44,7 +44,9 @@ const buttonClasses = computed(() => [
     +no-select
     &--size
         &-s
-            padding: 10px 40px
+            padding: 10px 30px
+            +while-mob
+                padding: 10px 15px
 
         &-m
             padding: 14px 40px

@@ -98,8 +98,8 @@ const inputValue = computed({
 
     &__element
         position: relative
-        width: 18px
-        height: 18px
+        width: 16px
+        height: 16px
         outline: 2px solid $color_onsurface_tetriary
         border-radius: 1px
         transition: outline-color .3s, background-color .3s
@@ -113,8 +113,8 @@ const inputValue = computed({
             border-left: 2px solid
             position: absolute
             height: 6px
-            width: 11px
-            top: 4px
-            left: 4px
+            width: 10px
+            top: 3px
+            left: 3px
             transform: rotate(-45deg)
 </style>

@@ -12,9 +12,14 @@ npm install
 ## MODULES
 [ИКОНКИ](https://github.com/nuxt-modules/icon)
 
-[Nuxt IMAGE](https://v1.image.nuxtjs.org/get-started)
+[Картинки](https://v1.image.nuxtjs.org/get-started)
 
 [Маски](https://beholdr.github.io/maska/?ref=madewithvuejs.com)
+
+[МОДАЛКИ](https://vue-final-modal.org/)
+
+[СЛАЙДЕР](https://swiperjs.com/vue)
+
 
 ## Production
 

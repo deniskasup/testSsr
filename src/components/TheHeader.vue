@@ -6,7 +6,12 @@
                     <img src="~/assets/images/logo.svg" alt="ВМ Мебель" />
                 </CustomIcon>
                 <div class="header__city header-city">
-                    <Icon class="header-city__icon no-select" name="akar-icons:location" />
+                    <CustomIcon
+                        :icon-type="IconType.BUTTON"
+                        class="header-city__icon no-select"
+                        icon-name="akar-icons:location"
+                        @click="showSelectCity"
+                    />
                     <div class="header-city__name">Санкт-Перербург</div>
                 </div>
                 <button class="header__mobile-menu header-mobile-menu">
@@ -67,6 +72,10 @@
 import Wrapper from '~/components/Wrapper'
 import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vue'
 import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
+import { IconType } from '~/model/enums/IconType'
+import useModals from '~/composition/useModals'
+
+const { showSelectCity } = useModals()
 </script>
 
 <style lang="sass" scoped>
