@@ -4,6 +4,7 @@
             <h2 class="personal__title">Личный кабинет</h2>
             <div class="personal__orders personal-orders">
                 <Order class="personal-orders__item" />
+                <Order class="personal-orders__item" />
             </div>
             <div class="personal__info personal-info">
                 <div class="personal-info__account personal-info-account">

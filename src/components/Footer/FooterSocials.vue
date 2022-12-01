@@ -36,7 +36,7 @@ defineProps({
     width: 24px
     height: 24px
     transition: opacity .3s
-
+    +no-select
     &:not(.router-link-active):hover
         opacity: .7
 </style>

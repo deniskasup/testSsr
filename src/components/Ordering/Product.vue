@@ -193,6 +193,7 @@ const decreaseCount = () => {
 .ordering-product-counter
     display: flex
     align-items: center
+    user-select: none
 
     &__button
         background-color: $color_surface_primary

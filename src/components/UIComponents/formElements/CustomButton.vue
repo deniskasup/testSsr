@@ -41,7 +41,7 @@ const buttonClasses = computed(() => [
     line-height: 20px
     border-radius: 5px
     transition: opacity .3s, box-shadow .3s, border-color .3s
-
+    +no-select
     &--size
         &-s
             padding: 10px 40px

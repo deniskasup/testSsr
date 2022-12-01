@@ -1,49 +1,65 @@
 <template>
     <header class="header">
-        <Wrapper class="header__wrapper">
-            <CustomIcon class="header__logo" to="/">
-                <img src="~/assets/images/logo.svg" alt="ВМ Мебель" />
-            </CustomIcon>
-            <div class="header__city header-city">
-                <Icon class="header-city__icon" name="akar-icons:location" />
-                <div class="header-city__name">Санкт-Перербург</div>
-            </div>
-            <button class="header__mobile-menu header-mobile-menu">
-                <Icon class="header-mobile-menu__icon" name="ri:menu-fill" />
-            </button>
-            <CustomSearch class="header__search" placeholder="Какую мебель вы ищите?" />
-            <nav class="header__menu header-menu">
-                <NuxtLink to="/catalog" class="header-menu__link"> Каталог</NuxtLink>
-                <NuxtLink to="/promo" class="header-menu__link">Акции</NuxtLink>
-                <NuxtLink to="/info" class="header-menu__link">Инфо</NuxtLink>
-            </nav>
-            <div class="header__contacts header-contacts">
-                <button class="header-contacts__button">
-                    <img src="~/assets/images/icons/call-help.svg" alt="" />
-                </button>
-                <div class="header-contacts__info header-contacts-info">
-                    <div class="header-contacts-info__phone">8 800 999 99 99</div>
-                    <div class="header-contacts-info__time">9:00 – 21:00 мск ежедневно</div>
+        <div class="header__main">
+            <Wrapper class="header__wrapper">
+                <CustomIcon class="header__logo" to="/">
+                    <img src="~/assets/images/logo.svg" alt="ВМ Мебель" />
+                </CustomIcon>
+                <div class="header__city header-city">
+                    <Icon class="header-city__icon no-select" name="akar-icons:location" />
+                    <div class="header-city__name">Санкт-Перербург</div>
                 </div>
-            </div>
-            <div class="header__actions header-actions">
-                <CustomIcon
-                    to="/personal"
-                    class="header-actions__item header-actions-item"
-                    icon-name="ri:user-line"
-                />
-                <CustomIcon
-                    to="/favorite"
-                    class="header-actions__item header-actions-item"
-                    icon-name="ri:heart-line"
-                />
-                <CustomIcon
-                    to="/cart"
-                    class="header-actions__item header-actions-item"
-                    icon-name="ri:shopping-bag-2-line"
-                />
-            </div>
-        </Wrapper>
+                <button class="header__mobile-menu header-mobile-menu">
+                    <Icon class="header-mobile-menu__icon no-select" name="ri:menu-fill" />
+                </button>
+                <CustomSearch class="header__search" placeholder="Какую мебель вы ищите?" />
+                <nav class="header__menu header-menu">
+                    <NuxtLink to="/catalog" class="header-menu__link"> Каталог</NuxtLink>
+                    <NuxtLink to="/promo" class="header-menu__link">Акции</NuxtLink>
+                    <NuxtLink to="/info" class="header-menu__link">Инфо</NuxtLink>
+                </nav>
+                <div class="header__contacts header-contacts">
+                    <button class="header-contacts__button">
+                        <img src="~/assets/images/icons/call-help.svg" alt="" />
+                    </button>
+                    <div class="header-contacts__info header-contacts-info">
+                        <div class="header-contacts-info__phone">8 800 999 99 99</div>
+                        <div class="header-contacts-info__time">9:00 – 21:00 мск ежедневно</div>
+                    </div>
+                </div>
+                <div class="header__actions header-actions">
+                    <CustomIcon
+                        to="/personal"
+                        class="header-actions__item header-actions-item"
+                        icon-name="ri:user-line"
+                    />
+                    <CustomIcon
+                        to="/favorite"
+                        class="header-actions__item header-actions-item"
+                        icon-name="ri:heart-line"
+                    />
+                    <CustomIcon
+                        to="/cart"
+                        class="header-actions__item header-actions-item"
+                        icon-name="ri:shopping-bag-2-line"
+                    />
+                </div>
+            </Wrapper>
+        </div>
+        <div class="header__additional-menu header-additional-menu">
+            <Wrapper class="header-additional-menu__wrapper">
+                <nav class="header-additional-menu__nav header-menu">
+                    <NuxtLink class="header-menu__link">Кровати</NuxtLink>
+                    <NuxtLink class="header-menu__link">Матрасы</NuxtLink>
+                    <NuxtLink class="header-menu__link">Спальни</NuxtLink>
+                    <NuxtLink class="header-menu__link">Шкафы</NuxtLink>
+                    <NuxtLink class="header-menu__link">Комоды</NuxtLink>
+                    <NuxtLink class="header-menu__link">Стенки</NuxtLink>
+                    <NuxtLink class="header-menu__link">Кухни</NuxtLink>
+                    <NuxtLink class="header-menu__link">Прихожие</NuxtLink>
+                </nav>
+            </Wrapper>
+        </div>
     </header>
 </template>
 
@@ -73,7 +89,6 @@ import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
         background-color: $color_onsurface_quaternary
         +from-tablet
             display: none
-
     &__wrapper
         align-items: center
         +until-tablet
@@ -158,6 +173,7 @@ import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
 
     &__link
         transition: color .3s
+        +no-select
 
         &:not(:last-of-type)
             margin-right: 24px
@@ -195,7 +211,7 @@ import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
     &__item
         width: 24px
         height: 24px
-
+        +no-select
         &:not(:last-of-type)
             margin-right: 14px
 
@@ -211,8 +227,19 @@ import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
 
 .header-mobile-menu
     margin-right: auto
-
     &__icon
         width: 24px
         height: 24px
+
+
+.header-additional-menu
+    padding-top: 12px
+    margin-top: 12px
+    background: $color_surface_primary
+    box-shadow: 0 -1px 0 $color_onsurface_quaternary
+    +while-mob
+        display: none
+    &__nav
+        flex-wrap: nowrap
+        overflow-x: auto
 </style>

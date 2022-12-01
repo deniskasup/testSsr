@@ -1,20 +1,34 @@
 <template>
     <div class="personal-orders-item">
         <div class="personal-orders-item-info">
-            <div class="personal-orders-item-info__line">
+            <div class="personal-orders-item-info__column">
                 <div class="personal-orders-item__id">№ 1267470</div>
+                <div class="personal-orders-item__date">5 Окт 2022</div>
+            </div>
+            <div class="personal-orders-item-info__column">
                 <div class="personal-orders-item__status personal-orders-item__status--green">
                     Получен
                 </div>
-                <div class="personal-orders-item__price">6 500 ₽</div>
             </div>
-            <div class="personal-orders-item-info__line">
-                <div class="personal-orders-item__date">5 Окт 2022</div>
+            <div class="personal-orders-item-info__column">
+                <div class="personal-orders-item__price">6 500 ₽</div>
                 <div class="personal-orders-item__quantity">3 товара</div>
             </div>
         </div>
         <div class="personal-orders-item__products personal-orders-item-products">
-            <div class="personal-orders-item-products__slider personal-orders-item-products-slider">
+            <div
+                v-if="isShowDetails"
+                class="personal-orders-item-products__list personal-orders-item-products-list"
+            >
+                <PersonalProduct
+                    v-for="item in 3"
+                    class="personal-orders-item-products-list__item"
+                />
+            </div>
+            <div
+                v-else
+                class="personal-orders-item-products__slider personal-orders-item-products-slider"
+            >
                 <Swiper class="personal-orders-item-products-slider__swiper" v-bind="swiperOptions">
                     <SwiperSlide
                         v-for="item in 10"
@@ -44,7 +58,10 @@ import { Mousewheel, SwiperOptions } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ref } from '#imports'
 import 'swiper/css'
+import PersonalProduct from '~/components/Personal/Product.vue'
 const swiperOptions: SwiperOptions = {
+    observeParents: true,
+    observer: true,
     slidesPerView: 'auto',
     spaceBetween: 16,
     modules: [Mousewheel],
@@ -75,8 +92,12 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
         font-weight: 600
         line-height: 1.2
         font-size: 20px
-        margin-right: 24px
+        margin-bottom: 4px
+        +while-mob
+            font-size: 18px
+            margin-bottom: 0
     &__status
+        margin-top: 2px
         text-transform: uppercase
         color: $color_surface_primary
         font-size: 10px
@@ -87,28 +108,36 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
     &__date, &__quantity
         font-size: 10px
         color: $color_onsurface_secondary
-    &__quantity
-        margin-left: auto
-
     &__price
         margin-left: auto
         font-weight: 600
         line-height: 1.2
         font-size: 18px
+        margin-bottom: 4px
+        +while-mob
+            font-size: 16px
+            margin-bottom: 0
 
 .personal-orders-item-info
     width: 100%
     display: grid
-    grid-gap: 4px
+    grid-gap: 24px
     margin-bottom: 32px
-    &__line
+    grid-template-columns: minmax(110px, max-content) 1fr minmax(min-content, max-content)
+    +while-mob
+        grid-gap: 12px
+        margin-bottom: 26px
+    &__column
         display: flex
-        align-items: center
+        flex-direction: column
+        justify-content: space-between
+        align-items: flex-start
+
 
 .personal-orders-item-products
     width: 100%
     display: flex
-    align-items: center
+    align-items: flex-start
     justify-content: space-between
     +media-until(1023px)
         display: grid
@@ -117,18 +146,29 @@ const toggleDetails = () => (isShowDetails.value = !isShowDetails.value)
         justify-items: flex-start
         justify-content: unset
         grid-gap: 10px
+    &__list
+        width: 100%
+        max-width: 376px
+        +media-until(768px)
+            max-width: unset
     &__show-more
         display: flex
         align-items: center
         margin-left: 20px
+        margin-top: 30px
         flex-shrink: 0
         position: relative
         line-height: 1.4
         font-weight: 600
         color: $color_primary
         padding-right: 20px
+        outline: none
+        +no-select
         +media-until(1023px)
             margin-left: unset
+        +while-mob
+            margin-top: 5px
+
         &::after
             position: absolute
             right: 0

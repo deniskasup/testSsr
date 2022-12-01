@@ -51,7 +51,7 @@ const inputValue = computed({
     display: flex
     align-items: center
     user-select: none
-    -webkit-tap-highlight-color: $color_transparent
+    +no-select
 
     &:not(&--disabled)
         cursor: pointer

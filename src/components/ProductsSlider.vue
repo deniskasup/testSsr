@@ -71,7 +71,7 @@ const swiperOptions: SwiperOptions = {
         position: absolute
         top: 50%
         left: -30px
-        transform: translateY(-50%)
+        transform: translateY(-100%)
         background: #FFFFFF
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.05)
         border-radius: 50%
@@ -99,7 +99,7 @@ const swiperOptions: SwiperOptions = {
         right: -30px
 
     & :deep(.swiper-button-prev)
-        transform: rotate(180deg) translateY(50%)
+        transform: rotate(180deg) translateY(100%)
 
     &__slide
         margin-right: 40px

@@ -44,7 +44,7 @@ const inputValue = computed({
     display: flex
     flex-direction: column
     width: 100%
-
+    +no-select
     &__label
         color: $color_onsurface_primary
         font-size: 14px

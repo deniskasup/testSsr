@@ -222,7 +222,7 @@ const testLinks = [
 .footer-nav-column-list
     &__item
         transition: color .3s, opacity .3s
-
+        +no-select
         &.router-link-active
             color: $color_primary
 

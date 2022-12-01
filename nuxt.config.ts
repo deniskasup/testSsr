@@ -34,6 +34,8 @@ export default defineNuxtConfig({
                 { name: 'theme-color', content: '#ffffff' },
             ],
         },
+        // pageTransition: { name: 'page', mode: 'out-in' },
+        // layoutTransition: { name: 'layout', mode: 'out-in' },
     },
     typescript: {
         strict: true,

@@ -13,7 +13,7 @@
                 </div>
                 <div class="ordering__left ordering-left">
                     <div class="ordering__products">
-                        <Product v-for="item in 2" />
+                        <OrderingProduct v-for="item in 2" />
                     </div>
                     <div class="ordering__customer-info ordering-left__item ordering-customer-info">
                         <CustomTextInput
@@ -64,7 +64,7 @@ import Summary from '~/components/Ordering/Summary.vue'
 import CustomTextInput from '~/components/UIComponents/formElements/CustomTextInput.vue'
 import CustomCheckbox from '~/components/UIComponents/formElements/CustomCheckbox.vue'
 import TwoColumnSectionPlaceholder from '~/components/Placeholders/TwoColumnSectionPlaceholder.vue'
-import Product from '~/components/Ordering/Product.vue'
+import OrderingProduct from '~/components/Ordering/Product.vue'
 useHead({
     title: 'Оформление заказа',
     meta: [

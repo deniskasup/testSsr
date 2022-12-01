@@ -62,7 +62,7 @@ const error = ''
     width: 100%
     display: grid
     grid-gap: 8px
-
+    +no-select
     &__label
         color: $color_onsurface_primary
         font-size: 14px

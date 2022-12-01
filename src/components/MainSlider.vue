@@ -130,7 +130,7 @@ const swiperOptions: SwiperOptions = {
 .main-slider-pagination
     display: grid
     justify-items: center
-
+    +no-select
     &-container
         z-index: 2
         position: absolute
