@@ -83,11 +83,14 @@ const inputValue = computed({
     align-items: center
     margin-right: 11px
     margin-left: 2px
-
+    position: relative
     &__input
-        width: 0
-        height: 0
-
+        width: 1px
+        height: 1px
+        position: absolute
+        opacity: 0
+        bottom: 0
+        left: 50%
         &:checked
             & + .checkbox-icon__element
                 outline-color: $color_primary

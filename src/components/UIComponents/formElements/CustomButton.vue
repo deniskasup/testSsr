@@ -1,6 +1,7 @@
 <template>
     <button :type="type" class="button" :class="buttonClasses">
-        <slot />
+        <Icon v-if="loading" class="button__loader" name="eos-icons:bubble-loading" />
+        <slot v-else />
     </button>
 </template>
 
@@ -22,6 +23,10 @@ const props = defineProps({
     size: {
         type: String as PropType<Size>,
         default: Size.MEDIUM,
+    },
+    loading: {
+        type: Boolean,
+        default: false,
     },
 })
 
@@ -63,7 +68,8 @@ const buttonClasses = computed(() => [
             background-color: transparent
             color: $color_primary
             outline: 1px solid $color_primary
-
+            & .button__loader
+                color: $color_primary
             &:disabled
                 outline-color: $color_onsurface_tetriary
                 color: $color_onsurface_tetriary
@@ -74,4 +80,7 @@ const buttonClasses = computed(() => [
     &:active
         opacity: 1 !important
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.25)
+    &__loader
+        width: 20px
+        height: 20px
 </style>
