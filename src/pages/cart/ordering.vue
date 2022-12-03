@@ -41,7 +41,7 @@
                             label="Адрес доставки"
                             placeholder="Город, улица, дом, квартира"
                         />
-                        <CustomTextInput
+                        <CustomTextArea
                             label="Комментарий"
                             placeholder="Оставьте комментарий для доствки"
                         />
@@ -65,6 +65,7 @@ import CustomTextInput from '~/components/UIComponents/formElements/CustomTextIn
 import CustomCheckbox from '~/components/UIComponents/formElements/CustomCheckbox.vue'
 import TwoColumnSectionPlaceholder from '~/components/Placeholders/TwoColumnSectionPlaceholder.vue'
 import OrderingProduct from '~/components/Ordering/Product.vue'
+import CustomTextArea from '~/components/UIComponents/formElements/CustomTextArea.vue'
 useHead({
     title: 'Оформление заказа',
     meta: [

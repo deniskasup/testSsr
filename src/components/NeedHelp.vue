@@ -7,7 +7,7 @@
                     <div class="need-help-content__text">
                         Оставьте свои данные и мы с вами свяжемся в течении 15 минут
                     </div>
-                    <form class="need-help-content__form need-help-content-form">
+                    <form ref="form" class="need-help-content__form need-help-content-form">
                         <CustomTextInput :required="true" label="Имя" />
                         <CustomTextInput
                             mask="+7 (###) ###-####"
@@ -19,7 +19,7 @@
                             Я согласен с
                             <a target="_blank" href="#">условиями передачи информации</a>
                         </CustomCheckbox>
-                        <CustomButton type="submit" @click.prevent="submit">
+                        <CustomButton :loading="loading" type="submit" @click.prevent="submit">
                             Перезвоните мне
                         </CustomButton>
                     </form>
@@ -43,8 +43,19 @@ import Wrapper from '~/components/Wrapper.vue'
 import CustomTextInput from '~/components/UIComponents/formElements/CustomTextInput.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 import CustomCheckbox from '~/components/UIComponents/formElements/CustomCheckbox.vue'
+import { ref, unref } from '#imports'
 
-const submit = () => console.log('test')
+const form = ref()
+const loading = ref(false)
+const submit = () => {
+    loading.value = true
+    if (unref(form)?.checkValidity()) {
+        console.log('test')
+    } else {
+        unref(form)?.reportValidity()
+    }
+    loading.value = false
+}
 </script>
 
 <style lang="sass" scoped>
@@ -108,6 +119,7 @@ const submit = () => console.log('test')
         margin: 0 auto
     +while-mob
         max-width: unset
+
     &__title
         font-weight: 600
         font-size: 26px
@@ -132,6 +144,7 @@ const submit = () => console.log('test')
             margin-bottom: 30px
         +while-mob
             font-size: 12px
+
     &__form
         display: grid
         grid-gap: 16px
