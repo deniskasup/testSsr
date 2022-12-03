@@ -91,13 +91,15 @@ const { showSelectCity } = useModals()
         content: ''
         position: absolute
         width: 100vw
-        top: 50%
+        top: calc(50% - 21px)
         left: 50%
         transform: translate(-50%, -50%)
         height: 1px
         background-color: $color_onsurface_quaternary
         +from-tablet
             display: none
+        +while-mob
+            top: 50%
     &__wrapper
         align-items: center
         +until-tablet

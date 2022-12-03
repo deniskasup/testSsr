@@ -10,13 +10,13 @@
 import { onMounted, useNuxtApp } from '#imports'
 import useModals from '~/composition/useModals'
 const nuxtApp = useNuxtApp()
-const { showRegistration } = useModals()
+const { showReview } = useModals()
 // TODO: возможно есть решение по красивее
 nuxtApp.hook('page:finish', () => {
     window.scrollTo(0, 0)
 })
 onMounted(() => {
-    showRegistration()
+    showReview('Кровать')
 })
 </script>
 

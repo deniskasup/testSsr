@@ -29,7 +29,6 @@ import { definePageMeta, useHead } from '#imports'
 
 definePageMeta({
     title: 'Инфо',
-    layout: 'with-breadcrumbs',
     redirect: { path: '/info/how-to-order' },
 })
 useHead({

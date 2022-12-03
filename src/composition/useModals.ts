@@ -6,9 +6,17 @@ import {
     LazyModalsOneClick,
     LazyModalsRegistration,
     LazyModalsSelectCity,
+    LazyModalsReview,
 } from '#components'
 
 export default function useModals() {
+    const showReview = (productName: string) => {
+        $vfm.show({
+            component: LazyModalsReview,
+            bind: { productName },
+        })
+    }
+
     const showCheckCity = () => {
         $vfm.show({
             component: LazyModalsCheckCity,
@@ -38,15 +46,14 @@ export default function useModals() {
         })
     }
 
-    const showNotion = (type: string) => {
+    const showNotion = (smile: string, title: string, text: string) => {
         $vfm.show({
             component: LazyModalsNotion,
-            bind: {
-                type,
-            },
+            bind: { smile, title, text },
         })
     }
     return {
+        showReview,
         showCheckCity,
         showSelectCity,
         showNotion,

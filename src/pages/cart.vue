@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import { definePageMeta, useHead } from '#imports'
 definePageMeta({
-    layout: 'with-breadcrumbs',
     title: 'Корзина',
     redirect: { path: '/cart/ordering' },
 })

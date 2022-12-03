@@ -75,7 +75,6 @@ useHead({
     ],
 })
 definePageMeta({
-    layout: 'with-breadcrumbs',
     title: 'Оформление заказа',
 })
 </script>

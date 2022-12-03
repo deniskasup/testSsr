@@ -47,7 +47,6 @@ import { computed, definePageMeta, useHead, useWindowSize } from '#imports'
 
 definePageMeta({
     title: 'Акции',
-    layout: 'with-breadcrumbs',
 })
 useHead({
     title: 'Акции',

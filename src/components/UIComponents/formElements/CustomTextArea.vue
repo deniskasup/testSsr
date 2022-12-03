@@ -1,32 +1,22 @@
 <template>
-    <div class="text-input">
+    <div class="text-area">
         <div
             v-if="label"
-            class="text-input__label"
-            :class="{ 'text-input__label--disabled': disabled }"
+            class="text-area__label"
+            :class="{ 'text-area__label--disabled': disabled }"
         >
             {{ label }}{{ required ? '*' : '' }}
         </div>
-        <div class="text-input__input">
-            <input
-                v-if="mask"
-                v-model="inputValue"
-                v-maska="mask"
-                :required="required"
-                :placeholder="placeholder"
-                :disabled="disabled"
-                type="text"
-            />
-            <input
-                v-else
+        <div class="text-area__input">
+            <textarea
                 v-model="inputValue"
                 :required="required"
                 :placeholder="placeholder"
                 :disabled="disabled"
-                type="text"
+                :rows="rows"
             />
         </div>
-        <div v-if="error" class="text-input__error">{{ error }}</div>
+        <div v-if="error" class="text-area__error">{{ error }}</div>
     </div>
 </template>
 
@@ -40,7 +30,7 @@ const props = defineProps({
     required: { type: Boolean, default: false },
     modelValue: { type: String, default: '' },
     placeholder: { type: String, default: '' },
-    mask: { type: String, default: '' },
+    rows: { type: Number, default: 3 },
 })
 
 const inputValue = computed({
@@ -56,7 +46,7 @@ const error = ''
 </script>
 
 <style lang="sass" scoped>
-.text-input
+.text-area
     width: 100%
     display: grid
     grid-gap: 8px
@@ -75,7 +65,8 @@ const error = ''
         align-items: center
         position: relative
 
-        & input
+        & textarea
+            resize: vertical
             width: 100%
             padding: 16px
             font-size: 16px
@@ -96,9 +87,9 @@ const error = ''
                 background-color: $color_surface_primary
                 color: $color_onsurface_tetriary
 
-            //&:invalid
-            //    color: $color_primary
-            //    outline-color: $color_primary
+    //&:invalid
+    //    color: $color_primary
+    //    outline-color: $color_primary
 
     &__error
         font-size: 12px

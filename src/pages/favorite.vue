@@ -42,7 +42,6 @@ import ProductCard from '~/components/Products/ProductCard.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 definePageMeta({
-    layout: 'with-breadcrumbs',
     title: 'Избранное',
 })
 useHead({

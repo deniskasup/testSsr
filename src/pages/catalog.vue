@@ -10,7 +10,6 @@
 import Wrapper from '~/components/Wrapper.vue'
 import { definePageMeta, useHead } from '#imports'
 definePageMeta({
-    layout: 'with-breadcrumbs',
     title: 'Каталог',
 })
 useHead({

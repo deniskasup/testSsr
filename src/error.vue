@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout name="error">
+    <NuxtLayout>
         <main class="error-page">
             <section class="error">
                 <Wrapper class="error__wrapper">
@@ -19,6 +19,7 @@
                     </div>
                 </Wrapper>
             </section>
+            <NeedHelp />
         </main>
     </NuxtLayout>
 </template>

@@ -17,7 +17,6 @@ import { definePageMeta, useHead } from '#imports'
 import Section from '~/components/Personal/Section.vue'
 import TwoColumnSectionPlaceholder from '~/components/Placeholders/TwoColumnSectionPlaceholder.vue'
 definePageMeta({
-    layout: 'with-breadcrumbs',
     title: 'Личный кабинет',
 })
 

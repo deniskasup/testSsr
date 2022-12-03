@@ -5,9 +5,7 @@
             <template #title>Популярные товары</template>
         </ProductsSlider>
 
-        <ClientOnly>
-            <Showcase />
-        </ClientOnly>
+        <Showcase />
 
         <PromoSlider />
 
@@ -16,15 +14,18 @@
         <OurGoal />
 
         <MainReviews />
+
         <NeedHelp />
     </main>
 </template>
 
 <script setup lang="ts">
-import { useHead } from '#imports'
+import { definePageMeta, useHead } from '#imports'
+definePageMeta({
+    hideBreadcrumbs: true,
+})
 
 useHead({
-    title: 'ВМ Мебель',
     meta: [
         {
             name: 'description',

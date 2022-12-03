@@ -7,10 +7,17 @@
                     профиль
                 </h2>
                 <div class="modal-registration-head__description">
-                    Авторизуйтесь, чтобы мы могли сохранить для вас список пожеланий и заказы.
+                    <span v-if="codeSended">На ваш номер отправили код подтверждения</span>
+                    <span v-else>
+                        Авторизуйтесь, чтобы мы могли сохранить для вас список пожеланий и заказы.
+                    </span>
                 </div>
             </div>
-            <form class="modal-registration__form modal-registration-form" @submit.prevent>
+            <form
+                ref="form"
+                class="modal-registration__form modal-registration-form"
+                @submit.prevent
+            >
                 <template v-if="codeSended">
                     <CustomCodeInput v-model="smsCode" label="Код подтверждения" />
                     <CustomButton loading class="modal-registration-form__submit" type="button">
@@ -31,7 +38,7 @@
                     <CustomButton
                         class="modal-registration-form__submit"
                         type="submit"
-                        @click.prevent="test"
+                        @click.prevent="sendCode"
                     >
                         Получить код
                     </CustomButton>
@@ -42,14 +49,27 @@
 </template>
 
 <script setup lang="ts">
+import { Ref } from '@vue/runtime-core'
+import { ref, unref } from '#imports'
 import CustomTextInput from '~/components/UIComponents/formElements/CustomTextInput.vue'
 import CustomCheckbox from '~/components/UIComponents/formElements/CustomCheckbox.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 import CustomCodeInput from '~/components/UIComponents/formElements/CustomCodeInput.vue'
-import { ref } from '#imports'
+
+const loading = ref(false)
 const codeSended = ref(false)
 const smsCode = ref([])
-const test = () => (codeSended.value = true)
+const form: Ref<HTMLFormElement | undefined> = ref()
+
+const sendCode = () => {
+    loading.value = true
+    if (unref(form)?.checkValidity()) {
+        codeSended.value = true
+    } else {
+        unref(form)?.reportValidity()
+    }
+    loading.value = false
+}
 </script>
 
 <style lang="sass" scoped>
@@ -70,6 +90,7 @@ const test = () => (codeSended.value = true)
 .modal-registration-form
     display: grid
     grid-gap: 16px
+
     &__submit
         margin-top: 16px
 </style>
