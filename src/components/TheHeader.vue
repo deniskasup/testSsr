@@ -21,7 +21,7 @@
                 <nav class="header__menu header-menu">
                     <NuxtLink to="/catalog" class="header-menu__link"> Каталог</NuxtLink>
                     <NuxtLink to="/promo" class="header-menu__link">Акции</NuxtLink>
-                    <NuxtLink to="/info" class="header-menu__link">Инфо</NuxtLink>
+                    <NuxtLink to="/info" class="header-menu__link"> Инфо </NuxtLink>
                 </nav>
                 <div class="header__contacts header-contacts">
                     <button class="header-contacts__button">
@@ -51,17 +51,17 @@
                 </div>
             </Wrapper>
         </div>
-        <div class="header__additional-menu header-additional-menu">
+        <div v-if="showSubMenu" class="header__additional-menu header-additional-menu">
             <Wrapper class="header-additional-menu__wrapper">
                 <nav class="header-additional-menu__nav header-menu">
-                    <NuxtLink class="header-menu__link">Кровати</NuxtLink>
-                    <NuxtLink class="header-menu__link">Матрасы</NuxtLink>
-                    <NuxtLink class="header-menu__link">Спальни</NuxtLink>
-                    <NuxtLink class="header-menu__link">Шкафы</NuxtLink>
-                    <NuxtLink class="header-menu__link">Комоды</NuxtLink>
-                    <NuxtLink class="header-menu__link">Стенки</NuxtLink>
-                    <NuxtLink class="header-menu__link">Кухни</NuxtLink>
-                    <NuxtLink class="header-menu__link">Прихожие</NuxtLink>
+                    <NuxtLink
+                        v-for="link in subMenuLinks"
+                        :key="link.id"
+                        :to="link.url"
+                        class="header-menu__link"
+                    >
+                        {{ link.name }}
+                    </NuxtLink>
                 </nav>
             </Wrapper>
         </div>
@@ -74,19 +74,26 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
 import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
 import { IconType } from '~/model/enums/IconType'
 import useModals from '~/composition/useModals'
-
+import { computed, useRoute } from '#imports'
+import { useCategoriesStore } from '~/composition/store/useCategoriesStore'
 const { showSelectCity } = useModals()
+const route = useRoute()
+const showSubMenu = computed(() => route.meta.showSubMenu)
+const categoriesStore = useCategoriesStore()
+const subMenuLinks = computed(() => categoriesStore.categoriesTree)
 </script>
 
 <style lang="sass" scoped>
 .header
+    z-index: 2
     position: relative
     padding: 12px 0
     background: $color_surface_primary
     box-shadow: 0 1px 0 $color_onsurface_quaternary
     +while-mob
         padding: 8px 0
-
+    &__main
+        position: relative
     &::before
         content: ''
         position: absolute
@@ -183,6 +190,7 @@ const { showSelectCity } = useModals()
     align-items: center
 
     &__link
+        white-space: nowrap
         transition: color .3s
         +no-select
 
@@ -253,4 +261,15 @@ const { showSelectCity } = useModals()
     &__nav
         flex-wrap: nowrap
         overflow-x: auto
+        +hide-scrollbar
+
+
+.dropdown-enter-active,
+.dropdown-leave-active
+    transition: opacity 0.5s ease
+
+
+.dropdown-enter-from,
+.dropdown-leave-to
+    opacity: 0
 </style>

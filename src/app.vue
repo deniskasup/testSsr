@@ -7,32 +7,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, useNuxtApp } from '#imports'
-import useModals from '~/composition/useModals'
+import { useNuxtApp } from '#imports'
+import useCategoriesRequests from '~/composition/requests/useCategoriesRequests'
 const nuxtApp = useNuxtApp()
-const {
-    showReview,
-    showRegistration,
-    showNeedHelp,
-    showOneClick,
-    showCheckCity,
-    showSelectCity,
-    showNotion,
-} = useModals()
+const { getCategoriesTree } = useCategoriesRequests()
+
+await getCategoriesTree()
 // TODO: возможно есть решение по красивее
 nuxtApp.hook('page:finish', () => {
     window.scrollTo(0, 0)
 })
-onMounted(() => {
-    // Раскоментируй нужную
-    showReview('Кровать')
-    // showRegistration()
-    // showNeedHelp()
-    // showOneClick()
-    // showCheckCity()
-    // showSelectCity()
-    // showNotion('👍', 'Спасибо!', 'Заявка отправлена, мы скоро с вами свяжемся')
-})
 </script>
-
-<style lang="sass" scoped></style>

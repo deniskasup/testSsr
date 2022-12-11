@@ -40,7 +40,18 @@ export default defineNuxtConfig({
     typescript: {
         strict: true,
     },
-    modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon', '@nuxt/image-edge'],
+    modules: [
+        '@nuxtjs/tailwindcss',
+        '@vueuse/nuxt',
+        'nuxt-icon',
+        '@nuxt/image-edge',
+        [
+            '@pinia/nuxt',
+            {
+                autoImports: ['defineStore', 'acceptHMRUpdate'],
+            },
+        ],
+    ],
     css: ['@/assets/styles/main.sass'],
     vite: {
         css: {
@@ -51,6 +62,14 @@ export default defineNuxtConfig({
                         @import "@/assets/styles/components/_utils.sass"
                     `,
                 },
+            },
+        },
+    },
+    nitro: {
+        devProxy: {
+            '/api': {
+                target: 'http://api.aroyan7k.beget.tech/',
+                changeOrigin: true,
             },
         },
     },

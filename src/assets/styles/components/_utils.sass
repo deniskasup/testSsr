@@ -74,6 +74,12 @@ $tablet-max: 1024px
     &:focus
         outline: none !important
 
+@mixin hide-scrollbar
+    -ms-overflow-style: none
+    scrollbar-width: none
+    &::-webkit-scrollbar
+        display: none
+
 @mixin h2
     font-weight: 600
     font-size: 26px

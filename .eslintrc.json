@@ -11,6 +11,7 @@
   ],
   "rules": {
     "@typescript-eslint/no-unused-vars": "warn",
+    "vue/no-multiple-template-root": "warn",
     "max-len": ["warn", { "code": 120 }],
     "vue/multi-word-component-names": 0,
     //     "vue/no-multiple-template-root": 0,

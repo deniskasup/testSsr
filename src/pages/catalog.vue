@@ -1,8 +1,6 @@
 <template>
     <main class="catalog-page default-page">
-        <section class="catalog">
-            <Wrapper> каталог </Wrapper>
-        </section>
+        <NuxtPage />
     </main>
 </template>
 
@@ -11,6 +9,7 @@ import Wrapper from '~/components/Wrapper.vue'
 import { definePageMeta, useHead } from '#imports'
 definePageMeta({
     title: 'Каталог',
+    showSubMenu: true,
 })
 useHead({
     title: 'Каталог',

@@ -1,10 +1,5 @@
 <template>
-    <button
-        type="button"
-        class="scroll-top"
-        :class="{ 'scroll-top--visible': isButtonVisible }"
-        @click="scrollToTop"
-    >
+    <button v-show="isButtonVisible" type="button" class="scroll-top" @click="scrollToTop">
         <Icon class="scroll-top__icon" name="ri:arrow-down-line" />
     </button>
 </template>
@@ -35,9 +30,8 @@ const scrollToTop = () => {
     z-index: 5
     opacity: 0
     visibility: hidden
-    &--visible
-        animation: buttonAnimation .5s forwards
-        animation-timing-function: cubic-bezier(.57,1.15,.62,.51) //cubic-bezier(.21,1.19,.37,.33)
+    animation: buttonAnimation .5s forwards
+    animation-timing-function: cubic-bezier(.57,1.15,.62,.51) //cubic-bezier(.21,1.19,.37,.33)
     &__icon
         width: 32px
         height: 32px

@@ -23,9 +23,11 @@
 import { definePageMeta, useHead } from '#imports'
 definePageMeta({
     hideBreadcrumbs: true,
+    showSubMenu: true,
 })
 
 useHead({
+    title: 'ВМ Мебель',
     meta: [
         {
             name: 'description',
