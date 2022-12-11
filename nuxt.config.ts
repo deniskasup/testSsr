@@ -40,7 +40,13 @@ export default defineNuxtConfig({
     typescript: {
         strict: true,
     },
-    modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon', '@nuxt/image-edge'],
+    modules: [
+        '@nuxtjs/tailwindcss',
+        '@vueuse/nuxt',
+        'nuxt-icon',
+        'nuxt-proxy',
+        '@nuxt/image-edge',
+    ],
     css: ['@/assets/styles/main.sass'],
     vite: {
         css: {
@@ -54,4 +60,19 @@ export default defineNuxtConfig({
             },
         },
     },
+    proxy: {
+        options: {
+            target: 'http://api.aroyan7k.beget.tech',
+            changeOrigin: true,
+            pathRewrite: {
+                '^/api/': '/',
+            },
+            pathFilter: [
+                '/api',
+            ],
+        }
+    },
+    plugins: [
+        {src: '~/plugins/bootstrap/commonPlugins', mode: 'all'},
+    ],
 })
