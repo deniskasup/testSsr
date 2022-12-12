@@ -1,10 +1,14 @@
 <template>
     <ModalsModalRoot>
         <div class="modal-check-city">
-            <h3 class="modal-check-city__title">Ваш город – Москва?</h3>
+            <h3 class="modal-check-city__title">Ваш город – {{ city.name }}?</h3>
             <div class="modal-check-city__actions modal-check-city-actions">
-                <CustomButton :size="Size.SMALL">Да, верно</CustomButton>
-                <CustomButton :size="Size.SMALL" :priority="ButtonPriority.SECONDARY">
+                <CustomButton :size="Size.SMALL" @click="confirmCity">Да, верно</CustomButton>
+                <CustomButton
+                    :size="Size.SMALL"
+                    :priority="ButtonPriority.SECONDARY"
+                    @click="openSelectCityModal"
+                >
                     Нет, другой
                 </CustomButton>
             </div>
@@ -13,9 +17,31 @@
 </template>
 
 <script setup lang="ts">
+import { $vfm } from 'vue-final-modal'
 import CustomButton from '../UIComponents/formElements/CustomButton'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 import { Size } from '~/model/enums/formElements/Size'
+import useModals from '~/composition/useModals'
+import { useUserCity } from '~/composition/useUserCity'
+import { onBeforeMount, ref, unref } from '#imports'
+import { CityKey } from '~/model/enums/CityKey'
+
+const { showSelectCity } = useModals()
+const { getUserCityByIP, setUserCity } = useUserCity()
+const city = ref({ name: 'Москва', key: CityKey.MSK })
+const confirmCity = async () => {
+    await $vfm.hideAll()
+    setUserCity(unref(city).key)
+}
+
+const openSelectCityModal = async () => {
+    await $vfm.hideAll()
+    await showSelectCity()
+}
+
+onBeforeMount(async () => {
+    city.value = await getUserCityByIP()
+})
 </script>
 
 <style lang="sass" scoped>

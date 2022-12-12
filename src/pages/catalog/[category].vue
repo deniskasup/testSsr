@@ -1,8 +1,10 @@
 <template>
-    <div>{{ $route.params.category }}</div>
-    <pre>
-        {{ categoryData }}
-    </pre>
+    <div>
+        <div>{{ $route.params.category }}</div>
+        <pre>
+            {{ categoryData }}
+        </pre>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -12,7 +14,6 @@ import { Category } from '~/api/categories/interfaces/Category'
 const { getCategoryData } = useCategoriesRequests()
 const route = useRoute()
 
-// НИХУЯ НЕ РАБОТАЕТ БЛЯТЬ
 const categoryName = computed(() =>
     Array.isArray(route.params.category) ? route.params.category[0] : route.params.category
 )

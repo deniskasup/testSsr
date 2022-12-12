@@ -64,13 +64,22 @@ export default defineNuxtConfig({
                 },
             },
         },
+        // server: {
+        //     proxy: {
+        //         '/api': {
+        //             target: 'http://api.aroyan7k.beget.tech/',
+        //             changeOrigin: true,
+        //             rewrite: (path) => path.replace(/^\/api/, ''),
+        //         },
+        //     },
+        // },
     },
-    nitro: {
-        devProxy: {
-            '/api': {
-                target: 'http://api.aroyan7k.beget.tech/',
-                changeOrigin: true,
-            },
-        },
-    },
+    // nitro: {
+    //     devProxy: {
+    //         '/api': {
+    //             target: 'http://api.aroyan7k.beget.tech/',
+    //             changeOrigin: true,
+    //         },
+    //     },
+    // },
 })
