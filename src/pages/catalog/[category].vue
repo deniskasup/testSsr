@@ -1,13 +1,14 @@
 <template>
-    <div class="">{{ $route.params.category }}</div>
+    <div>{{ $route.params.category }}</div>
     <pre>
-        {{ response }}
+        {{ categoryData }}
     </pre>
 </template>
 
 <script setup lang="ts">
-import { computed, definePageMeta, unref, useHead, useRoute } from '#imports'
+import { computed, ref, unref, useHead, useRoute } from '#imports'
 import useCategoriesRequests from '~/composition/requests/useCategoriesRequests'
+import { Category } from '~/api/categories/interfaces/Category'
 const { getCategoryData } = useCategoriesRequests()
 const route = useRoute()
 
@@ -15,19 +16,20 @@ const route = useRoute()
 const categoryName = computed(() =>
     Array.isArray(route.params.category) ? route.params.category[0] : route.params.category
 )
-const { data: response } = await getCategoryData(categoryName.value)
+const categoryData = ref<Category | null>(null)
+categoryData.value = await getCategoryData(categoryName.value)
 
-definePageMeta({
-    title: unref(response)?.data.pageTitle,
-    // middleware: ['categories'],
-})
+// definePageMeta({
+//     title: unref(categoryData)?.pageTitle,
+//     // middleware: ['categories'],
+// })
 
 useHead({
-    title: unref(response)?.data.pageTitle,
+    title: unref(categoryData)?.pageTitle,
     meta: [
         {
             name: 'description',
-            content: unref(response)?.data.description,
+            content: unref(categoryData)?.description,
         },
     ],
 })

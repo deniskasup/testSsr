@@ -25,14 +25,14 @@
                 <div class="footer-nav__column footer-nav-column">
                     <div class="footer-nav-column__title">Каталог</div>
                     <div class="footer-nav-column__list footer-nav-column-list">
-                        <NuxtLink class="footer-nav-column-list__item">Кровати</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item">Матрасы</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item">Спальни</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item">Шкафы</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item">Комоды</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item">Стенки</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item">Кухни</NuxtLink>
-                        <NuxtLink class="footer-nav-column-list__item">Прихожие</NuxtLink>
+                        <NuxtLink
+                            v-for="link in categoriesTree"
+                            :key="link.id"
+                            :to="`/catalog/${link.url}`"
+                            class="footer-nav-column-list__item"
+                        >
+                            {{ link.name }}
+                        </NuxtLink>
                     </div>
                 </div>
                 <div class="footer-nav__column footer-nav-column">
@@ -58,7 +58,8 @@
 import Wrapper from '~/components/Wrapper'
 import FooterSocials from '~/components/Footer/FooterSocials.vue'
 import { infoLinks } from '~/constants/infoLinks'
-
+import { useCategoriesStore } from '~/composition/store/useCategoriesStore'
+const { categoriesTree } = useCategoriesStore()
 // TODO: убрать
 const testLinks = [
     {

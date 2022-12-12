@@ -51,13 +51,16 @@
                 </div>
             </Wrapper>
         </div>
-        <div v-if="showSubMenu" class="header__additional-menu header-additional-menu">
+        <div
+            v-if="showSubMenu && subMenuLinks.length"
+            class="header__additional-menu header-additional-menu"
+        >
             <Wrapper class="header-additional-menu__wrapper">
                 <nav class="header-additional-menu__nav header-menu">
                     <NuxtLink
                         v-for="link in subMenuLinks"
                         :key="link.id"
-                        :to="link.url"
+                        :to="`/catalog/${link.url}`"
                         class="header-menu__link"
                     >
                         {{ link.name }}
@@ -80,7 +83,16 @@ const { showSelectCity } = useModals()
 const route = useRoute()
 const showSubMenu = computed(() => route.meta.showSubMenu)
 const categoriesStore = useCategoriesStore()
-const subMenuLinks = computed(() => categoriesStore.categoriesTree)
+const subMenuLinks = computed(() => {
+    const category = Array.isArray(route.params.category)
+        ? route.params.category[0]
+        : route.params.category
+    if (route.params.category) {
+        return categoriesStore.categoriesMapByUrl.get(category)?.subcategories || []
+    }
+
+    return categoriesStore.categoriesTree
+})
 </script>
 
 <style lang="sass" scoped>
