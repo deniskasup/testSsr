@@ -5,14 +5,14 @@
                 <CustomIcon class="header__logo" to="/">
                     <img src="~/assets/images/logo.svg" alt="ВМ Мебель" />
                 </CustomIcon>
-                <div class="header__city header-city">
+                <div class="header__city header-city" @click="showSelectCity">
                     <CustomIcon
                         :icon-type="IconType.BUTTON"
                         class="header-city__icon no-select"
                         icon-name="akar-icons:location"
-                        @click="showSelectCity"
                     />
-                    <div class="header-city__name">Санкт-Перербург</div>
+                    <!-- TODO: я хз, надо что то придумать со скаканием города-->
+                    <div class="header-city__name">{{ selectedCityName }}</div>
                 </div>
                 <button class="header__mobile-menu header-mobile-menu">
                     <Icon class="header-mobile-menu__icon no-select" name="ri:menu-fill" />
@@ -21,7 +21,7 @@
                 <nav class="header__menu header-menu">
                     <NuxtLink to="/catalog" class="header-menu__link"> Каталог</NuxtLink>
                     <NuxtLink to="/promo" class="header-menu__link">Акции</NuxtLink>
-                    <NuxtLink to="/info" class="header-menu__link"> Инфо </NuxtLink>
+                    <NuxtLink to="/info" class="header-menu__link"> Инфо</NuxtLink>
                 </nav>
                 <div class="header__contacts header-contacts">
                     <button class="header-contacts__button">
@@ -51,10 +51,7 @@
                 </div>
             </Wrapper>
         </div>
-        <div
-            v-if="showSubMenu && subMenuLinks.length"
-            class="header__additional-menu header-additional-menu"
-        >
+        <div v-if="showSubMenu && subMenuLinks.length" class="header__additional-menu header-additional-menu">
             <Wrapper class="header-additional-menu__wrapper">
                 <nav class="header-additional-menu__nav header-menu">
                     <NuxtLink
@@ -72,6 +69,7 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import Wrapper from '~/components/Wrapper'
 import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vue'
 import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
@@ -79,14 +77,16 @@ import { IconType } from '~/model/enums/IconType'
 import useModals from '~/composition/useModals'
 import { computed, useRoute } from '#imports'
 import { useCategoriesStore } from '~/composition/store/useCategoriesStore'
+import { useCityStore } from '~/composition/store/useCityStore'
+
 const { showSelectCity } = useModals()
 const route = useRoute()
 const showSubMenu = computed(() => route.meta.showSubMenu)
 const categoriesStore = useCategoriesStore()
+const { selectedCityName } = storeToRefs(useCityStore())
+
 const subMenuLinks = computed(() => {
-    const category = Array.isArray(route.params.category)
-        ? route.params.category[0]
-        : route.params.category
+    const category = Array.isArray(route.params.category) ? route.params.category[0] : route.params.category
     if (route.params.category) {
         return categoriesStore.categoriesMapByUrl.get(category)?.subcategories || []
     }
@@ -104,8 +104,10 @@ const subMenuLinks = computed(() => {
     box-shadow: 0 1px 0 $color_onsurface_quaternary
     +while-mob
         padding: 8px 0
+
     &__main
         position: relative
+
     &::before
         content: ''
         position: absolute
@@ -119,6 +121,7 @@ const subMenuLinks = computed(() => {
             display: none
         +while-mob
             top: 50%
+
     &__wrapper
         align-items: center
         +until-tablet
@@ -187,6 +190,7 @@ const subMenuLinks = computed(() => {
 .header-city
     display: flex
     align-items: center
+    cursor: pointer
 
     &__name
         +until-tablet
@@ -243,6 +247,7 @@ const subMenuLinks = computed(() => {
         width: 24px
         height: 24px
         +no-select
+
         &:not(:last-of-type)
             margin-right: 14px
 
@@ -258,6 +263,7 @@ const subMenuLinks = computed(() => {
 
 .header-mobile-menu
     margin-right: auto
+
     &__icon
         width: 24px
         height: 24px
@@ -270,6 +276,7 @@ const subMenuLinks = computed(() => {
     box-shadow: 0 -1px 0 $color_onsurface_quaternary
     +while-mob
         display: none
+
     &__nav
         flex-wrap: nowrap
         overflow-x: auto

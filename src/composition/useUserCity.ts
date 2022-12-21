@@ -1,31 +1,38 @@
-import { useCookie } from '#imports'
+import { storeToRefs } from 'pinia'
+import { unref } from '#imports'
 import useModals from '~/composition/useModals'
-import { CityKey } from '~/model/enums/CityKey'
+import myFetch from '~/composition/useMyFetch'
+import { IResponse } from '~/model/interfaces/IResponse'
+import { useCityStore } from '~/composition/store/useCityStore'
 
 export function useUserCity() {
     const { showCheckCity } = useModals()
-    const userCity = useCookie('city', {
-        expires: new Date(new Date().getTime() + 432e10),
-        path: '/',
-        secure: true,
-    })
+    const { isUserSelectCity } = storeToRefs(useCityStore())
+    const { setCitiesList } = useCityStore()
 
-    const getUserCityByIP = async (): Promise<{ name: string; key: string }> => {
-        return { name: 'Санкт-Петербург', key: CityKey.SPB }
+    const guessUserCity = async () => {
+        const { data: response } = await myFetch<IResponse>('city/guess')
+        if (unref(response)?.success) {
+            return unref(response)?.data.city
+        }
+    }
+
+    const loadCitiesList = async () => {
+        const { data: response } = await myFetch<IResponse>('city/getlist')
+        if (unref(response)?.success) {
+            setCitiesList(unref(response)?.data?.cities ?? [])
+        }
     }
 
     const checkCity = async () => {
-        if (!userCity.value) {
+        if (!isUserSelectCity.value) {
             await showCheckCity()
         }
     }
-    const setUserCity = (cityKey: CityKey) => {
-        console.log(userCity.value, cityKey)
-        userCity.value = cityKey
-    }
+
     return {
+        loadCitiesList,
         checkCity,
-        setUserCity,
-        getUserCityByIP,
+        guessUserCity,
     }
 }

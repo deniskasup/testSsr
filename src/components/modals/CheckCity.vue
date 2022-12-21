@@ -1,14 +1,10 @@
 <template>
     <ModalsModalRoot>
         <div class="modal-check-city">
-            <h3 class="modal-check-city__title">Ваш город – {{ city.name }}?</h3>
+            <h3 class="modal-check-city__title">Ваш город – {{ cityNameByCode(guessedCity) }}?</h3>
             <div class="modal-check-city__actions modal-check-city-actions">
                 <CustomButton :size="Size.SMALL" @click="confirmCity">Да, верно</CustomButton>
-                <CustomButton
-                    :size="Size.SMALL"
-                    :priority="ButtonPriority.SECONDARY"
-                    @click="openSelectCityModal"
-                >
+                <CustomButton :size="Size.SMALL" :priority="ButtonPriority.SECONDARY" @click="openSelectCityModal">
                     Нет, другой
                 </CustomButton>
             </div>
@@ -18,20 +14,25 @@
 
 <script setup lang="ts">
 import { $vfm } from 'vue-final-modal'
-import CustomButton from '../UIComponents/formElements/CustomButton'
+import { storeToRefs } from 'pinia'
+import CustomButton from '../UIComponents/formElements/CustomButton.vue'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 import { Size } from '~/model/enums/formElements/Size'
 import useModals from '~/composition/useModals'
 import { useUserCity } from '~/composition/useUserCity'
 import { onBeforeMount, ref, unref } from '#imports'
-import { CityKey } from '~/model/enums/CityKey'
+import { useCityStore } from '~/composition/store/useCityStore'
 
 const { showSelectCity } = useModals()
-const { getUserCityByIP, setUserCity } = useUserCity()
-const city = ref({ name: 'Москва', key: CityKey.MSK })
+const { setSelectedCity } = useCityStore()
+const { cityNameByCode } = storeToRefs(useCityStore())
+const { guessUserCity } = useUserCity()
+
+const guessedCity = ref('')
+
 const confirmCity = async () => {
+    setSelectedCity(unref(guessedCity))
     await $vfm.hideAll()
-    setUserCity(unref(city).key)
 }
 
 const openSelectCityModal = async () => {
@@ -40,7 +41,7 @@ const openSelectCityModal = async () => {
 }
 
 onBeforeMount(async () => {
-    city.value = await getUserCityByIP()
+    guessedCity.value = await guessUserCity()
 })
 </script>
 

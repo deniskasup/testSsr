@@ -10,6 +10,7 @@
                 :required="required"
                 :placeholder="placeholder"
                 :disabled="disabled"
+                :list="list"
                 type="search"
             />
             <Icon class="search-input__icon" name="ri:search-line" />
@@ -27,6 +28,7 @@ const props = defineProps({
     required: { type: Boolean, default: false },
     modelValue: { type: String, default: '' },
     placeholder: { type: String, default: '' },
+    list: { type: String, default: '' },
 })
 
 const inputValue = computed({
