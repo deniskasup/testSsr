@@ -10,9 +10,7 @@
                     :key="item.name"
                     class="breadcrumbs-list__item breadcrumbs-list-item"
                 >
-                    <span v-if="item.path === $route.path">{{
-                        item.meta.title || 'No TITLE'
-                    }}</span>
+                    <span v-if="item.path === $route.path">{{ item.meta.title || 'No TITLE' }}</span>
                     <NuxtLink v-else class="breadcrumbs-list-item__link" :to="item.path">
                         {{ item.meta.title || 'No TITLE' }}
                     </NuxtLink>

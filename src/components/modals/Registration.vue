@@ -8,16 +8,10 @@
                 </h2>
                 <div class="modal-registration-head__description">
                     <span v-if="codeSended">На ваш номер отправили код подтверждения</span>
-                    <span v-else>
-                        Авторизуйтесь, чтобы мы могли сохранить для вас список пожеланий и заказы.
-                    </span>
+                    <span v-else> Авторизуйтесь, чтобы мы могли сохранить для вас список пожеланий и заказы. </span>
                 </div>
             </div>
-            <form
-                ref="form"
-                class="modal-registration__form modal-registration-form"
-                @submit.prevent
-            >
+            <form ref="form" class="modal-registration__form modal-registration-form" @submit.prevent>
                 <template v-if="codeSended">
                     <CustomCodeInput v-model="smsCode" label="Код подтверждения" />
                     <CustomButton loading class="modal-registration-form__submit" type="button">
@@ -35,11 +29,7 @@
                         Я согласен с
                         <a target="_blank" href="#">условиями передачи информации</a>
                     </CustomCheckbox>
-                    <CustomButton
-                        class="modal-registration-form__submit"
-                        type="submit"
-                        @click.prevent="sendCode"
-                    >
+                    <CustomButton class="modal-registration-form__submit" type="submit" @click.prevent="sendCode">
                         Получить код
                     </CustomButton>
                 </template>

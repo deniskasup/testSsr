@@ -4,11 +4,7 @@
             <Icon name="ri:close-fill" size="20" />
         </button>
         <div class="ordering-product__image ordering-product-image">
-            <nuxt-img
-                class="ordering-product-image__img"
-                src="assets/images/dev/products/product1.png"
-                format="webp"
-            />
+            <nuxt-img class="ordering-product-image__img" src="assets/images/dev/products/product1.png" format="webp" />
         </div>
         <div class="ordering-product__info ordering-product-info">
             <div class="ordering-product-info__label">КРОВАТЬ</div>

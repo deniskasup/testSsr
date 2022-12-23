@@ -24,14 +24,14 @@ import { onBeforeMount, ref, unref } from '#imports'
 import { useCityStore } from '~/composition/store/useCityStore'
 
 const { showSelectCity } = useModals()
-const { setSelectedCity } = useCityStore()
+const { setSelectedCityCode } = useCityStore()
 const { cityNameByCode } = storeToRefs(useCityStore())
 const { guessUserCity } = useUserCity()
 
 const guessedCity = ref('')
 
 const confirmCity = async () => {
-    setSelectedCity(unref(guessedCity))
+    setSelectedCityCode(unref(guessedCity))
     await $vfm.hideAll()
 }
 

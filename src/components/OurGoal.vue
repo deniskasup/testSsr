@@ -8,26 +8,20 @@
                         <br />Создавайте обстановку, которая делает будни ярче!
                     </div>
                     <div class="our-goal-content__text">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-                        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                        amet.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+                        sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                        ipsum dolor sit amet.
                     </div>
                 </div>
             </Wrapper>
         </div>
         <div class="our-goal__right">
             <div class="our-goal-video">
-                <nuxt-img
-                    format="webp"
-                    class="our-goal-video__image"
-                    src="assets/images/our-goal-background.png"
-                />
+                <nuxt-img format="webp" class="our-goal-video__image" src="assets/images/our-goal-background.png" />
                 <CustomIcon :icon-type="IconType.BUTTON" class="our-goal-video__icon"></CustomIcon>
             </div>
         </div>

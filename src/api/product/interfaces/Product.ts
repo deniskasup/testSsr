@@ -1,6 +1,5 @@
 /** Товар */
 export interface Product {
-
     /** id товара */
     id: number
 
@@ -17,7 +16,7 @@ export interface Product {
     pageTitle: string
 
     /** Заголовок вкладки для тега title */
-    title: string;
+    title: string
 
     /** Meta description */
     description: string
@@ -76,7 +75,7 @@ export interface Product {
     instructionPDF?: string
 
     /** Ссылка на видео по сборке */
-    instructionVideo?: string;
+    instructionVideo?: string
 
     /** Дополнительные услуги */
     additionalServices?: AdditionalService[]
@@ -130,7 +129,7 @@ interface BedSizeOption {
     url: string
 }
 
-type BedSize = '160x200' | '180x200' | '200x200';
+type BedSize = '160x200' | '180x200' | '200x200'
 
 interface ProductColor {
     color: string

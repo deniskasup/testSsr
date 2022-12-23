@@ -30,10 +30,10 @@ import { ref } from '#imports'
 const searchInputValue = ref('')
 
 const { filtredCitiesList } = storeToRefs(useCityStore())
-const { setSelectedCity } = useCityStore()
+const { setSelectedCityCode } = useCityStore()
 
 const selectCity = (code: string) => {
-    setSelectedCity(code)
+    setSelectedCityCode(code)
     $vfm.hideAll()
 }
 </script>

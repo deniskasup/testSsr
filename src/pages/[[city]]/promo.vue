@@ -23,9 +23,7 @@
                         <div v-if="item < 3" class="promo-cards-item__sticker">- 50%</div>
                         <div class="promo-cards-item__content promo-cards-item-content">
                             <div class="promo-cards-item-content__title">Прояви себя!</div>
-                            <div class="promo-cards-item-content__description">
-                                Добавь стиль жизни в интерьер
-                            </div>
+                            <div class="promo-cards-item-content__description">Добавь стиль жизни в интерьер</div>
                         </div>
                     </div>
                 </div>

@@ -13,9 +13,7 @@
                 <div class="ordering-summary-price-line__label">Сумма скидки</div>
                 <div class="ordering-summary-price-line__value">1 400 ₽</div>
             </div>
-            <CustomButton class="ordering-summary-price__buy" :size="Size.MEDIUM">
-                Купить
-            </CustomButton>
+            <CustomButton class="ordering-summary-price__buy" :size="Size.MEDIUM"> Купить </CustomButton>
         </div>
         <div class="ordering-summary__form ordering-summary-form">
             <div class="ordering-summary-form__promocode ordering-summary-form-promocode">
@@ -32,9 +30,7 @@
                     Применить
                 </CustomButton>
             </div>
-            <CustomButton class="ordering-summary-form__buy" :size="Size.MEDIUM">
-                Купить
-            </CustomButton>
+            <CustomButton class="ordering-summary-form__buy" :size="Size.MEDIUM"> Купить </CustomButton>
         </div>
     </div>
 </template>

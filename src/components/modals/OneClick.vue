@@ -4,8 +4,7 @@
             <div class="modal-one-click__head modal-one-click-head">
                 <h3 class="modal-one-click-head__title">Купить в 1 клик</h3>
                 <div class="modal-one-click-head__description">
-                    Для быстрого оформления заказа оставьте только номер телефона, остальное уточнит
-                    менеджер
+                    Для быстрого оформления заказа оставьте только номер телефона, остальное уточнит менеджер
                 </div>
             </div>
             <form class="modal-one-click__form modal-one-click-form" @submit.prevent>
@@ -19,9 +18,7 @@
                     Я согласен с
                     <a target="_blank" href="#">условиями передачи информации</a>
                 </CustomCheckbox>
-                <CustomButton class="modal-one-click-form__submit" type="submit">
-                    Оформить
-                </CustomButton>
+                <CustomButton class="modal-one-click-form__submit" type="submit"> Оформить </CustomButton>
             </form>
         </div>
     </ModalsModalRoot>

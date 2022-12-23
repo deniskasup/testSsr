@@ -9,18 +9,12 @@
                 >
                     <div class="promo-slide">
                         <div class="promo-slide__image promo-slide-image">
-                            <nuxt-img
-                                loading="lazy"
-                                format="webp"
-                                :src="`assets/images/dev/promo/promo${promo}.png`"
-                            />
+                            <nuxt-img loading="lazy" format="webp" :src="`assets/images/dev/promo/promo${promo}.png`" />
                         </div>
                         <div class="promo-slide__sticker">- 50%</div>
                         <div class="promo-slide__content promo-slide-content">
                             <div class="promo-slide-content__title">Прояви себя! {{ promo }}</div>
-                            <div class="promo-slide-content__description">
-                                Добавь стиль жизни в интерьер
-                            </div>
+                            <div class="promo-slide-content__description">Добавь стиль жизни в интерьер</div>
                             <CustomButton :size="Size.SMALL"> Посмотреть</CustomButton>
                         </div>
                     </div>

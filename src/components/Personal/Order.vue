@@ -6,9 +6,7 @@
                 <div class="personal-orders-item__date">5 Окт 2022</div>
             </div>
             <div class="personal-orders-item-info__column">
-                <div class="personal-orders-item__status personal-orders-item__status--green">
-                    Получен
-                </div>
+                <div class="personal-orders-item__status personal-orders-item__status--green">Получен</div>
             </div>
             <div class="personal-orders-item-info__column">
                 <div class="personal-orders-item__price">6 500 ₽</div>
@@ -16,19 +14,10 @@
             </div>
         </div>
         <div class="personal-orders-item__products personal-orders-item-products">
-            <div
-                v-if="isShowDetails"
-                class="personal-orders-item-products__list personal-orders-item-products-list"
-            >
-                <PersonalProduct
-                    v-for="item in 3"
-                    class="personal-orders-item-products-list__item"
-                />
+            <div v-if="isShowDetails" class="personal-orders-item-products__list personal-orders-item-products-list">
+                <PersonalProduct v-for="item in 3" class="personal-orders-item-products-list__item" />
             </div>
-            <div
-                v-else
-                class="personal-orders-item-products__slider personal-orders-item-products-slider"
-            >
+            <div v-else class="personal-orders-item-products__slider personal-orders-item-products-slider">
                 <Swiper class="personal-orders-item-products-slider__swiper" v-bind="swiperOptions">
                     <SwiperSlide
                         v-for="item in 10"

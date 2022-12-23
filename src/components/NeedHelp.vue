@@ -28,11 +28,7 @@
         </div>
         <div class="need-help__right">
             <div class="need-help-video">
-                <nuxt-img
-                    format="webp"
-                    class="need-help-video__image"
-                    src="assets/images/need-help-background.png"
-                />
+                <nuxt-img format="webp" class="need-help-video__image" src="assets/images/need-help-background.png" />
             </div>
         </div>
     </section>

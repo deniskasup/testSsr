@@ -1,10 +1,6 @@
 <template>
     <div class="text-input">
-        <div
-            v-if="label"
-            class="text-input__label"
-            :class="{ 'text-input__label--disabled': disabled }"
-        >
+        <div v-if="label" class="text-input__label" :class="{ 'text-input__label--disabled': disabled }">
             {{ label }}{{ required ? '*' : '' }}
         </div>
         <div class="text-input__input">

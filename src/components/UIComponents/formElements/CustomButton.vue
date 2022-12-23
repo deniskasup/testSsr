@@ -30,10 +30,7 @@ const props = defineProps({
     },
 })
 
-const buttonClasses = computed(() => [
-    `button--priority-${props.priority}`,
-    `button--size-${props.size}`,
-])
+const buttonClasses = computed(() => [`button--priority-${props.priority}`, `button--size-${props.size}`])
 </script>
 
 <style lang="sass" scoped>

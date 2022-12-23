@@ -19,7 +19,7 @@
                 </button>
                 <CustomSearch class="header__search" placeholder="Какую мебель вы ищите?" />
                 <nav class="header__menu header-menu">
-                    <NuxtLink to="/catalog" class="header-menu__link"> Каталог</NuxtLink>
+                    <NuxtLink to="/catalog" class="header-menu__link">Каталог</NuxtLink>
                     <NuxtLink to="/promo" class="header-menu__link">Акции</NuxtLink>
                     <NuxtLink to="/info" class="header-menu__link"> Инфо</NuxtLink>
                 </nav>
@@ -225,6 +225,7 @@ const subMenuLinks = computed(() => {
     grid-gap: 12px
 
     &__button
+        user-select: none
         display: flex
         align-items: center
 

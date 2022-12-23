@@ -5,16 +5,9 @@
                 <h2 class="favorite__title">Избранное</h2>
 
                 <div v-if="true" class="favorite__list favorite-list">
-                    <ProductCard
-                        v-for="item in 9"
-                        :key="`favorite-list-item-${item}`"
-                        class="favorite-list__item"
-                    />
+                    <ProductCard v-for="item in 9" :key="`favorite-list-item-${item}`" class="favorite-list__item" />
                     <div class="favorite-list__controls favorite-list-controls">
-                        <CustomButton
-                            :priority="ButtonPriority.SECONDARY"
-                            class="favorite-list-controls__show-more"
-                        >
+                        <CustomButton :priority="ButtonPriority.SECONDARY" class="favorite-list-controls__show-more">
                             Показать больше
                         </CustomButton>
                     </div>
@@ -25,8 +18,8 @@
                     <div class="favorite-empty__text favorite-empty-text">
                         <div class="favorite-empty-text__title">В избранном ничего нет</div>
                         <div class="favorite-empty-text__description">
-                            Посмотрите наш <NuxtLink to="/catalog">каталог</NuxtLink> или
-                            воспользуйтесь поиском, если ищите что-то конкретное
+                            Посмотрите наш <NuxtLink to="/catalog">каталог</NuxtLink> или воспользуйтесь поиском, если
+                            ищите что-то конкретное
                         </div>
                     </div>
                 </div>

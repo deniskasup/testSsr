@@ -20,11 +20,7 @@
                     Я согласен с
                     <a target="_blank" href="#">условиями передачи информации</a>
                 </CustomCheckbox>
-                <CustomButton
-                    class="modal-need-help-form__submit"
-                    type="submit"
-                    @click.prevent="submit"
-                >
+                <CustomButton class="modal-need-help-form__submit" type="submit" @click.prevent="submit">
                     Перезвоните мне
                 </CustomButton>
             </form>
@@ -33,10 +29,7 @@
                 <div class="modal-need-help-footer__text">
                     Также можете позвонить или написать нам ежедневно 9:00 – 21:00
                 </div>
-                <a
-                    href="tel:88009999999"
-                    class="modal-need-help-footer__phone modal-need-help-footer-phone"
-                >
+                <a href="tel:88009999999" class="modal-need-help-footer__phone modal-need-help-footer-phone">
                     <Icon class="modal-need-help-footer-phone__icon" name="ri:whatsapp-fill" />
                     <span class="modal-need-help-footer-phone__text"> 8 800 999 99 99 </span>
                 </a>

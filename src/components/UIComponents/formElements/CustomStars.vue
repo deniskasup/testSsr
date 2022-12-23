@@ -4,11 +4,7 @@
             {{ label }}{{ required ? '*' : '' }}
         </div>
         <div class="stars__list stars-list">
-            <label
-                v-for="star in 5"
-                :key="`stars-list-item-${star}`"
-                class="stars-list__item stars-list-item"
-            >
+            <label v-for="star in 5" :key="`stars-list-item-${star}`" class="stars-list__item stars-list-item">
                 <input
                     v-model="inputValue"
                     class="stars-list-item__input"

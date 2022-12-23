@@ -18,11 +18,10 @@
                 />
             </div>
             <div class="review-card-info__description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, cum ea
-                error expedita ipsam iusto provident quam qui ratione recusandae, sint ut! A ad
-                aliquid aspernatur assumenda beatae delectus eveniet id impedit inventore,
-                laudantium maiores maxime nam nisi quaerat, quia quisquam sed, sequi velit vitae
-                voluptatum! Cum doloremque molestias quidem reprehenderit unde vel?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, cum ea error expedita ipsam
+                iusto provident quam qui ratione recusandae, sint ut! A ad aliquid aspernatur assumenda beatae delectus
+                eveniet id impedit inventore, laudantium maiores maxime nam nisi quaerat, quia quisquam sed, sequi velit
+                vitae voluptatum! Cum doloremque molestias quidem reprehenderit unde vel?
             </div>
             <CustomIcon icon-name="radix-icons:external-link" class="review-card-info__link" />
         </div>

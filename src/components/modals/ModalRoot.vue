@@ -1,17 +1,6 @@
 <template>
-    <VueFinalModal
-        v-slot="{ close }"
-        v-bind="$attrs"
-        classes="modal-container"
-        content-class="modal-content"
-    >
-        <button
-            v-if="closeButtonVisible"
-            title="Закрыть"
-            type="button"
-            class="modal__close"
-            @click="close"
-        >
+    <VueFinalModal v-slot="{ close }" v-bind="$attrs" classes="modal-container" content-class="modal-content">
+        <button v-if="closeButtonVisible" title="Закрыть" type="button" class="modal__close" @click="close">
             <Icon name="ri:close-fill" size="20" />
         </button>
         <div class="modal__content">

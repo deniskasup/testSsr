@@ -8,14 +8,13 @@
                         <div class="error-text__code">Ошибка {{ error.statusCode }}</div>
                         <div class="error-text__message">
                             <p v-if="error.statusCode === '404'">
-                                Вы запросили доступ к странице, доступ к которой ограничен
-                                специальными правами.
+                                Вы запросили доступ к странице, доступ к которой ограничен специальными правами.
                                 <br />
                                 Обратитесь к администратору
                             </p>
                             <p v-else>Произошла непредвиденная ошибка</p>
                         </div>
-                        <CustomButton @click="handleError"> На главную </CustomButton>
+                        <CustomButton @click="handleError"> На главную</CustomButton>
                     </div>
                 </Wrapper>
             </section>
@@ -34,20 +33,25 @@ const handleError = () => clearError({ redirect: '/' })
 <style lang="sass">
 .error
     padding: 100px 0
+
     &__wrapper
         display: grid
         grid-template-columns: 55px 1fr
         grid-gap: 32px
+
     &__smile
         font-weight: 600
         font-size: 56px
+
 .error-text
     display: grid
     justify-items: flex-start
     grid-gap: 24px
+
     &__code
         font-weight: 600
         font-size: 56px
+
     &__message
         font-size: 16px
 </style>

@@ -21,9 +21,7 @@
                     font-family="Lato, sans-serif"
                     font-weight="600"
                 >
-                    <textPath startOffset="0" xlink:href="#txt-path">
-                        ПОМОЩЬ   ПОМОЩЬ   ПОМОЩЬ   ПОМОЩЬ  
-                    </textPath>
+                    <textPath startOffset="0" xlink:href="#txt-path">ПОМОЩЬ   ПОМОЩЬ   ПОМОЩЬ   ПОМОЩЬ  </textPath>
                 </text>
             </svg>
             <div class="need-help-button-inner__smile">👋</div>

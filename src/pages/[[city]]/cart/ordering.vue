@@ -7,8 +7,8 @@
                     <h2 class="ordering-info__title">Оформление заказа</h2>
                     <p class="ordering-info__notion ordering-info-notion">
                         <Icon class="ordering-info-notion__icon" name="ri:information-fill" />
-                        Для оформления заказа необходимо заполнить номер, остальную информацию мы
-                        можем уточнить позвонив
+                        Для оформления заказа необходимо заполнить номер, остальную информацию мы можем уточнить
+                        позвонив
                     </p>
                 </div>
                 <div class="ordering__left ordering-left">
@@ -36,15 +36,8 @@
                     <div class="ordering__map ordering-left__item ordering-map">
                         <!-- TODO: блок с картой -->
                         <button class="ordering-map__show">Посмотреть на карте</button>
-                        <CustomTextInput
-                            :rows="3"
-                            label="Адрес доставки"
-                            placeholder="Город, улица, дом, квартира"
-                        />
-                        <CustomTextArea
-                            label="Комментарий"
-                            placeholder="Оставьте комментарий для доствки"
-                        />
+                        <CustomTextInput :rows="3" label="Адрес доставки" placeholder="Город, улица, дом, квартира" />
+                        <CustomTextArea label="Комментарий" placeholder="Оставьте комментарий для доствки" />
                     </div>
                 </div>
                 <Summary class="ordering__right" />

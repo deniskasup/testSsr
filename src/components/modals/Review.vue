@@ -7,24 +7,11 @@
             </div>
             <form ref="form" class="modal-review__form modal-review-form" @submit.prevent>
                 <CustomStars v-model="uploadedImages" required label="Оценка" />
-                <CustomTextInput
-                    required
-                    placeholder="Заказ, в котором покупали товар"
-                    label="Номер заказа"
-                />
+                <CustomTextInput required placeholder="Заказ, в котором покупали товар" label="Номер заказа" />
                 <CustomTextInput required placeholder="Как вас зовут" label="Имя" />
-                <CustomTextArea
-                    required
-                    placeholder="Как можно подробнее опишите товар"
-                    label="Как вам товар?"
-                />
+                <CustomTextArea required placeholder="Как можно подробнее опишите товар" label="Как вам товар?" />
                 <CustomFileInput v-model="files" />
-                <CustomButton
-                    :loading="loading"
-                    class="modal-review-form__submit"
-                    type="submit"
-                    @click="submitReview"
-                >
+                <CustomButton :loading="loading" class="modal-review-form__submit" type="submit" @click="submitReview">
                     Поделиться
                 </CustomButton>
             </form>
