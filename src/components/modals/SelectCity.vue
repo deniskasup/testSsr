@@ -33,7 +33,7 @@ const { filtredCitiesList } = storeToRefs(useCityStore())
 const { setSelectedCityCode } = useCityStore()
 
 const selectCity = (code: string) => {
-    setSelectedCityCode(code)
+    setSelectedCityCode(code, true)
     $vfm.hideAll()
 }
 </script>

@@ -9,7 +9,6 @@
 import { definePageMeta, useHead } from '#imports'
 definePageMeta({
     title: 'Корзина',
-    redirect: { path: '/cart/ordering' },
 })
 useHead({
     title: 'Корзина',

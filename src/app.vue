@@ -12,16 +12,14 @@ import useCategoriesRequests from '~/composition/requests/useCategoriesRequests'
 import { useUserCity } from '~/composition/useUserCity'
 const nuxtApp = useNuxtApp()
 const { getCategoriesTree } = useCategoriesRequests()
-const { checkCity, loadCitiesList } = useUserCity()
+const { checkCity, getCitiesList } = useUserCity()
 
+await getCitiesList()
+await checkCity()
 await getCategoriesTree()
-await loadCitiesList()
 
 // TODO: возможно есть решение по красивее
 nuxtApp.hook('page:finish', () => {
     window.scrollTo(0, 0)
-})
-onMounted(async () => {
-    await checkCity()
 })
 </script>

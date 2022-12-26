@@ -7,7 +7,7 @@
                     <div v-if="error" class="error__text error-text">
                         <div class="error-text__code">Ошибка {{ error.statusCode }}</div>
                         <div class="error-text__message">
-                            <p v-if="error.statusCode === '404'">
+                            <p v-if="error.statusCode.toString() === '404'">
                                 Вы запросили доступ к странице, доступ к которой ограничен специальными правами.
                                 <br />
                                 Обратитесь к администратору
@@ -23,11 +23,20 @@
     </NuxtLayout>
 </template>
 <script lang="ts" setup>
-import { clearError, useError } from '#imports'
+import { clearError, useError, useHead } from '#imports'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 
 const error = useError()
 const handleError = () => clearError({ redirect: '/' })
+useHead({
+    title: 'Ошибка',
+    meta: [
+        {
+            name: 'description',
+            content: 'ВМ Мебель - Ошибка',
+        },
+    ],
+})
 </script>
 
 <style lang="sass">

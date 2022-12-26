@@ -1,7 +1,7 @@
 <template>
     <ModalsModalRoot>
         <div class="modal-check-city">
-            <h3 class="modal-check-city__title">Ваш город – {{ cityNameByCode(guessedCity) }}?</h3>
+            <h3 class="modal-check-city__title">Ваш город – {{ cityNameByCode(cityCode) }}?</h3>
             <div class="modal-check-city__actions modal-check-city-actions">
                 <CustomButton :size="Size.SMALL" @click="confirmCity">Да, верно</CustomButton>
                 <CustomButton :size="Size.SMALL" :priority="ButtonPriority.SECONDARY" @click="openSelectCityModal">
@@ -19,19 +19,17 @@ import CustomButton from '../UIComponents/formElements/CustomButton.vue'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 import { Size } from '~/model/enums/formElements/Size'
 import useModals from '~/composition/useModals'
-import { useUserCity } from '~/composition/useUserCity'
-import { onBeforeMount, ref, unref } from '#imports'
+import { useRoute } from '#imports'
 import { useCityStore } from '~/composition/store/useCityStore'
 
 const { showSelectCity } = useModals()
 const { setSelectedCityCode } = useCityStore()
 const { cityNameByCode } = storeToRefs(useCityStore())
-const { guessUserCity } = useUserCity()
-
-const guessedCity = ref('')
+const route = useRoute()
+const cityCode = Array.isArray(route.params.city) ? route.params.city[0] : route.params.city || 'msk'
 
 const confirmCity = async () => {
-    setSelectedCityCode(unref(guessedCity))
+    await setSelectedCityCode(cityCode)
     await $vfm.hideAll()
 }
 
@@ -39,10 +37,6 @@ const openSelectCityModal = async () => {
     await $vfm.hideAll()
     await showSelectCity()
 }
-
-onBeforeMount(async () => {
-    guessedCity.value = await guessUserCity()
-})
 </script>
 
 <style lang="sass" scoped>

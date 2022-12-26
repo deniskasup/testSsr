@@ -3,7 +3,7 @@
         <Wrapper>
             <ul class="breadcrumbs__list breadcrumbs-list">
                 <li class="breadcrumbs-list__item breadcrumbs-list-item">
-                    <NuxtLink class="breadcrumbs-list-item__link" to="/"> Главная </NuxtLink>
+                    <NuxtLink class="breadcrumbs-list-item__link" :to="linkWithCity('/')"> Главная </NuxtLink>
                 </li>
                 <li
                     v-for="item in $route.matched"
@@ -11,7 +11,11 @@
                     class="breadcrumbs-list__item breadcrumbs-list-item"
                 >
                     <span v-if="item.path === $route.path">{{ item.meta.title || 'No TITLE' }}</span>
-                    <NuxtLink v-else class="breadcrumbs-list-item__link" :to="item.path">
+                    <NuxtLink
+                        v-else
+                        class="breadcrumbs-list-item__link"
+                        :to="linkWithCity(item.path.replace('/:city?/', ''))"
+                    >
                         {{ item.meta.title || 'No TITLE' }}
                     </NuxtLink>
                 </li>
@@ -20,7 +24,9 @@
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import linkWithCity from '~/helpers/linkWithCity'
+</script>
 
 <style lang="sass" scoped>
 .breadcrumbs

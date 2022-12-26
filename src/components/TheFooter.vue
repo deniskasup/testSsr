@@ -13,7 +13,7 @@
                 <div class="footer-info__email">
                     <a href="mailto:vmmebelmanager@gmail.com">vmmebelmanager@gmail.com</a>
                 </div>
-                <button type="button" class="footer-info__callback">Заказать звонок</button>
+                <button type="button" class="footer-info__callback" @click="showNeedHelp">Заказать звонок</button>
                 <FooterSocials :links="testLinks" class="footer-info__socials" />
                 <div class="footer-info__links">
                     <a href="#">Публичная оферта</a>
@@ -28,7 +28,7 @@
                         <NuxtLink
                             v-for="link in categoriesTree"
                             :key="link.id"
-                            :to="`/catalog/${link.url}`"
+                            :to="linkWithCity(`catalog/${link.url}`)"
                             class="footer-nav-column-list__item"
                         >
                             {{ link.name }}
@@ -42,7 +42,7 @@
                             v-for="link in infoLinks"
                             :key="`footer-link-info-${link.id}`"
                             class="footer-nav-column-list__item"
-                            :to="link.to"
+                            :to="linkWithCity(link.to)"
                         >
                             {{ link.name }}
                         </NuxtLink>
@@ -59,7 +59,10 @@ import Wrapper from '~/components/Wrapper'
 import FooterSocials from '~/components/Footer/FooterSocials.vue'
 import { infoLinks } from '~/constants/infoLinks'
 import { useCategoriesStore } from '~/composition/store/useCategoriesStore'
+import linkWithCity from '~/helpers/linkWithCity'
+import useModals from '~/composition/useModals'
 const { categoriesTree } = useCategoriesStore()
+const { showNeedHelp } = useModals()
 // TODO: убрать
 const testLinks = [
     {

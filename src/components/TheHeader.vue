@@ -2,7 +2,7 @@
     <header class="header">
         <div class="header__main">
             <Wrapper class="header__wrapper">
-                <CustomIcon class="header__logo" to="/">
+                <CustomIcon class="header__logo" :to="linkWithCity('/')">
                     <img src="~/assets/images/logo.svg" alt="ВМ Мебель" />
                 </CustomIcon>
                 <div class="header__city header-city" @click="showSelectCity">
@@ -19,12 +19,27 @@
                 </button>
                 <CustomSearch class="header__search" placeholder="Какую мебель вы ищите?" />
                 <nav class="header__menu header-menu">
-                    <NuxtLink to="/catalog" class="header-menu__link">Каталог</NuxtLink>
-                    <NuxtLink to="/promo" class="header-menu__link">Акции</NuxtLink>
-                    <NuxtLink to="/info" class="header-menu__link"> Инфо</NuxtLink>
+                    <div
+                        class="header-menu__item header-menu-item"
+                        @mouseleave="setCatalogDropDownVisibilty(false)"
+                        @mouseenter="setCatalogDropDownVisibilty(true)"
+                    >
+                        <NuxtLink :to="linkWithCity('catalog')" class="header-menu-item__link"> Каталог </NuxtLink>
+                        <transition name="header-dropdown">
+                            <CatalogMenu v-show="isCatalogDropDownVisible" @hide="setCatalogDropDownVisibilty(false)" />
+                        </transition>
+                    </div>
+                    <div class="header-menu__item header-menu-item">
+                        <NuxtLink :to="linkWithCity('promo')" class="header-menu-item__link">Акции</NuxtLink>
+                    </div>
+                    <div class="header-menu__item header-menu-item">
+                        <NuxtLink :to="linkWithCity('info/how-to-order')" class="header-menu-item__link">
+                            Инфо
+                        </NuxtLink>
+                    </div>
                 </nav>
                 <div class="header__contacts header-contacts">
-                    <button class="header-contacts__button">
+                    <button type="button" class="header-contacts__button" @click="showNeedHelp">
                         <img src="~/assets/images/icons/call-help.svg" alt="" />
                     </button>
                     <div class="header-contacts__info header-contacts-info">
@@ -34,17 +49,17 @@
                 </div>
                 <div class="header__actions header-actions">
                     <CustomIcon
-                        to="/personal"
+                        :to="linkWithCity('personal')"
                         class="header-actions__item header-actions-item"
                         icon-name="ri:user-line"
                     />
                     <CustomIcon
-                        to="/favorite"
+                        :to="linkWithCity('favorite')"
                         class="header-actions__item header-actions-item"
                         icon-name="ri:heart-line"
                     />
                     <CustomIcon
-                        to="/cart"
+                        :to="linkWithCity('cart/ordering')"
                         class="header-actions__item header-actions-item"
                         icon-name="ri:shopping-bag-2-line"
                     />
@@ -54,14 +69,11 @@
         <div v-if="showSubMenu && subMenuLinks.length" class="header__additional-menu header-additional-menu">
             <Wrapper class="header-additional-menu__wrapper">
                 <nav class="header-additional-menu__nav header-menu">
-                    <NuxtLink
-                        v-for="link in subMenuLinks"
-                        :key="link.id"
-                        :to="`/catalog/${link.url}`"
-                        class="header-menu__link"
-                    >
-                        {{ link.name }}
-                    </NuxtLink>
+                    <div v-for="link in subMenuLinks" :key="link.id" class="header-menu__item header-menu-item">
+                        <NuxtLink :to="linkWithCity(`catalog/${link.url}`)" class="header-menu-item__link">
+                            {{ link.name }}
+                        </NuxtLink>
+                    </div>
                 </nav>
             </Wrapper>
         </div>
@@ -75,15 +87,23 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
 import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
 import { IconType } from '~/model/enums/IconType'
 import useModals from '~/composition/useModals'
-import { computed, useRoute } from '#imports'
+import { computed, ref, useRoute } from '#imports'
 import { useCategoriesStore } from '~/composition/store/useCategoriesStore'
 import { useCityStore } from '~/composition/store/useCityStore'
+import linkWithCity from '~/helpers/linkWithCity'
+import CatalogMenu from '~/components/Header/CatalogMenu.vue'
 
-const { showSelectCity } = useModals()
+const { showSelectCity, showNeedHelp } = useModals()
 const route = useRoute()
 const showSubMenu = computed(() => route.meta.showSubMenu)
 const categoriesStore = useCategoriesStore()
 const { selectedCityName } = storeToRefs(useCityStore())
+
+const isCatalogDropDownVisible = ref(false)
+
+const setCatalogDropDownVisibilty = (status: boolean) => {
+    isCatalogDropDownVisible.value = status
+}
 
 const subMenuLinks = computed(() => {
     const category = Array.isArray(route.params.category) ? route.params.category[0] : route.params.category
@@ -135,6 +155,7 @@ const subMenuLinks = computed(() => {
     &__logo
         justify-self: flex-start
         margin-right: 27px
+        +no-select
         +until-tablet
             margin-right: 0
             order: 1
@@ -193,6 +214,7 @@ const subMenuLinks = computed(() => {
     cursor: pointer
 
     &__name
+        +no-select
         +until-tablet
             font-size: 12px
 
@@ -204,15 +226,17 @@ const subMenuLinks = computed(() => {
 .header-menu
     display: flex
     align-items: center
+    &__item
+        &:not(:last-of-type)
+            margin-right: 24px
 
+.header-menu-item
     &__link
         white-space: nowrap
         transition: color .3s
         +no-select
-
-        &:not(:last-of-type)
-            margin-right: 24px
-
+        &.disabled
+            cursor: pointer
         &.router-link-active
             color: $color_primary
 
@@ -283,13 +307,14 @@ const subMenuLinks = computed(() => {
         overflow-x: auto
         +hide-scrollbar
 
+.header-dropdown-enter-active
+    transition: opacity .5s, transform .5s
+.header-dropdown-leave-active
+    transition: opacity .35s, transform .35s
 
-.dropdown-enter-active,
-.dropdown-leave-active
-    transition: opacity 0.5s ease
 
-
-.dropdown-enter-from,
-.dropdown-leave-to
+.header-dropdown-enter-from,
+.header-dropdown-leave-to
+    transform: translateY(10px)
     opacity: 0
 </style>

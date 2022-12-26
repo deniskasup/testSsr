@@ -7,7 +7,7 @@
                         v-for="link in infoLinks"
                         :key="`side-menu-link-${link.id}`"
                         class="info-sidemenu__link"
-                        :to="link.to"
+                        :to="linkWithCity(link.to)"
                     >
                         {{ link.name }}
                     </NuxtLink>
@@ -26,10 +26,11 @@ import Wrapper from '~/components/Wrapper.vue'
 import NeedHelp from '~/components/NeedHelp.vue'
 import { infoLinks } from '~/constants/infoLinks'
 import { definePageMeta, useHead } from '#imports'
+import linkWithCity from '~/helpers/linkWithCity'
 
 definePageMeta({
     title: 'Инфо',
-    redirect: { path: '/info/how-to-order' },
+    redirect: { path: `/info/how-to-order` },
 })
 useHead({
     title: 'Инфо',

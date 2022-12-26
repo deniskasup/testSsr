@@ -43,7 +43,9 @@ const buttonClasses = computed(() => [`button--priority-${props.priority}`, `but
     line-height: 20px
     border-radius: 5px
     transition: opacity .3s, box-shadow .3s, border-color .3s
-    +no-select
+    -webkit-tap-highlight-color: transparent
+    -webkit-touch-callout: none
+    user-select: none
     &--size
         &-s
             padding: 10px 30px
@@ -67,6 +69,8 @@ const buttonClasses = computed(() => [`button--priority-${props.priority}`, `but
             outline: 1px solid $color_primary
             & .button__loader
                 color: $color_primary
+            &:focus, &:active
+                outline: 1px solid $color_primary
             &:disabled
                 outline-color: $color_onsurface_tetriary
                 color: $color_onsurface_tetriary
