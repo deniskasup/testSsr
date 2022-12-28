@@ -48,25 +48,8 @@ useHead({
 })
 </script>
 
+<!--TODO: сейчас компонент полная копия ProductsGrid -->
 <style lang="sass" scoped>
-.favorite
-    &__wrapper
-        display: grid
-        grid-gap: 40px
-        +until-tablet
-            grid-gap: 30px
-        +while-mob
-            grid-gap: 24px
-    &__title
-        font-weight: 600
-        font-size: 26px
-        line-height: 30px
-        +until-tablet
-            font-size: 24px
-            line-height: 24px
-        +while-mob
-            font-size: 20px
-
 .favorite-list
     display: grid
     grid-template-columns: 1fr 1fr 1fr

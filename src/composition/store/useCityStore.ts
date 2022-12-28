@@ -16,7 +16,7 @@ export const useCityStore = defineStore('city', () => {
         cityCodeFromRoute: Array.isArray(route.params.city) ? route.params.city[0] : route.params.city || 'msk',
     })
 
-    // отрефакторить
+    // TODO: отрефакторить
     const setSelectedCityCode = async (code: string, withReload = false) => {
         state.selectedCityCode = code
         state.isUserSelectCity = '1'

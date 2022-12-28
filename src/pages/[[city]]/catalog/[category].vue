@@ -1,16 +1,19 @@
 <template>
-    <div>
-        <div>{{ $route.params.category }}</div>
-        <pre>
-            {{ categoryData }}
-        </pre>
-    </div>
+    <main class="default-page catalog-page">
+        <section class="catalog">
+            <!--  сделать обработку ожидания запроса, в обертке над фетчем -->
+            <ProductsGrid v-if="categoryData" :products="categoryData.products" :title="categoryData.pageTitle" />
+            <ProductsGridPlaceholder v-else />
+        </section>
+        <NeedHelp />
+    </main>
 </template>
 
 <script setup lang="ts">
 import { computed, ref, unref, useHead, useRoute } from '#imports'
 import useCategoriesRequests from '~/composition/requests/useCategoriesRequests'
 import { Category } from '~/api/categories/interfaces/Category'
+import ProductsGridPlaceholder from '~/components/Placeholders/ProductsGridPlaceholder.vue'
 const { getCategoryData } = useCategoriesRequests()
 const route = useRoute()
 

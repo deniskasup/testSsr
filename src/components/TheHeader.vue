@@ -19,23 +19,37 @@
                 </button>
                 <CustomSearch class="header__search" placeholder="Какую мебель вы ищите?" />
                 <nav class="header__menu header-menu">
+                    <!-- TODO нужен рефактор -->
                     <div
                         class="header-menu__item header-menu-item"
-                        @mouseleave="setCatalogDropDownVisibilty(false)"
-                        @mouseenter="setCatalogDropDownVisibilty(true)"
+                        @mouseleave="setMenuVisibility('catalog', false)"
+                        @mouseenter="setMenuVisibility('catalog', true)"
                     >
-                        <NuxtLink :to="linkWithCity('catalog')" class="header-menu-item__link"> Каталог </NuxtLink>
+                        <NuxtLink :to="linkWithCity('catalog')" class="header-menu-item__link" @click.capture.prevent>
+                            Каталог
+                        </NuxtLink>
                         <transition name="header-dropdown">
-                            <CatalogMenu v-show="isCatalogDropDownVisible" @hide="setCatalogDropDownVisibilty(false)" />
+                            <CatalogMenu v-show="menuVisibility.catalog" @hide="setMenuVisibility('catalog', false)" />
                         </transition>
                     </div>
                     <div class="header-menu__item header-menu-item">
                         <NuxtLink :to="linkWithCity('promo')" class="header-menu-item__link">Акции</NuxtLink>
                     </div>
-                    <div class="header-menu__item header-menu-item">
-                        <NuxtLink :to="linkWithCity('info/how-to-order')" class="header-menu-item__link">
+                    <div
+                        class="header-menu__item header-menu-item"
+                        @mouseleave="setMenuVisibility('info', false)"
+                        @mouseenter="setMenuVisibility('info', true)"
+                    >
+                        <NuxtLink
+                            :to="linkWithCity('info/how-to-order')"
+                            class="header-menu-item__link"
+                            @click.capture.prevent
+                        >
                             Инфо
                         </NuxtLink>
+                        <transition name="header-dropdown">
+                            <InfoMenu v-show="menuVisibility.info" @hide="setMenuVisibility('info', false)" />
+                        </transition>
                     </div>
                 </nav>
                 <div class="header__contacts header-contacts">
@@ -87,11 +101,12 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
 import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
 import { IconType } from '~/model/enums/IconType'
 import useModals from '~/composition/useModals'
-import { computed, ref, useRoute } from '#imports'
+import { computed, reactive, ref, useRoute } from '#imports'
 import { useCategoriesStore } from '~/composition/store/useCategoriesStore'
 import { useCityStore } from '~/composition/store/useCityStore'
 import linkWithCity from '~/helpers/linkWithCity'
 import CatalogMenu from '~/components/Header/CatalogMenu.vue'
+import InfoMenu from '~/components/Header/InfoMenu.vue'
 
 const { showSelectCity, showNeedHelp } = useModals()
 const route = useRoute()
@@ -99,10 +114,13 @@ const showSubMenu = computed(() => route.meta.showSubMenu)
 const categoriesStore = useCategoriesStore()
 const { selectedCityName } = storeToRefs(useCityStore())
 
-const isCatalogDropDownVisible = ref(false)
+const menuVisibility = reactive({
+    catalog: false,
+    info: false,
+})
 
-const setCatalogDropDownVisibilty = (status: boolean) => {
-    isCatalogDropDownVisible.value = status
+const setMenuVisibility = (menuName: 'catalog' | 'info', status: boolean) => {
+    menuVisibility[menuName] = status
 }
 
 const subMenuLinks = computed(() => {
@@ -117,7 +135,7 @@ const subMenuLinks = computed(() => {
 
 <style lang="sass" scoped>
 .header
-    z-index: 2
+    z-index: 5
     position: relative
     padding: 12px 0
     background: $color_surface_primary
@@ -310,7 +328,7 @@ const subMenuLinks = computed(() => {
 .header-dropdown-enter-active
     transition: opacity .5s, transform .5s
 .header-dropdown-leave-active
-    transition: opacity .35s, transform .35s
+    transition: opacity .35s .15s, transform .35s .15s
 
 
 .header-dropdown-enter-from,
