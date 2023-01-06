@@ -11,7 +11,6 @@
                         class="header-city__icon no-select"
                         icon-name="akar-icons:location"
                     />
-                    <!-- TODO: я хз, надо что то придумать со скаканием города-->
                     <div class="header-city__name">{{ selectedCityName }}</div>
                 </div>
                 <button class="header__mobile-menu header-mobile-menu">
@@ -29,7 +28,10 @@
                             Каталог
                         </NuxtLink>
                         <transition name="header-dropdown">
-                            <CatalogMenu v-show="menuVisibility.catalog" @hide="setMenuVisibility('catalog', false)" />
+                            <HeaderCatalogMenu
+                                v-show="menuVisibility.catalog"
+                                @hide="setMenuVisibility('catalog', false)"
+                            />
                         </transition>
                     </div>
                     <div class="header-menu__item header-menu-item">
@@ -48,7 +50,7 @@
                             Инфо
                         </NuxtLink>
                         <transition name="header-dropdown">
-                            <InfoMenu v-show="menuVisibility.info" @hide="setMenuVisibility('info', false)" />
+                            <HeaderInfoMenu v-show="menuVisibility.info" @hide="setMenuVisibility('info', false)" />
                         </transition>
                     </div>
                 </nav>
@@ -101,12 +103,10 @@ import CustomSearch from '~/components/UIComponents/formElements/CustomSearch.vu
 import CustomIcon from '~/components/UIComponents/CustomIcon.vue'
 import { IconType } from '~/model/enums/IconType'
 import useModals from '~/composition/useModals'
-import { computed, reactive, ref, useRoute } from '#imports'
+import { computed, reactive, useRoute } from '#imports'
 import { useCategoriesStore } from '~/composition/store/useCategoriesStore'
 import { useCityStore } from '~/composition/store/useCityStore'
 import linkWithCity from '~/helpers/linkWithCity'
-import CatalogMenu from '~/components/Header/CatalogMenu.vue'
-import InfoMenu from '~/components/Header/InfoMenu.vue'
 
 const { showSelectCity, showNeedHelp } = useModals()
 const route = useRoute()

@@ -1,3 +1,88 @@
+enum AdditionalServiceType {
+    FIXED_PRICE,
+    CALCULATING_BY_MANAGER,
+}
+
+export enum Tag {
+    NOVELTY = 'НОВИНКА',
+    HIT = 'ХИТ',
+    BUYERS_CHOICE = 'ВЫБОР ПОКУПАТЕЛЕЙ',
+}
+
+interface AdditionalService {
+    type: AdditionalServiceType
+    name: string
+    price?: number
+}
+
+interface ProductDetail {
+    name: string
+    value: string
+}
+
+interface ProductDetailCategory {
+    name: string
+    details: ProductDetail[]
+}
+
+interface MattressType {
+    id: string
+    name: string
+    price: number
+    image: string
+}
+
+interface DrawerCount {
+    count: number
+    alias: string
+}
+
+interface BaseType {
+    name: string
+    price: number
+}
+
+type BedSize = '160x200' | '180x200' | '200x200'
+
+/** @todo[url_or_alias] уточнить у Иры по ссылкам. Возможно буду присылать только alias, а ссылку будем на фронте собирать */
+interface BedSizeOption {
+    size: BedSize
+    url: string
+}
+
+interface ProductColor {
+    color: string
+    name: string
+}
+
+/** @todo[url_or_alias] */
+interface ProductColorOption {
+    color: ProductColor | [ProductColor, ProductColor]
+    url: string
+}
+
+interface BedOptions {
+    /** Размер кровати. Только для кроватей. */
+    bedSize?: BedSize
+    /** Все доступные размеры кроватей */
+    bedSizes?: BedSizeOption[]
+
+    /** Все доступные типы матрасов */
+    mattressTypes?: MattressType[]
+
+    /** Тип основания */
+    baseType?: BaseType
+    /** Все доступные типы оснований */
+    baseTypes?: BaseType[]
+
+    /** Количество ящиков. Только для кроватей. */
+    drawersCount?: number
+    drawersCounts?: DrawerCount[]
+
+    /** Есть подъёмный механизм. Только для кроватей. */
+    hasLiftMechanism?: boolean
+}
+
 /** Товар */
 export interface Product {
     /** id товара */
@@ -39,34 +124,17 @@ export interface Product {
     /** Все доступные цвета */
     colors: ProductColorOption[]
 
-    /** Размер кровати. Только для кроватей. */
-    bedSize?: BedSize
-    /** Все доступные размеры кроватей */
-    bedSizes?: BedSizeOption[]
-
-    /** Все доступные типы матрасов */
-    mattressTypes?: MattressType[]
-
-    /** Тип основания */
-    baseType?: BaseType
-    /** Все доступные типы оснований */
-    baseTypes?: BaseType[]
+    /** Только для кроватей */
+    bedOptions?: BedOptions
 
     /** Изображения товара */
     images: string[]
-
-    /** Количество ящиков. Только для кроватей. */
-    drawersCount?: number
-    drawersCounts?: DrawerCount[]
-
-    /** Есть подъёмный механизм. Только для кроватей. */
-    hasLiftMechanism?: boolean
 
     /** Картинки для 360 */
     images360?: string[]
 
     /** Теги "ХИТ", "НОВИНКА" и т.д. */
-    tags?: string[]
+    tags?: Tag[]
 
     /** Характеристики */
     details?: ProductDetailCategory[]
@@ -81,63 +149,16 @@ export interface Product {
     additionalServices?: AdditionalService[]
 
     /** Модули кхуни. Приходит для модульных кухонь
-     * @todo возможно здесь не всё нужно будет, тогда будет отдельный интерфейс KitchenModule в виде кастрированного Product */
+     * @todo возможно здесь не всё нужно будет, тогда будет отдельный интерфейс KitchenModule в виде кастрированного Product
+     */
     kitchenModules?: Product
-}
 
-interface AdditionalService {
-    type: AdditionalServiceType
-    name: string
-    price?: number
-}
+    /** Отзывы */
+    reviews: {
+        avgRating: number
+        count: number
+    }
 
-enum AdditionalServiceType {
-    FIXED_PRICE,
-    CALCULATING_BY_MANAGER,
-}
-
-interface ProductDetailCategory {
-    name: string
-    details: ProductDetail[]
-}
-
-interface ProductDetail {
-    name: string
-    value: string
-}
-
-interface MattressType {
-    id: string
-    name: string
-    price: number
-    image: string
-}
-
-interface DrawerCount {
-    count: number
-    alias: string
-}
-
-interface BaseType {
-    name: string
-    price: number
-}
-
-/** @todo[url_or_alias] уточнить у Иры по ссылкам. Возможно буду присылать только alias, а ссылку будем на фронте собирать */
-interface BedSizeOption {
-    size: BedSize
-    url: string
-}
-
-type BedSize = '160x200' | '180x200' | '200x200'
-
-interface ProductColor {
-    color: string
-    name: string
-}
-
-/** @todo[url_or_alias] */
-interface ProductColorOption {
-    color: ProductColor | [ProductColor, ProductColor]
-    url: string
+    /** Добавлен ли в избранное (у не авторизованных просто false) */
+    isFavorite: boolean
 }

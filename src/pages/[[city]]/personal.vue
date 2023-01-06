@@ -1,7 +1,7 @@
 <template>
     <main class="default-page personal-page">
         <ClientOnly>
-            <Section />
+            <PersonalSection />
             <template #fallback>
                 <TwoColumnSectionPlaceholder>
                     <template #title>Личный кабинет</template>
@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
 import { definePageMeta, useHead } from '#imports'
-import Section from '~/components/Personal/Section.vue'
 import TwoColumnSectionPlaceholder from '~/components/Placeholders/TwoColumnSectionPlaceholder.vue'
 definePageMeta({
     title: 'Личный кабинет',

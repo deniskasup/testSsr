@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import Wrapper from '~/components/Wrapper.vue'
 import { definePageMeta, useHead } from '#imports'
 definePageMeta({
     title: 'Каталог',

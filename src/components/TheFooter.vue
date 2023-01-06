@@ -56,7 +56,6 @@
 
 <script setup lang="ts">
 import Wrapper from '~/components/Wrapper'
-import FooterSocials from '~/components/Footer/FooterSocials.vue'
 import { infoLinks } from '~/constants/infoLinks'
 import { useCategoriesStore } from '~/composition/store/useCategoriesStore'
 import linkWithCity from '~/helpers/linkWithCity'

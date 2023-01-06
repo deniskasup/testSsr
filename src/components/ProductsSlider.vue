@@ -6,11 +6,11 @@
             </h2>
             <Swiper class="products-slider__swiper products-slider-swiper" v-bind="swiperOptions">
                 <SwiperSlide
-                    v-for="(product, index) in 10"
+                    v-for="(product, index) in 0"
                     :key="`products-slider-swiper-slide-${index}`"
                     class="products-slider-swiper__slide"
                 >
-                    <ProductCard />
+                    <!--                    <ProductsCard />-->
                 </SwiperSlide>
             </Swiper>
         </Wrapper>
@@ -22,7 +22,6 @@ import { FreeMode, Mousewheel, Navigation, SwiperOptions } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import Wrapper from '~/components/Wrapper.vue'
 import 'swiper/css'
-import ProductCard from '~/components/Products/ProductCard.vue'
 
 const swiperOptions: SwiperOptions = {
     modules: [Navigation, Mousewheel, FreeMode],

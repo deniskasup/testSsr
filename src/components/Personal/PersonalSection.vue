@@ -3,8 +3,8 @@
         <Wrapper class="personal__wrapper">
             <h2 class="personal__title">Личный кабинет</h2>
             <div class="personal__orders personal-orders">
-                <Order class="personal-orders__item" />
-                <Order class="personal-orders__item" />
+                <PersonalOrder class="personal-orders__item" />
+                <PersonalOrder class="personal-orders__item" />
             </div>
             <div class="personal__info personal-info">
                 <div class="personal-info__account personal-info-account">
@@ -24,9 +24,7 @@
     </section>
 </template>
 
-<script setup lang="ts">
-import Order from '~/components/Personal/Order.vue'
-</script>
+<script setup lang="ts"></script>
 
 <style lang="sass" scoped>
 .personal

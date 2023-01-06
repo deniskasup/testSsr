@@ -1,9 +1,7 @@
 <template>
-    <div class="stars">
-        <div v-if="label" class="stars__label" :class="{ 'stars__label--disabled': disabled }">
-            {{ label }}{{ required ? '*' : '' }}
-        </div>
-        <div class="stars__list stars-list">
+    <div class="stars" :class="{ 'stars--disabled': disabled }">
+        <div v-if="label" class="stars__label">{{ label }}{{ required ? '*' : '' }}</div>
+        <div class="stars__list stars-list" :class="`stars-list--${size}`">
             <label v-for="star in 5" :key="`stars-list-item-${star}`" class="stars-list__item stars-list-item">
                 <input
                     v-model="inputValue"
@@ -25,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+import { PropType } from '@vue/runtime-core'
 import { computed } from '#imports'
 
 const emit = defineEmits(['update:modelValue'])
@@ -33,6 +32,7 @@ const props = defineProps({
     disabled: { type: Boolean, default: false },
     required: { type: Boolean, default: false },
     modelValue: { type: Number, default: null },
+    size: { type: String as PropType<'s' | 'm' | 'l'>, default: 'm' },
 })
 
 const isStarActive = (star: number) => inputValue.value >= star
@@ -60,8 +60,10 @@ const error = ''
         font-size: 14px
         line-height: 20px
         transition: color .3s
-
-        &--disabled
+    &--disabled
+        & .stars-list-item
+            cursor: auto
+        & .stars__label
             color: $color_onsurface_tetriary
 
 .stars-list
@@ -69,6 +71,16 @@ const error = ''
     display: grid
     grid-template-columns: repeat(5, 1fr)
     justify-self: flex-start
+    &--s
+        .stars-list-item
+            &__icon
+                width: 14px
+                height: 14px
+    &--m
+        .stars-list-item
+            &__icon
+                width: 28px
+                height: 28px
 
 .stars-list-item
     cursor: pointer
@@ -82,8 +94,6 @@ const error = ''
         left: 50%
     &__icon
         color: $color_onsurface_tetriary
-        width: 28px
-        height: 28px
         &--active
-            color: $color_surface_dangerous
+            color: $color_surface_dangerous !important
 </style>

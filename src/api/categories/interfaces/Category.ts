@@ -1,8 +1,8 @@
-import { Product } from '~/api/categories/interfaces/Product'
+import { CategoryProduct } from '~/api/categories/interfaces/CategoryProduct'
 
 export interface Category {
     id: string
     pageTitle: string
     description: string
-    products: Product[]
+    products: CategoryProduct[]
 }

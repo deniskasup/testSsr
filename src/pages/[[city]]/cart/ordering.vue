@@ -40,7 +40,7 @@
                         <CustomTextArea label="Комментарий" placeholder="Оставьте комментарий для доствки" />
                     </div>
                 </div>
-                <Summary class="ordering__right" />
+                <OrderingSummary class="ordering__right" />
             </Wrapper>
             <template #fallback>
                 <TwoColumnSectionPlaceholder>
@@ -53,12 +53,10 @@
 
 <script setup lang="ts">
 import { definePageMeta, useHead } from '#imports'
-import Summary from '~/components/Ordering/Summary.vue'
 import CustomTextInput from '~/components/UIComponents/formElements/CustomTextInput.vue'
 import CustomCheckbox from '~/components/UIComponents/formElements/CustomCheckbox.vue'
-import TwoColumnSectionPlaceholder from '~/components/Placeholders/TwoColumnSectionPlaceholder.vue'
-import OrderingProduct from '~/components/Ordering/Product.vue'
 import CustomTextArea from '~/components/UIComponents/formElements/CustomTextArea.vue'
+import TwoColumnSectionPlaceholder from '~/components/Placeholders/TwoColumnSectionPlaceholder.vue'
 useHead({
     title: 'Оформление заказа',
     meta: [

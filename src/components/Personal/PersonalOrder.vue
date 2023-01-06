@@ -47,7 +47,6 @@ import { Mousewheel, SwiperOptions } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ref } from '#imports'
 import 'swiper/css'
-import PersonalProduct from '~/components/Personal/Product.vue'
 const swiperOptions: SwiperOptions = {
     observeParents: true,
     observer: true,

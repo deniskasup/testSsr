@@ -18,7 +18,7 @@
                 <CustomCheckbox
                     v-for="item in services"
                     :key="`ordering-product-services-list-item-${item}`"
-                    :size="Size.SMALL"
+                    size="s"
                     class="ordering-product-services-list__item"
                 >
                     {{ item.text }}
@@ -49,7 +49,6 @@
 
 <script setup lang="ts">
 import CustomCheckbox from '~/components/UIComponents/formElements/CustomCheckbox'
-import { Size } from '~/model/enums/formElements/Size'
 import { ref } from '#imports'
 
 const services = [

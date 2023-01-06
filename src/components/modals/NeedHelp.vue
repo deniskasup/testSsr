@@ -20,7 +20,7 @@
                     Я согласен с
                     <a target="_blank" href="#">условиями передачи информации</a>
                 </CustomCheckbox>
-                <CustomButton class="modal-need-help-form__submit" type="submit" @click.prevent="submit">
+                <CustomButton class="modal-need-help-form__submit" type="submit" @click.prevent="">
                     Перезвоните мне
                 </CustomButton>
             </form>

@@ -5,7 +5,7 @@
                 <h2 class="favorite__title">Избранное</h2>
 
                 <div v-if="true" class="favorite__list favorite-list">
-                    <ProductCard v-for="item in 9" :key="`favorite-list-item-${item}`" class="favorite-list__item" />
+                    <ProductsCard v-for="item in []" :key="`favorite-list-item-${item}`" class="favorite-list__item" />
                     <div class="favorite-list__controls favorite-list-controls">
                         <CustomButton :priority="ButtonPriority.SECONDARY" class="favorite-list-controls__show-more">
                             Показать больше
@@ -31,7 +31,6 @@
 
 <script setup lang="ts">
 import { definePageMeta, useHead } from '#imports'
-import ProductCard from '~/components/Products/ProductCard.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 definePageMeta({

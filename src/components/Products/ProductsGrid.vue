@@ -4,7 +4,12 @@
             <h2 class="products-grid__title">{{ title }}</h2>
 
             <div v-if="products.length" class="products-grid__list products-grid-list">
-                <ProductCard v-for="product in products" :key="product.id" class="products-grid-list__item" />
+                <ProductsCard
+                    v-for="product in products"
+                    :key="product.id"
+                    :product="product"
+                    class="products-grid-list__item"
+                />
                 <div class="products-grid-list__controls products-grid-list-controls">
                     <CustomButton
                         v-if="isShowMoreButtonVisible"
@@ -32,8 +37,7 @@
 
 <script setup lang="ts">
 import { PropType } from '@vue/runtime-core'
-import { Product } from '~/api/categories/interfaces/Product'
-import ProductCard from '~/components/Products/ProductCard.vue'
+import { CategoryProduct } from '~/api/categories/interfaces/CategoryProduct'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
 import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 import { computed, ref, unref } from '#imports'
@@ -44,7 +48,7 @@ const props = defineProps({
         default: '',
     },
     products: {
-        type: Array as PropType<Product[]>,
+        type: Array as PropType<CategoryProduct[]>,
         default: () => [],
     },
 })
