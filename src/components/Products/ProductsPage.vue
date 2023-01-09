@@ -1,7 +1,12 @@
 <template>
     <section class="product">
         <Wrapper class="product__wrapper">
-            <ProductsPageSlider :tags="product.tags" :images="product.images" class="product__slider" />
+            <ProductsPageSlider
+                :tags="product.tags"
+                :images360="product.images360"
+                :images="product.images"
+                class="product__slider"
+            />
             <ProductsPageInfo :product="product" class="product__info" />
             <ProductsPageTabs :product="product" class="product__tabs" />
         </Wrapper>
@@ -26,11 +31,11 @@ const props = defineProps({
         display: grid
         align-items: flex-start
         grid-gap: 100px
-        grid-template-columns: repeat(11, 1fr)
+        grid-template-columns: repeat(13, 1fr)
     &__slider
-        grid-column: span 7
+        grid-column: span 8
     &__info
-        grid-column: span 4
+        grid-column: span 5
     &__tabs
         grid-column: -1/1
 </style>

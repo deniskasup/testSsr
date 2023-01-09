@@ -126,7 +126,7 @@ export default defineEventHandler((event): Product => {
         ],
 
         /** Картинки для 360 */
-        images360: [],
+        images360: '/assets/images/360/bed/bed.jpeg',
 
         /** Теги "ХИТ", "НОВИНКА" и т.д. */
         tags: [Tag.NOVELTY],

@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import { PropType } from '@vue/runtime-core'
-import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 import { Size } from '~/model/enums/formElements/Size'
 import { computed } from '#imports'
 
@@ -17,8 +16,8 @@ const props = defineProps({
         default: 'button',
     },
     priority: {
-        type: String as PropType<ButtonPriority>,
-        default: ButtonPriority.PRIMARY,
+        type: String as PropType<'primary' | 'secondary'>,
+        default: 'primary',
     },
     size: {
         type: String as PropType<Size>,

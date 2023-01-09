@@ -52,6 +52,7 @@ const inputValue = computed({
 .tabs-item
     position: relative
     cursor: pointer
+    user-select: none
     &__text
         color: $color_onsurface_tetriary
         font-size: 18px

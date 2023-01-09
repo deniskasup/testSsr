@@ -36,6 +36,11 @@
                 </CustomCheckbox>
             </div>
         </div>
+        <div class="product-info__buttons product-info-buttons">
+            <CustomButton class="product-info-buttons__to-cart">В корзину</CustomButton>
+            <CustomButton priority="secondary" class="product-info-buttons__fast-buy">Купить сейчас</CustomButton>
+            <FavoriteButton class="product-info-buttons__favorite" />
+        </div>
     </div>
 </template>
 
@@ -44,6 +49,8 @@ import { PropType } from '@vue/runtime-core'
 import { Product } from '~/api/product/interfaces/Product'
 import CustomStars from '~/components/UIComponents/formElements/CustomStars.vue'
 import CustomCheckbox from '~/components/UIComponents/formElements/CustomCheckbox.vue'
+import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
+import FavoriteButton from '~/components/UIComponents/FavoriteButton.vue'
 
 const props = defineProps({
     product: {
@@ -62,6 +69,8 @@ const saleAmount = props.product?.oldPrice ? 100 - Math.ceil((props.product.pric
         margin-bottom: 8px
     &__article
         margin-bottom: 12px
+    &__buttons
+        margin-top: 40px
 
 .product-info-head
     display: flex
@@ -128,4 +137,11 @@ const saleAmount = props.product?.oldPrice ? 100 - Math.ceil((props.product.pric
     display: grid
     grid-template-columns: 1fr 1fr
     grid-gap: 34px
+
+.product-info-buttons
+    display: grid
+    grid-gap: 11px
+    grid-template-columns: 1fr 1fr 48px
+    &__to-cart, &__fast-buy
+        padding: 14px 20px
 </style>

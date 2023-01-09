@@ -130,8 +130,11 @@ export interface Product {
     /** Изображения товара */
     images: string[]
 
-    /** Картинки для 360 */
-    images360?: string[]
+    /**
+     *  Путь до базовой картинки 360, все остальные должны лежать в той же папке с именем imageName_xx
+     *  Пример image.jpeg (картинки в папке image_01.jpeg, image_02.jpeg etc.)
+     */
+    images360?: string
 
     /** Теги "ХИТ", "НОВИНКА" и т.д. */
     tags?: Tag[]

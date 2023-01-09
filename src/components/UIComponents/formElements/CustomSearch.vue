@@ -1,5 +1,5 @@
 <template>
-    <div class="search">
+    <div class="search" :class="`search--size-${size}`">
         <div v-if="label" class="search__label" :class="{ 'search__label--disabled': disabled }">
             {{ label }}
         </div>
@@ -19,11 +19,16 @@
 </template>
 
 <script setup lang="ts">
+import { PropType } from '@vue/runtime-core'
 import { computed } from '#imports'
 
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
     label: { type: String, default: '' },
+    size: {
+        type: String as PropType<'s' | 'm' | 'l'>,
+        default: 'm',
+    },
     disabled: { type: Boolean, default: false },
     required: { type: Boolean, default: false },
     modelValue: { type: String, default: '' },
@@ -47,6 +52,13 @@ const inputValue = computed({
     flex-direction: column
     width: 100%
     +no-select
+    &--size
+        &-m
+            & .search-input__element
+                height: 40px
+        &-l
+            & .search-input__element
+                height: 56px
     &__label
         color: $color_onsurface_primary
         font-size: 14px
@@ -76,7 +88,6 @@ const inputValue = computed({
     &__element
         width: 100%
         padding: 0 45px 0 16px
-        height: 40px
         font-size: 16px
         line-height: 24px
         outline: 1px solid $color_onsurface_tetriary

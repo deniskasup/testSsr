@@ -35,6 +35,7 @@
         "sass": "^1.56.1"
     },
     "dependencies": {
+        "@3dweb/360javascriptviewer": "^1.8.21",
         "maska": "^1.5.0",
         "swiper": "^8.4.2",
         "vue-final-modal": "^3.4.11"

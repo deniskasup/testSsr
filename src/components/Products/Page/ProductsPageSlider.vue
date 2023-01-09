@@ -5,6 +5,7 @@
                 :thumbs="{ swiper: thumbsSwiper }"
                 class="product-slider-main__swiper product-slider-main-swiper"
                 v-bind="mainSwiperOptions"
+                @slideChange="init360Viewer"
             >
                 <SwiperSlide
                     v-for="(imageSrc, index) in images"
@@ -20,8 +21,13 @@
                     <!-- TODO: проверить lazyload                    -->
                     <div class="swiper-lazy-preloader"></div>
                 </SwiperSlide>
-                <SwiperSlide class="product-slider-main-swiper__slide product-slider-main-swiper-slide">
-                    <!--                    360-->
+                <SwiperSlide
+                    v-if="images360"
+                    class="product-slider-main-swiper__slide product-slider-main-swiper-slide"
+                >
+                    <div id="jsv-holder" class="product-slider-main-swiper-slide__360">
+                        <img id="jsv-image" alt="360" :src="images360" />
+                    </div>
                 </SwiperSlide>
             </Swiper>
             <ProductsTags v-if="tags.length" class="product-slider-main__tags" :tags="tags" />
@@ -61,22 +67,46 @@
 <script setup lang="ts">
 import { SwiperOptions, Thumbs, FreeMode, Lazy, Swiper as SwiperClass } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import { JavascriptViewer } from '@3dweb/360javascriptviewer'
 import 'swiper/css'
 import { PropType } from '@vue/runtime-core'
 import { ref } from '#imports'
 import { Tag } from '~/api/product/interfaces/Product'
 
-defineProps({
+const props = defineProps({
     images: {
         type: Array as PropType<string[] | StringConstructor>,
         default: () => [],
+    },
+    images360: {
+        type: String,
+        default: '',
     },
     tags: {
         type: Array as PropType<Tag[]>,
         default: () => [],
     },
 })
+const viewer = ref<JavascriptViewer | undefined>()
 
+const init360Viewer = (swiper: SwiperClass) => {
+    if (!viewer.value && props.images360 && swiper.activeIndex === props.images.length) {
+        viewer.value = new JavascriptViewer({
+            mainHolderId: 'jsv-holder',
+            autoRotate: 10,
+            autoRotateSpeed: -100,
+            mainImageId: 'jsv-image',
+            totalFrames: 36,
+            speed: 70,
+            defaultProgressBar: true,
+        })
+
+        viewer.value.events().loadImage.on((progress) => {
+            console.log(`loading ${progress.percentage}%`)
+        })
+        viewer.value.start()
+    }
+}
 const thumbsSwiper = ref<SwiperClass>()
 const setThumbsSwiper = (swiper: SwiperClass) => {
     thumbsSwiper.value = swiper
@@ -88,6 +118,7 @@ const mainSwiperOptions: SwiperOptions = {
     lazy: true,
     preloadImages: false,
     modules: [Thumbs, Lazy],
+    allowTouchMove: false,
 }
 
 const thumbsSwiperOptions: SwiperOptions = {
@@ -122,8 +153,19 @@ const thumbsSwiperOptions: SwiperOptions = {
     position: relative
     padding-top: 55%
     background-color: $color_onsurface_quaternary
+    &__360
+        position: absolute !important
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        object-fit: contain
+        & :deep(img)
+            width: 100%
+            height: 100%
     &__image
-        position: absolute
+        pointer-events: none
+        position: absolute !important
         top: 0
         left: 0
         width: 100%
