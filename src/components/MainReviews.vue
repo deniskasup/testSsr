@@ -10,9 +10,7 @@
                     :review-card-info="item"
                 />
             </div>
-            <CustomButton :priority="ButtonPriority.SECONDARY" class="main-reviews__show-more">
-                Показать больше
-            </CustomButton>
+            <CustomButton priority="secondary" class="main-reviews__show-more"> Показать больше </CustomButton>
         </Wrapper>
     </section>
 </template>
@@ -20,7 +18,6 @@
 <script setup lang="ts">
 import Wrapper from '~/components/Wrapper'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
-import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 import ReviewCard from '~/components/Reviews/ReviewCard.vue'
 </script>
 

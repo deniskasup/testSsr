@@ -13,7 +13,7 @@
                 <div class="products-grid-list__controls products-grid-list-controls">
                     <CustomButton
                         v-if="isShowMoreButtonVisible"
-                        :priority="ButtonPriority.SECONDARY"
+                        priority="secondary"
                         class="products-grid-list-controls__show-more"
                     >
                         Показать больше
@@ -39,7 +39,6 @@
 import { PropType } from '@vue/runtime-core'
 import { CategoryProduct } from '~/api/categories/interfaces/CategoryProduct'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
-import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 import { computed, ref, unref } from '#imports'
 
 const props = defineProps({

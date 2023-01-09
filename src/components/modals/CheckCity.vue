@@ -3,10 +3,8 @@
         <div class="modal-check-city">
             <h3 class="modal-check-city__title">Ваш город – {{ cityNameByCode(cityCode) }}?</h3>
             <div class="modal-check-city__actions modal-check-city-actions">
-                <CustomButton :size="Size.SMALL" @click="confirmCity">Да, верно</CustomButton>
-                <CustomButton :size="Size.SMALL" :priority="ButtonPriority.SECONDARY" @click="openSelectCityModal">
-                    Нет, другой
-                </CustomButton>
+                <CustomButton size="s" @click="confirmCity">Да, верно</CustomButton>
+                <CustomButton size="s" priority="secondary" @click="openSelectCityModal"> Нет, другой </CustomButton>
             </div>
         </div>
     </ModalsModalRoot>
@@ -16,8 +14,6 @@
 import { $vfm } from 'vue-final-modal'
 import { storeToRefs } from 'pinia'
 import CustomButton from '../UIComponents/formElements/CustomButton.vue'
-import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
-import { Size } from '~/model/enums/formElements/Size'
 import useModals from '~/composition/useModals'
 import { useRoute } from '#imports'
 import { useCityStore } from '~/composition/store/useCityStore'

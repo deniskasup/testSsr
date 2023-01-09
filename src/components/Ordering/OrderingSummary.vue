@@ -22,11 +22,7 @@
                     placeholder="Введите промокод, если знаете"
                     class="ordering-summary-form-promocode__promocode"
                 />
-                <CustomButton
-                    class="ordering-summary-form-promocode__promo-button"
-                    :priority="ButtonPriority.SECONDARY"
-                    :size="Size.SMALL"
-                >
+                <CustomButton class="ordering-summary-form-promocode__promo-button" priority="secondary" size="s">
                     Применить
                 </CustomButton>
             </div>
@@ -38,7 +34,6 @@
 <script setup lang="ts">
 import CustomTextInput from '~/components/UIComponents/formElements/CustomTextInput.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
-import { ButtonPriority } from '~/model/enums/formElements/ButtonPriority'
 import { Size } from '~/model/enums/formElements/Size'
 </script>
 

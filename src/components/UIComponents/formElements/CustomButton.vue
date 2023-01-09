@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import { PropType } from '@vue/runtime-core'
-import { Size } from '~/model/enums/formElements/Size'
 import { computed } from '#imports'
 
 const props = defineProps({
@@ -20,8 +19,8 @@ const props = defineProps({
         default: 'primary',
     },
     size: {
-        type: String as PropType<Size>,
-        default: Size.MEDIUM,
+        type: String as PropType<'s' | 'm' | 'l'>,
+        default: 'm',
     },
     loading: {
         type: Boolean,
@@ -51,7 +50,7 @@ const buttonClasses = computed(() => [`button--priority-${props.priority}`, `but
             +while-mob
                 padding: 10px 15px
 
-        &-m
+        &-m, &-l
             padding: 14px 40px
 
     &--priority
