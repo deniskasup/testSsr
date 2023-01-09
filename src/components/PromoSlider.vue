@@ -15,7 +15,7 @@
                         <div class="promo-slide__content promo-slide-content">
                             <div class="promo-slide-content__title">Прояви себя! {{ promo }}</div>
                             <div class="promo-slide-content__description">Добавь стиль жизни в интерьер</div>
-                            <CustomButton :size="Size.SMALL"> Посмотреть</CustomButton>
+                            <CustomButton size="s"> Посмотреть</CustomButton>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -29,7 +29,6 @@ import { Mousewheel, Navigation, SwiperOptions } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import Wrapper from '~/components/Wrapper.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
-import { Size } from '~/model/enums/formElements/Size'
 
 const swiperOptions: SwiperOptions = {
     modules: [Navigation, Mousewheel],

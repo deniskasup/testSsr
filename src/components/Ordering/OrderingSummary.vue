@@ -13,7 +13,7 @@
                 <div class="ordering-summary-price-line__label">Сумма скидки</div>
                 <div class="ordering-summary-price-line__value">1 400 ₽</div>
             </div>
-            <CustomButton class="ordering-summary-price__buy" :size="Size.MEDIUM"> Купить </CustomButton>
+            <CustomButton class="ordering-summary-price__buy"> Купить </CustomButton>
         </div>
         <div class="ordering-summary__form ordering-summary-form">
             <div class="ordering-summary-form__promocode ordering-summary-form-promocode">
@@ -26,7 +26,7 @@
                     Применить
                 </CustomButton>
             </div>
-            <CustomButton class="ordering-summary-form__buy" :size="Size.MEDIUM"> Купить </CustomButton>
+            <CustomButton class="ordering-summary-form__buy"> Купить </CustomButton>
         </div>
     </div>
 </template>
@@ -34,7 +34,6 @@
 <script setup lang="ts">
 import CustomTextInput from '~/components/UIComponents/formElements/CustomTextInput.vue'
 import CustomButton from '~/components/UIComponents/formElements/CustomButton.vue'
-import { Size } from '~/model/enums/formElements/Size'
 </script>
 
 <style lang="sass" scoped>

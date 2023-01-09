@@ -20,6 +20,8 @@ npm install
 
 [СЛАЙДЕР](https://swiperjs.com/vue)
 
+[360 viewer](https://www.360-javascriptviewer.com/api)
+
 
 ## Production
 
